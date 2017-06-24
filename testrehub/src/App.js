@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import {Github} from 'rehub';
+import { Github } from 'rehub';
 import logo from './logo.svg';
 import './App.css';
+import { BeakerIcon } from 'react-octicons';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>ReHub<BeakerIcon /></h1>
 
         <Github org="hackbit"></Github>
 
         <Github user="vandreleal"></Github>
 
         <Github user="GustavoKatel" repo="clementine-info"></Github>
+
+        <Github user="dungahk"></Github>
       </div>
     );
   }
