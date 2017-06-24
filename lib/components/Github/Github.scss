@@ -14,16 +14,24 @@ $color-available: #3c763d;
     margin: 16px;
     padding: 32px;
     background: $wrapper-color;
+    border-radius: 3px;
   }
 
   a,
   span {
     display: block;
+    text-decoration: none;
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .avatar {
-    width: 80px;
-    height: 80px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
   }
 
@@ -34,9 +42,7 @@ $color-available: #3c763d;
     font-weight: 700;
   }
 
-  .blog,
-  .company,
-  .location {
+  .info {
     margin-bottom: 2px;
     font-size: 16px;
     font-weight: 300;
@@ -46,14 +52,41 @@ $color-available: #3c763d;
     display: inline-block;
     margin-top: 16px;
 
-    span {
-      display: inline;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .item {
+      display: inline-block;
+      padding-left: 16px;
+      padding-right: 16px;
 
-      &:not(:last-child):after {
-        content: ' | ';
+      .icon {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 12px;
+
+        svg {
+          height: 36px;
+          width: 24px;
+        }
+      }
+
+      .description {
+        display: inline-block;
+        text-align: left;
+
+        .count {
+          display: block;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .label {
+          font-size: 10px;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid darken($wrapper-color, 20%);
       }
     }
   }
@@ -63,7 +96,7 @@ $color-available: #3c763d;
     margin-top: 24px;
 
     .available {
-      display: inline;
+      display: inline-block;
       padding: 8px 16px;
       text-transform: uppercase;
       font-size: 12px;
