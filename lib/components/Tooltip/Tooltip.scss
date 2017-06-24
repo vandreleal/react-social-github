@@ -1,45 +1,28 @@
 .github-tooltip {
     position: absolute;
-    top: 0;
-    right: 0;
 }
 
-.github-tooltip-animation-open {
+.github-tooltip-animation-enter {
 
-    animation-name: gh-open;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    // animation-timing-function: ease-in;
-
-    @keyframes gh-open {
-        from {
-            opacity: 0;
-            right: -100px;
-        }
-        to {
-            opacity: 1;
-            right: 0px;
-        }
-    }
+    position: absolute;
+    opacity: 0.01;
 
 }
 
-.github-tooltip-animation-close {
+.github-tooltip-animation-enter.github-tooltip-animation-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
 
-    animation-name: gh-close;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    // animation-timing-function: ease-in;
+.github-tooltip-animation-leave {
 
-    @keyframes gh-close {
-        from {
-            opacity: 1;
-            right: 0px;
-        }
-        to {
-            opacity: 0;
-            right: -100px;
-        }
-    }
+    position: absolute;
+    opacity: 1;
 
 }
+
+.github-tooltip-animation-leave.github-tooltip-animation-leave-active {
+    opacity: 0.01;
+    transition: opacity 0.5s linear;
+}
+
