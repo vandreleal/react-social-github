@@ -18,6 +18,8 @@ class App extends Component {
         <Github org="hackbit"></Github>
 
         <Github user="vandreleal"></Github>
+
+        <Github user="GustavoKatel" repo="clementine-info"></Github>
       </div>
     );
   }

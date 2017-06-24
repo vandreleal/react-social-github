@@ -2,7 +2,6 @@
 
 $wrapper-color: #fafafa;
 $color-available: #3c763d;
-$color-unavailable: red;
 
 .github {
   font-family: 'Roboto', sans-serif;
@@ -11,6 +10,7 @@ $color-unavailable: red;
   &-wrapper {
     display: inline-block;
     min-width: 240px;
+    max-width: 320px;
     margin: 16px;
     padding: 32px;
     background: $wrapper-color;
@@ -29,13 +29,14 @@ $color-unavailable: red;
 
   .name {
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     font-size: 20px;
     font-weight: 700;
   }
 
   .blog,
-  .company {
+  .company,
+  .location {
     margin-bottom: 2px;
     font-size: 16px;
     font-weight: 300;
@@ -43,7 +44,7 @@ $color-unavailable: red;
 
   .counters {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 16px;
 
     span {
       display: inline;
@@ -59,7 +60,7 @@ $color-unavailable: red;
 
   .status {
     display: block;
-    margin-top: 16px;
+    margin-top: 24px;
 
     .available {
       display: inline;
