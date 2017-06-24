@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Github } from 'rehub';
-import logo from './logo.svg';
+import { MarkGithubIcon } from 'react-octicons';
 import './App.css';
-import { BeakerIcon } from 'react-octicons';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>ReHub<BeakerIcon /></h1>
+        <MarkGithubIcon className="logo"/>
+        <h1>Re<em>Hub</em></h1>
 
         <Github org="hackbit"></Github>
 

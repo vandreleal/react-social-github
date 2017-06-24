@@ -46,6 +46,10 @@ $color-available: #3c763d;
     margin-bottom: 2px;
     font-size: 16px;
     font-weight: 300;
+
+    &--italic {
+      font-style: italic;
+    }
   }
 
   .counters {
