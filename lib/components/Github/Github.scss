@@ -4,6 +4,10 @@
   font-family: 'Roboto', sans-serif;
   color: #000;
 
+  a, span {
+    display: block;
+  }
+
   &-wrapper {
     max-width: 300px;
     margin: 16px;
