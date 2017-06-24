@@ -12,11 +12,11 @@ class App extends Component {
 
         <Github org="hackbit"></Github>
 
-        <Github user="vandreleal"></Github>
+        {/*<Github user="vandreleal"></Github>*/}
 
-        <Github user="GustavoKatel" repo="clementine-info" presentation="widget"></Github>
+        {/*<Github user="GustavoKatel" repo="clementine-info" presentation="widget"></Github>*/}
 
-        <Github user="dungahk"></Github>
+        {/*<Github user="dungahk"></Github>*/}
       </div>
     );
   }
