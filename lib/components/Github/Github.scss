@@ -1,12 +1,16 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
+
+$color-available: #3c763d;
+$color-unavailable: red;
+
 .github {
-  max-width: 240px;
   font-family: 'Roboto', sans-serif;
   color: #000;
 
   &-wrapper {
-    width: 100%;
+    display: inline-block;
+    min-width: 240px;
     margin: 16px;
     padding: 16px;
     background: #eee;
@@ -37,27 +41,40 @@
     font-weight: 300;
   }
 
-  .repos, .gists {
-    font-size: 14px;
-    font-weight: 700;
-    display: inline;
-  }
+  .counters {
+    margin-top: 8px;
+    margin-bottom: 8px;
 
-  .repos {
-    &:after {
-      content: ' | ';
+    span {
+      font-size: 14px;
+      font-weight: 700;
+      display: inline;
+
+      &:not(:last-child):after {
+        content: ' | ';
+      }
     }
   }
 
-  .hireable {
-    content: 'Available for hire.';
-    background-color: green;
+  .status {
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    .available {
+      display: inline;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 300;
+      color: #fff;
+      border-radius: 4px;
+      background-color: lighten($color-available, 50%);
+      color: $color-available;
+    }
   }
 
   &-button {
     width: 100%;
     height: 30px;
-    margin-top: 16px;
     border: none;
   }
 }
