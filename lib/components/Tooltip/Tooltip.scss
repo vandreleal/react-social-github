@@ -1,7 +1,7 @@
 .github-tooltip {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
 }
 
 .github-tooltip-animation-open {
@@ -14,11 +14,11 @@
     @keyframes gh-open {
         from {
             opacity: 0;
-            left: -100px;
+            right: -100px;
         }
         to {
             opacity: 1;
-            left: 0px;
+            right: 0px;
         }
     }
 
@@ -34,11 +34,11 @@
     @keyframes gh-close {
         from {
             opacity: 1;
-            left: 0px;
+            right: 0px;
         }
         to {
             opacity: 0;
-            left: -100px;
+            right: -100px;
         }
     }
 
