@@ -1,6 +1,6 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
-
+$wrapper-color: #fafafa;
 $color-available: #3c763d;
 $color-unavailable: red;
 
@@ -12,8 +12,8 @@ $color-unavailable: red;
     display: inline-block;
     min-width: 240px;
     margin: 16px;
-    padding: 16px;
-    background: #eee;
+    padding: 32px;
+    background: $wrapper-color;
   }
 
   a,
@@ -25,11 +25,11 @@ $color-unavailable: red;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin-bottom: 4px;
   }
 
   .name {
-    margin-bottom: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     font-size: 20px;
     font-weight: 700;
   }
@@ -42,13 +42,14 @@ $color-unavailable: red;
   }
 
   .counters {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    display: inline-block;
+    margin-top: 12px;
 
     span {
+      display: inline;
       font-size: 14px;
       font-weight: 700;
-      display: inline;
+      text-transform: uppercase;
 
       &:not(:last-child):after {
         content: ' | ';
@@ -57,14 +58,15 @@ $color-unavailable: red;
   }
 
   .status {
-    margin-top: 24px;
-    margin-bottom: 24px;
+    display: block;
+    margin-top: 16px;
 
     .available {
       display: inline;
       padding: 8px 16px;
-      font-size: 14px;
-      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
       color: #fff;
       border-radius: 4px;
       background-color: lighten($color-available, 50%);
