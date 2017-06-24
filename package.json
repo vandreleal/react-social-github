@@ -42,5 +42,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
+  }
 }
