@@ -43,6 +43,7 @@
     "react-dom": "^15.5.4"
   },
   "dependencies": {
+    "react-octicons": "^0.1.0",
     "whatwg-fetch": "^2.0.3"
   }
 }
