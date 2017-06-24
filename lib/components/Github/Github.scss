@@ -1,23 +1,63 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
 .github {
+  max-width: 240px;
   font-family: 'Roboto', sans-serif;
   color: #000;
 
-  a, span {
-    display: block;
-  }
-
   &-wrapper {
-    max-width: 300px;
+    width: 100%;
     margin: 16px;
     padding: 16px;
     background: #eee;
+  }
+
+  a,
+  span {
+    display: block;
   }
 
   .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    margin-bottom: 4px;
+  }
+
+  .name {
+    margin-bottom: 4px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .blog,
+  .company {
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .repos, .gists {
+    font-size: 14px;
+    font-weight: 700;
+    display: inline;
+  }
+
+  .repos {
+    &:after {
+      content: ' | ';
+    }
+  }
+
+  .hireable {
+    content: 'Available for hire.';
+    background-color: green;
+  }
+
+  &-button {
+    width: 100%;
+    height: 30px;
+    margin-top: 16px;
+    border: none;
   }
 }
