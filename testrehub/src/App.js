@@ -16,6 +16,8 @@ class App extends Component {
         </p>
 
         <Github org="hackbit"></Github>
+
+        <Github user="vandreleal"></Github>
       </div>
     );
   }

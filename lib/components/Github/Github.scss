@@ -1,3 +1,19 @@
-.Github {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.github {
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+
+  &-wrapper {
+    max-width: 300px;
+    margin: 16px;
+    padding: 16px;
+    background: #eee;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
 }
