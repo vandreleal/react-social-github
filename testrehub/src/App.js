@@ -14,7 +14,7 @@ class App extends Component {
 
         <Github user="vandreleal"></Github>
 
-        <Github user="GustavoKatel" repo="clementine-info"></Github>
+        <Github user="GustavoKatel" repo="clementine-info" presentation="widget"></Github>
 
         <Github user="dungahk"></Github>
       </div>
