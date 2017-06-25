@@ -34,7 +34,14 @@ ReactDOM.render(
 
 ## Reference
 
-## Options
+#### Attributes
+
+Name | Default
+:---: | :---:
+min-width | `240px`
+max-width | `320px`
+
+### Options
 
 Name | Type | Default | Description
 :---: | :---: | :---: | :---
@@ -50,22 +57,15 @@ type | `string` | `widget` | Specify the type of the presentation. See [types](#
 
 ### Widget
 
-Includes
+The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type: "widget"` can be declared in the element to provide more clarity.
 
-### Inline
+### Link
 
-Inline an inline link that shows the tooltip on hover. In order to use the inline element.
+The tooltip is anchored in an inline link. In order to use the inline element the option `type: "link"` must be declared in the element.
 
 ### Button
 
-Tooltips with anchor button.
-
-#### Attributes
-
-Name | Default
-:---: | :---:
-min-width | `240px`
-max-width | `320px`
+The tooltip is anchored in a button. In order to use the inline element the option `type: "button"` must be declared in the element.
 
 #### Options
 
