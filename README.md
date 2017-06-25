@@ -1,82 +1,158 @@
-# Example Component Library
+# React Social Github
+[![Build Status](https://travis-ci.org/vandreleal/react-social-github.svg)](https://travis-ci.org/vandreleal/react-social-github)
+[![NPM Version](https://badge.fury.io/js/react-social-github.svg)](http://badge.fury.io/js/react-social-github)
+[![dependencies Status](https://david-dm.org/vandreleal/react-social-github/status.svg)](https://david-dm.org/vandreleal/react-social-github)
+[![devDependencies Status](https://david-dm.org/vandreleal/react-social-github/dev-status.svg)](https://david-dm.org/vandreleal/react-social-github?type=dev)
+[![Coverage Status](https://coveralls.io/repos/github/vandreleal/react-social-github/badge.svg?branch=master)](https://coveralls.io/github/vandreleal/react-social-github?branch=master)
 
-## Up & Running
-`$ npm install` or `$ yarn`
+Showcase your GitHub profile, organization or repository information in an elegant way.
 
-## Overview
-This component lib is set up to use [styled-components](https://github.com/styled-components/styled-components) and [polished](https://github.com/styled-components/polished) 💅. This is a starter for you to create your own components and easily publish them to npm.
-
-### File Structure
-
-##### ELEMENTS
-`lib/elements` is intended to contain your smallest reusable components, e.g. Buttons, Inputs, etc.
-
-
-##### COMPONENTS
-`lib/components` is intended to contain combinations of these elements, e.g. SearchField, DropDown, etc.
-
-##### STYLES
-`lib/styles` is inteded to contain your global styles that you would like to include throughout the application, e.g. colors, animations, themes, etc.
-
-## Local Development
-
-### Linter
-_**NOTE:** The linter will run against everything in the `lib` directory. I've added an initial `.eslintrc` file for some basic configuration. Feel free to edit or replace it as needed._
-
-Run once:
-```
-$ npm run lint
+## Install
+React Social Github is available as the `react-social-github` package on npm.
+```sh
+$ npm install react-social-github --save
 ```
 
-Run the watch script:
-```
-$ npm run lint:watch
-```
-
-### Tests
-_**NOTE:** As there are no components added by default, there are no tests. But the infrastructure is set up for you to run your tests. This app is setup to use Mocha, Enzyme, and Expect. The `test` script is looking for test files with a `.spec.js` extension, e.g. MyComponent.spec.js._
-Run once:
-```
-$ npm test
+## Usage
+```jsx
+import { Github } from 'react-social-github';
 ```
 
-Run the watch script:
-```
-$ npm run test:watch
+## Reference
+
+### Options
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>user</td>
+    <td>string</td>
+    <td>none</td>
+    <td>Specify the username to show info about. Conflicts with "org"</td>
+  </tr>
+  <tr>
+    <td>repo</td>
+    <td>string</td>
+    <td>none</td>
+    <td>Specify the repository to show info about. Requires "user"</td>
+  </tr>
+  <tr>
+    <td>org</td>
+    <td>string</td>
+    <td>none</td>
+    <td>Specify the organization to show info about. Conflicts with "user"</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>string</td>
+    <td>widget</td>
+    <td>Specify the type of the component.</td>
+  </tr>
+</table>
+
+
+## Types
+
+
+### Widget
+
+The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the component if desired.
+
+#### Example
+
+```jsx
+<Github user="facebook" repo="react"></Github>
+
+{/* same as */}
+
+<Github user="facebook" repo="react" type="widget"></Github>
 ```
 
-### Build
-_**NOTE:** When you run `build`, Babel will create a `build` directory. This is what your users will interact with when they use your library. Nothing in `lib` gets shipped with your published module._
+### Link
 
-Run once:
-```
-$ npm run build
-```
+The tooltip is anchored in an inline link. The option `type="link"` must be declared in the component.
 
-Run the watch script:
-```
-$ npm run build:watch
+#### Example
+
+```jsx
+<Github user="hackbit" type="link">Hover Here</Github>
 ```
 
-_**NOTE:** the build script runs in the `prepublish` script just before you publish to npm._
+### Button
 
-## Publishing
-If you already have an account with npm, you can simply run:
-```
-$ npm login
-$ npm publish
+The tooltip is anchored in a button. The option `type="button"` must be declared in the component.
+
+#### Options
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>iconColor</td>
+    <td>string</td>
+    <td>#000</td>
+    <td>Color name, RGB value, hexadecimal value, HSL value or HWB value.</td>
+  </tr>
+  <tr>
+    <td>iconWidth</td>
+    <td>number</td>
+    <td>48</td>
+    <td>px</td>
+  </tr>
+  <tr>
+    <td>iconHeight</td>
+    <td>number</td>
+    <td>48</td>
+    <td>px</td>
+  </tr>
+  <tr>
+    <td>fab</td>
+    <td>bool</td>
+    <td>false</td>
+    <td>Floating Action Button</td>
+  </tr>
+  <tr>
+    <td>fabCorner</td>
+    <td>string</td>
+    <td>bottom-right</td>
+    <td>Position of the FAB. Possible values: bottom-right, bottom-left, top-right, top-left</td>
+  </tr>
+  <tr>
+    <td>tooltipPosition</td>
+    <td>string</td>
+    <td>auto</td>
+    <td>Force a specific position to show the tooltip. Values: left, right, top, bottom, auto (will make the tooltip adaptive to avoid escaping from the view)</td>
+  </tr>
+  <tr>
+    <td>tooltipOnHover</td>
+    <td>bool</td>
+    <td>true</td>
+    <td>Enable/disable mouse hover events</td>
+  </tr>
+</table>
+
+#### Example
+
+```jsx
+<Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
 ```
 
-If you don't have an account with npm:
 
-_**NOTE:** Your email address is public_
-```
-$ npm set init.author.name "Your Name"
-$ npm set init.author.email "you@example.com"
-$ npm set init.author.url "http://yourblog.com"
-$ npm adduser
-$ npm publish
-```
+## Team
++ [Vandré Leal Cândido](https://github.com/vandreleal)
++ [Gustavo Sampaio](https://github.com/GustavoKatel)
++ [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
 
-## Contributing
-If you'd like to contribute to this app, please raise an issue and/or submit a pull request. Please be sure to follow the [Code of Conduct](CODE_OF_CONDUCT.md) when contributing.
+
+## Open source
+
+React Social Github is available on GitHub for downloading, forking, or contributing.
