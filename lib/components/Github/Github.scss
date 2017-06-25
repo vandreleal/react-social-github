@@ -15,6 +15,7 @@ $color-available: #3c763d;
   margin-bottom: $base-spacing;
   font-family: 'Roboto', sans-serif;
   color: #000;
+  z-index: 9999;
 
   a,
   span {
@@ -40,7 +41,7 @@ $color-available: #3c763d;
     text-align: center;
     background: $color-bg;
     border-radius: 3px;
-    z-index: 9998;
+    z-index: 9000;
   }
 
   .rsg-inline {
