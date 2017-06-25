@@ -159,7 +159,7 @@ class Playground extends Component {
 
         <div className="pure-g">
           <div className="pure-u-1 pure-u-lg-2-3">
-            <h4 className="form-title">Basic Github Info</h4>
+            <h4 className="form-title">Github Info</h4>
             <div className="pure-u-1 pure-u-md-1-2">
               <section>
                   <div>
