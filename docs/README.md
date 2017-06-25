@@ -47,7 +47,7 @@ type | `string` | `widget` | Specify the type of the component. See [types](#Typ
 
 ### Widget
 
-The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the component to provide more clarity.
+The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the component if desired.
 
 #### Example
 
@@ -61,7 +61,7 @@ The tooltip is inserted as a block element. This is the default type and doesn't
 
 ### Link
 
-The tooltip is anchored in an inline link. In order to use the inline element the option `type="link"` must be declared in the component.
+The tooltip is anchored in an inline link. The option `type="link"` must be declared in the component.
 
 #### Example
 
@@ -71,7 +71,7 @@ The tooltip is anchored in an inline link. In order to use the inline element th
 
 ### Button
 
-The tooltip is anchored in a button. In order to use the inline element the option `type="button"` must be declared in the component.
+The tooltip is anchored in a button. The option `type="button"` must be declared in the component.
 
 #### Options
 
@@ -85,22 +85,17 @@ fabCorner | `string` | bottom-right | Position of the FAB. Possible values: `bot
 tooltipPosition | `string` | `auto` | Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)
 tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
 
----
+#### Example
 
-## Examples
-
-###  Basic Usage
 ```jsx
-  <Github user="torvalds" type="tooltip"></Github>
-
-  <Github org="facebook" type="tooltip" fab={true}></Github>
-
-  <Github org="twitter" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
+<Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
 ```
 
-### Advanced Usage
+---
 
-For a comprehensive list of examples, please proceed to the demo page.
+## More Examples
+
+Please proceed to the official page for more examples.
 
 ---
 
