@@ -1,6 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
 $wrapper-color: #fafafa;
+$color-text: #000;
 $color-available: #3c763d;
 
 .github {
@@ -8,6 +9,7 @@ $color-available: #3c763d;
   color: #000;
 
   &-wrapper {
+    box-shadow: rgba(darken($wrapper-color, 50%), 0.2) 0 1px 5px;
     display: inline-block;
     min-width: 240px;
     max-width: 320px;
@@ -37,7 +39,7 @@ $color-available: #3c763d;
 
   .name {
     margin-top: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     font-size: 20px;
     font-weight: 700;
   }
@@ -50,6 +52,13 @@ $color-available: #3c763d;
     &--italic {
       font-style: italic;
     }
+
+    &--secondary {
+      margin-top: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: lighten($color-text, 60%);
+    }
   }
 
   .counters {
@@ -58,8 +67,8 @@ $color-available: #3c763d;
 
     .item {
       display: inline-block;
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
 
       .icon {
         display: inline-block;
@@ -113,6 +122,7 @@ $color-available: #3c763d;
   }
 
   &-button {
+// Emerson {
     display: initial!important;
     padding: 4px;
     font-size: 16px;
@@ -163,6 +173,37 @@ $color-available: #3c763d;
       vertical-align: middle;
     }
     
+// } Vandre {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    svg {
+      width: 48px;
+      height: 48px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+// }
   }
 
 }
