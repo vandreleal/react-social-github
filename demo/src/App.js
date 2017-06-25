@@ -18,7 +18,7 @@ class App extends Component {
 
         <Github user="facebook" repo="react"></Github>
 
-        <Github user="vandreleal" type="widget"></Github>
+        <Github user="higorernandes" type="widget"></Github>
 
         <Github user="gustavokatel" type="link">Profile</Github>
       </div>
