@@ -17,7 +17,7 @@ $color-available: #3c763d;
 
 .rsg-btn {
   &-icon {
-    background: none;
+    background: none !important;
     margin: 0;
     padding: 0;
     border: none;
@@ -86,8 +86,8 @@ $color-available: #3c763d;
   &-wrapper {
     box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
     display: inline-block;
-    min-width: 240px;
-    max-width: 320px;
+    min-width: 300px;
+    max-width: 360px;
     margin-right: 16px;
     margin-left: 16px;
     padding: 32px;
@@ -163,7 +163,7 @@ $color-available: #3c763d;
         }
       }
 
-      .description {
+      .rsg-description {
         display: inline-block;
         text-align: left;
 
