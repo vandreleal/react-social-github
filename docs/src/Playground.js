@@ -4,11 +4,6 @@ import './Playground.css';
 import './github-markdown.css';
 import 'whatwg-fetch';
 
-import Input from 'react-toolbox/lib/input';
-import Button from 'react-toolbox/lib/button';
-import Dropdown from 'react-toolbox/lib/dropdown';
-// import Switch from 'react-toolbox/lib/switch';
-
 const types = [
   { value: 'widget', label: 'Widget' },
   { value: 'link', label: 'Link' },
@@ -28,9 +23,7 @@ class Playground extends Component {
     super(props);
     this.config = {
       type: 'widget',
-      fab: false,
-      fabCorner: 'bottom-right',
-      user: '',
+      user: 'vandreleal',
       org: '',
       repo: ''
     };
@@ -57,40 +50,13 @@ class Playground extends Component {
         gh = <Github org={this.state.org} type={this.state.type}  tooltipOnHover={true} key={this.state.org}></Github>;
     }
 
-    if (this.state.repo.length > 0) {
-        console.log('repo_: ' + this.state.repo);
-        gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
-    }
+    // if (this.state.repo.length > 0) {
+    //     console.log('repo_: ' + this.state.repo);
+    //     gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
+    // }
 
     return (
       <div className="playground">
-
-        <section>
-          <Input type='text' label='User' name='user' value={this.state.user} onChange={this.handleChange.bind(this, 'user')} />
-          <Input type='text' label='Repo' name='repo' value={this.state.repo} onChange={this.handleChange.bind(this, 'repo')} />
-        </section>
-
-        <Dropdown
-          auto
-          onChange={this.handleChange.bind(this, 'type')}
-          source={types}
-          value={this.state.type}
-        />
-
-        {/*}<Switch
-          checked={this.state.fab}
-          label="FAB"
-          onChange={this.handleChange.bind(this, 'fab')}
-        />*/}
-
-        <Dropdown
-          auto
-          onChange={this.handleChange.bind(this, 'fabCorner')}
-          source={fabCorners}
-          value={this.state.fabCorner}
-        />
-
-        <Button icon='bookmark' label='Update' onClick={this.update.bind(this)} />
 
         { gh }
 
