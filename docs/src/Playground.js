@@ -6,7 +6,6 @@ import 'whatwg-fetch';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
@@ -67,13 +66,27 @@ class Playground extends Component {
         fabCorner: 'bottom-right',
         user: '',
         org: '',
-        repo: ''
+        repo: '',
+        fabToggleVisible: false,
+        fabCornersVisible: false
     };
   }
 
   handleChange(name, event, key, value) {
     let nValue = typeof value !== 'undefined' ? value : key;
     this.config[name] = nValue;
+
+    let delta = {};
+    if(name === 'type') {
+        delta.fabToggleVisible = nValue === 'button';
+    }
+
+    if(name === 'fab') {
+        console.log(nValue);
+        console.log(typeof nValue);
+        delta.fabCornersVisible = nValue === true;
+    }
+    this.setState(delta);
   };
 
   update() {
@@ -107,28 +120,34 @@ class Playground extends Component {
             </section>
 
             <section className="form-section">
-              <div style={styles.block}>
-                <Toggle
-                 label="FAB"
-                 labelPosition="right"
-                 style={styles.toggle}
-                />
-              </div>
+              {
+                this.state.fabToggleVisible ? <div style={styles.block}>
+                    <Toggle
+                    label="FAB"
+                    labelPosition="right"
+                    style={styles.toggle}
+                    onToggle={this.handleChange.bind(this, 'fab')}
+                    />
+                </div> : null
+              }
+
+              {
+                this.state.fabCornersVisible ?
+                <div>
+                    <SelectField floatingLabelText="Fab Corner" style={styles.customWidth} onChange={this.handleChange.bind(this, 'fabCorner')}>
+                    {
+                        fabCorners.map((vtype, index) => {
+                            return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                        })
+                    }
+                    </SelectField>
+                </div> : null
+               }
 
               <div>
-                <SelectField style={styles.customWidth} value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+                <SelectField floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
                   {
                     types.map((vtype, index) => {
-                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                    })
-                  }
-                </SelectField>
-              </div>
-
-              <div>
-                <SelectField style={styles.customWidth} value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
-                  {
-                    fabCorners.map((vtype, index) => {
                         return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
                     })
                   }
