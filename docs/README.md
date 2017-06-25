@@ -10,7 +10,7 @@ Showcase your GitHub profile, organization or repository information in an elega
 ---
 
 ## Install
-React Social Github is available as the react-social-github package on npm.
+React Social Github is available as the `react-social-github` package on npm.
 ```sh
 $ npm install react-social-github --save
 ```
