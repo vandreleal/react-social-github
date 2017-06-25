@@ -15,17 +15,17 @@ class App extends Component {
 
         <div className="app-item">
           <h2>Icon Tooltip</h2>
-          <Github user="higorernandes" type="tooltip"></Github>
+          <Github user="higorernandes" type="button"></Github>
         </div>
 
         <div className="app-item">
           <h2>Widget</h2>
-          <Github org="facebook" type="tooltip" fab={true} fabCorner="top-right"></Github>
+          <Github org="facebook" type="button" fab={true} fabCorner="top-right"></Github>
         </div>
 
-        <Github org="google" type="tooltip" tooltipOnHover={true} fab={true} iconColor="red" iconWidth={64} iconHeight={64}></Github>
+        <Github org="google" type="button" tooltipOnHover={true} fab={true} iconColor="red" iconWidth={64} iconHeight={64}></Github>
 
-        <Github org="twitter" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
+        <Github org="twitter" type="button" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
 
         <Github user="facebook" repo="react"></Github>
       </div>
