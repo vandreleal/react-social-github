@@ -130,7 +130,7 @@ class Playground extends Component {
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
             <label className="form-label">Basic Github Info</label>
             <section>
               <div>
@@ -168,7 +168,7 @@ class Playground extends Component {
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
             <section>
 
              <div>
@@ -205,13 +205,13 @@ class Playground extends Component {
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1-3">
             <section className="form-centered">
               { gh }
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-md-2-3">
+          <div className="pure-u-1 pure-u-sm-1 pure-u-lg-2-3">
 
           </div>
         </div>
