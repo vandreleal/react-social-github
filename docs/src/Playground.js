@@ -101,7 +101,7 @@ class Playground extends Component {
         fab: this.state.fab,
         fabCorner: this.state.fabCorner,
         iconColor: this.state.iconColor,
-        iconWidht: this.state.iconWidht,
+        iconWidth: this.state.iconWidth,
         iconHeight: this.state.iconHeight,
         tooltipOnHover: true
     };
