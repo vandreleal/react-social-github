@@ -125,7 +125,6 @@ class Playground extends Component {
   }
 
   transverseProps(ghProps) {
-
       let acc = '';
 
       Object.keys(ghProps).forEach((key, index) => {
@@ -136,7 +135,6 @@ class Playground extends Component {
       });
 
       return acc;
-
   }
 
   render() {
@@ -145,8 +143,8 @@ class Playground extends Component {
         fab: this.state.fab,
         fabCorner: this.state.fabCorner,
         iconColor: this.state.iconColor,
-        iconWidth: Number(this.state.iconWidth),
-        iconHeight: Number(this.state.iconHeight),
+        iconWidth: this.state.iconWidth,
+        iconHeight: this.state.iconHeight,
         tooltipOnHover: true
     };
 
