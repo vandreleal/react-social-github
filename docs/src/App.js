@@ -35,7 +35,7 @@ class App extends Component {
 
   componentWillMount() {
 
-    window.fetch('/README.md')
+    window.fetch(process.env.PUBLIC_URL +'/README.md')
       .then(response => {
         return response.text()
       })
