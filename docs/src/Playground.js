@@ -133,7 +133,6 @@ class Playground extends Component {
           <div className="pure-u-1 pure-u-md-1-3">
             <label className="form-label">Basic Github Info</label>
             <section>
-
               <div>
                 <TextField hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
               </div>
@@ -179,17 +178,25 @@ class Playground extends Component {
                     style={styles.customWidth}
                     onChange={this.handleChange.bind(this, 'fabCorner')}
                     disabled={!this.state.fabCornersEnabled}
-                    >
-                {
-                    fabCorners.map((vtype, index) => {
-                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                    })
-                }
+                >
+                    {
+                        fabCorners.map((vtype, index) => {
+                            return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                        })
+                    }
                 </SelectField>
 
-                <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
-                <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
-                <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+                <div>
+                  <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
+                </div>
+
+                <div>
+                  <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
+                </div>
+
+                <div>
+                  <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+                </div>
             </div>
 
               <div>
