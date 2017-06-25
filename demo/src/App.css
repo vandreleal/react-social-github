@@ -1,4 +1,9 @@
-.App {
+.app {
   margin: 30px;
   text-align: center;
+}
+
+.app-item {
+  display: block;
+  margin: 40px 0;
 }
