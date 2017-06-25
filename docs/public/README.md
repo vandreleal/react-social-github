@@ -20,23 +20,6 @@ import { Github } from 'react-social-github';
 
 ## Reference
 
-#### Attributes
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td>min-width</td>
-    <td>240px</td>
-  </tr>
-  <tr>
-    <td>max-width</td>
-    <td>320px</td>
-  </tr>
-</table>
-
 ### Options
 
 <table>
@@ -68,7 +51,7 @@ import { Github } from 'react-social-github';
     <td>type</td>
     <td>string</td>
     <td>widget</td>
-    <td>Specify the type of the component. See [types](#Types).</td>
+    <td>Specify the type of the component.</td>
   </tr>
 </table>
 
