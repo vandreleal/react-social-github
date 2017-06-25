@@ -46,7 +46,6 @@ class Playground extends Component {
 
             { gh }
 
-            <Github user="gustavokatel" type="widget" repo="clementine-info" ></Github>
       </div>
     );
   }
