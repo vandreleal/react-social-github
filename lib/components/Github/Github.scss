@@ -1,12 +1,13 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+// Variables
+$base-spacing: 16px;
+$fab-spacing: 16px;
+$fab-bg: #fff;
+$tooltip-width: 320px;
+$tooltip-avatar: 96px;
 $color-bg: #fafbfc;
 $color-text: #000;
 $color-available: #3c763d;
-$tooltip-width: 320px;
-$tooltip-avatar: 96px;
-$fab-margin: 16px;
-$fab-bg: #fff;
-$base-spacing: 16px;
 
 .rsg-github {
   display: inline-block;
@@ -85,25 +86,25 @@ $base-spacing: 16px;
 
       &--top {
         &-left {
-          top: $fab-margin;
-          left: $fab-margin;
+          top: $fab-spacing;
+          left: $fab-spacing;
         }
 
         &-right {
-          top: $fab-margin;
-          right: $fab-margin;
+          top: $fab-spacing;
+          right: $fab-spacing;
         }
       }
 
       &--bottom {
         &-left {
-          bottom: $fab-margin;
-          left: $fab-margin;
+          bottom: $fab-spacing;
+          left: $fab-spacing;
         }
 
         &-right {
-          bottom: $fab-margin;
-          right: $fab-margin;
+          bottom: $fab-spacing;
+          right: $fab-spacing;
         }
       }
     }
