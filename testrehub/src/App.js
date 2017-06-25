@@ -14,7 +14,7 @@ class App extends Component {
 
         <Github user="vandreleal"></Github>
 
-        {/*<Github user="dungahk"></Github>*/}
+        <Github user="dungahk"></Github>
       </div>
     );
   }
