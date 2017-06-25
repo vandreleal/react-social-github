@@ -79,10 +79,11 @@ class Playground extends Component {
     let delta = {};
     if(name === 'type') {
         delta.fabToggleVisible = nValue === 'button';
+        delta.fabCornersVisible = nValue === 'button' && this.config.fab === true;
     }
 
     if(name === 'fab') {
-        delta.fabCornersVisible = nValue === true;
+        delta.fabCornersVisible = this.config.type === 'button' && this.config.fab === true && nValue === true;
     }
     this.setState(delta);
   };
@@ -125,6 +126,7 @@ class Playground extends Component {
                     labelPosition="right"
                     style={styles.toggle}
                     onToggle={this.handleChange.bind(this, 'fab')}
+                    defaultToggled={this.config.fab}
                     />
                 </div> : null
               }
@@ -132,7 +134,7 @@ class Playground extends Component {
               {
                 this.state.fabCornersVisible ?
                 <div>
-                    <SelectField floatingLabelText="Fab Corner" style={styles.customWidth} onChange={this.handleChange.bind(this, 'fabCorner')}>
+                    <SelectField value={this.config.fabCorner} floatingLabelText="Fab Corner" style={styles.customWidth} onChange={this.handleChange.bind(this, 'fabCorner')}>
                     {
                         fabCorners.map((vtype, index) => {
                             return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
@@ -143,7 +145,7 @@ class Playground extends Component {
                }
 
               <div>
-                <SelectField floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
+                <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
                   {
                     types.map((vtype, index) => {
                         return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
