@@ -11,6 +11,7 @@ import './App.css';
 import 'whatwg-fetch';
 
 import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, white, darkBlack, fullBlack } from 'material-ui/styles/colors';
+
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: blue700,

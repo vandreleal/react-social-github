@@ -81,6 +81,19 @@ class Playground extends Component {
     this.config[name] = nValue;
 
     let delta = {};
+
+    if(name === 'user') {
+        delta.org = '';
+        this.config.org = '';
+        this.config.user = nValue;
+    }
+
+    if(name === 'org') {
+        delta.user = '';
+        this.config.user = '';
+        this.config.org = nValue;
+    }
+
     if(name === 'type') {
         delta.fabToggleEnabled = nValue === 'button';
         delta.fabCornersEnabled = nValue === 'button' && this.config.fab === true;
@@ -149,11 +162,11 @@ class Playground extends Component {
             <label className="form-label">Basic Github Info</label>
             <section>
               <div>
-                <TextField hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
+                <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
               </div>
 
               <div>
-                <TextField hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
+                <TextField value={this.config.org} hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
               </div>
 
               <div>
