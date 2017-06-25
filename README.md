@@ -1,9 +1,8 @@
-# React Social Github
+# Documentation
 [![Build Status](https://travis-ci.org/vandreleal/react-social-github.svg)](https://travis-ci.org/vandreleal/react-social-github)
 [![NPM Version](https://badge.fury.io/js/react-social-github.svg)](http://badge.fury.io/js/react-social-github)
 [![dependencies Status](https://david-dm.org/vandreleal/react-social-github/status.svg)](https://david-dm.org/vandreleal/react-social-github)
 [![devDependencies Status](https://david-dm.org/vandreleal/react-social-github/dev-status.svg)](https://david-dm.org/vandreleal/react-social-github?type=dev)
-[![Coverage Status](https://coveralls.io/repos/github/vandreleal/react-social-github/badge.svg?branch=master)](https://coveralls.io/github/vandreleal/react-social-github?branch=master)
 
 Showcase your GitHub profile, organization or repository information in an elegant way.
 
@@ -39,7 +38,7 @@ import { Github } from 'react-social-github';
     <td>repo</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the repository to show info about. Requires "user"</td>
+    <td>Specify the repository to show info about. Requires "user" or "org"</td>
   </tr>
   <tr>
     <td>org</td>
@@ -66,11 +65,11 @@ The tooltip is inserted as a block element. This is the default type and doesn't
 #### Example
 
 ```jsx
-<Github user="facebook" repo="react"></Github>
+<Github org="facebook" repo="react"></Github>
 
 {/* same as */}
 
-<Github user="facebook" repo="react" type="widget"></Github>
+<Github org="facebook" repo="react" type="widget"></Github>
 ```
 
 ### Link
@@ -80,7 +79,9 @@ The tooltip is anchored in an inline link. The option `type="link"` must be decl
 #### Example
 
 ```jsx
-<Github user="hackbit" type="link">Hover Here</Github>
+<Github org="hackbit" type="link">Hover Here</Github>
+
+<Github user="vandreleal" repo="vandreleal.github.io" type="link">Hover Here</Github>
 ```
 
 ### Button
@@ -144,6 +145,8 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 
 ```jsx
 <Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
+
+<Github user="GustavoKatel" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="#888" iconWidth={32} iconHeight={32}></Github>
 ```
 
 

@@ -105,15 +105,15 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
   </tr>
   <tr>
     <td>iconWidth</td>
-    <td>number</td>
-    <td>48</td>
-    <td>px</td>
+    <td>string</td>
+    <td>48px</td>
+    <td>CSS units</td>
   </tr>
   <tr>
     <td>iconHeight</td>
-    <td>number</td>
-    <td>48</td>
-    <td>px</td>
+    <td>string</td>
+    <td>48px</td>
+    <td>CSS units</td>
   </tr>
   <tr>
     <td>fab</td>
@@ -144,9 +144,9 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 #### Example
 
 ```jsx
-<Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
+<Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth="64px" iconHeight="64px"></Github>
 
-<Github user="GustavoKatel" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="#888" iconWidth={32} iconHeight={32}></Github>
+<Github user="GustavoKatel" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="#888" iconWidth="32px" iconHeight="32px"></Github>
 ```
 
 
