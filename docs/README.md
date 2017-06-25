@@ -74,17 +74,11 @@ tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
 #### Example
 
 ```jsx
-import { Github } from 'react-social-github';
-
-ReactDOM.render(
-
   <Github user="torvalds" type="tooltip"></Github>
 
   <Github org="facebook" type="tooltip" fab={true}></Github>
 
   <Github org="twitter" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
-
-);
 ```
 
 ---
