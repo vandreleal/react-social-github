@@ -72,7 +72,7 @@ class Playground extends Component {
         buttonControlsEnabled: false,
         repoErrorText: '',
         iconColor: '',
-        iconWidth: ''
+        iconWidth: '',
         iconHeight: ''
     };
   }
