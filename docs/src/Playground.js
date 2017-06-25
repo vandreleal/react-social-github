@@ -8,6 +8,31 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Toggle from 'material-ui/Toggle';
+
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  toggle: {
+    marginBottom: 16,
+  },
+  thumbOff: {
+    backgroundColor: '#ffcccc',
+  },
+  trackOff: {
+    backgroundColor: '#ff9d9d',
+  },
+  thumbSwitched: {
+    backgroundColor: 'red',
+  },
+  trackSwitched: {
+    backgroundColor: '#ff9d9d',
+  },
+  labelStyle: {
+    color: 'red',
+  },
+};
 
 const types = [
   { value: 'widget', label: 'Widget' },
@@ -68,12 +93,20 @@ class Playground extends Component {
 
     return (
       <div className="playground">
-
         <section>
           <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
           <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
           <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
         </section>
+
+        <div>
+          <Toggle
+           label="FAB"
+           labelPosition="right"
+           valueLink={this.state.fab}
+           style={styles.toggle}
+          />
+        </div>
 
         <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
           {
