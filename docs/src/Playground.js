@@ -33,7 +33,7 @@ const styles = {
     color: 'red',
   },
   customWidth: {
-    width: 200,
+    width: 260,
   }
 };
 
@@ -68,7 +68,10 @@ class Playground extends Component {
         org: '',
         repo: '',
         fabToggleVisible: false,
-        fabCornersVisible: false
+        fabCornersVisible: false,
+        iconColor: '',
+        iconWidth: '',
+        iconHeight: ''
     };
   }
 
@@ -127,6 +130,7 @@ class Playground extends Component {
                   }
                 </SelectField>
               </div>
+
               {
                 this.state.fabToggleVisible ? <div style={styles.block}>
                     <Toggle
@@ -148,6 +152,10 @@ class Playground extends Component {
                         })
                     }
                     </SelectField>
+
+                    <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} />
+                    <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} />
+                    <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} />
                 </div> : null
                }
 
