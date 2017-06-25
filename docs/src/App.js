@@ -6,6 +6,38 @@ import 'whatwg-fetch';
 import ReactMarkdown from 'react-markdown';
 
 class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      markdown: '# Loading'
+    };
+  }
+
+  componentWillMount() {
+
+    window.fetch('/README.md')
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+
+      console.log('data');
+      this.setState({
+        markdown: data
+      });
+
+    })
+    .catch(err => {
+      console.log('Could not load');
+      this.setState({
+        markdown: 'Could not load'
+      });
+    });
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,7 +49,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <ReactMarkdown source={'# h1'} />,
+        <ReactMarkdown source={this.state.markdown} />,
 
       </div>
     );
