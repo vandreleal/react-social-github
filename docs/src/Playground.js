@@ -67,8 +67,9 @@ class Playground extends Component {
         user: '',
         org: '',
         repo: '',
-        fabToggleVisible: false,
-        fabCornersVisible: false,
+        fabToggleEnabled: false,
+        fabCornersEnabled: false,
+        buttonControlsEnabled: false,
         iconColor: '',
         iconWidth: 0,
         iconHeight: 0
@@ -81,12 +82,13 @@ class Playground extends Component {
 
     let delta = {};
     if(name === 'type') {
-        delta.fabToggleVisible = nValue === 'button';
-        delta.fabCornersVisible = nValue === 'button' && this.config.fab === true;
+        delta.fabToggleEnabled = nValue === 'button';
+        delta.fabCornersEnabled = nValue === 'button' && this.config.fab === true;
+        delta.buttonControlsEnabled = nValue === 'button';
     }
 
     if(name === 'fab') {
-        delta.fabCornersVisible = this.config.type === 'button' && this.config.fab === true && nValue === true;
+        delta.fabCornersEnabled = this.config.type === 'button' && this.config.fab === true && nValue === true;
     }
     this.setState(delta);
   };
@@ -147,17 +149,16 @@ class Playground extends Component {
                       }
                   </SelectField>
 
-                  {
-                    this.state.fabToggleVisible ? <div style={styles.block}>
-                        <Toggle
-                        label="FAB"
-                        labelPosition="right"
-                        style={styles.toggle}
-                        onToggle={this.handleChange.bind(this, 'fab')}
-                        defaultToggled={this.config.fab}
-                        />
-                    </div> : null
-                  }
+                <div style={styles.block}>
+                    <Toggle
+                    disabled={!this.state.fabToggleEnabled}
+                    label="FAB"
+                    labelPosition="right"
+                    style={styles.toggle}
+                    onToggle={this.handleChange.bind(this, 'fab')}
+                    defaultToggled={this.config.fab}
+                    />
+                </div>
               </div>
 
               <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
@@ -166,22 +167,25 @@ class Playground extends Component {
 
           <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
             <section className="form-section">
-              {
-                this.state.fabCornersVisible ?
-                <div>
-                    <SelectField value={this.config.fabCorner} floatingLabelText="Fab Corner" style={styles.customWidth} onChange={this.handleChange.bind(this, 'fabCorner')}>
-                    {
-                        fabCorners.map((vtype, index) => {
-                            return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                        })
-                    }
-                    </SelectField>
+            <div>
+                <SelectField
+                    value={this.config.fabCorner}
+                    floatingLabelText="Fab Corner"
+                    style={styles.customWidth}
+                    onChange={this.handleChange.bind(this, 'fabCorner')}
+                    disabled={!this.state.fabCornersEnabled}
+                    >
+                {
+                    fabCorners.map((vtype, index) => {
+                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                    })
+                }
+                </SelectField>
 
-                    <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} />
-                    <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} />
-                    <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} />
-                </div> : null
-               }
+                <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
+                <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
+                <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+            </div>
             </section>
           </div>
 
