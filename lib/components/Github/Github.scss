@@ -129,8 +129,9 @@ $color-available: #3c763d;
     &--secondary {
       margin-top: 16px;
       margin-bottom: 8px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
+      text-transform: uppercase;
       color: lighten($color-text, 60%);
     }
   }
@@ -167,6 +168,7 @@ $color-available: #3c763d;
         }
 
         .label {
+          margin-top: 2px;
           font-size: 10px;
           font-weight: 300;
           text-transform: uppercase;
