@@ -32,6 +32,32 @@ $color-available: #3c763d;
       }
     }
   }
+
+  &-fab {
+    position: fixed;
+
+    &--top {
+      &-left {
+        top: 16px;
+        left: 16px;
+      }
+      &-right {
+        top: 16px;
+        right: 16px;
+      }
+    }
+
+    &--bottom {
+      &-left {
+        bottom: 16px;
+        left: 16px;
+      }
+      &-right {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+  }
 }
 
 .github {
