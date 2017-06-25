@@ -16,7 +16,7 @@
 }
 
 @media screen and (min-width: 48em) {
-  .form.example {
+  .form-example {
     display: flex;
     align-items: center;
     justify-content: center;
