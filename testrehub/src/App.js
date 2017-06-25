@@ -14,7 +14,11 @@ class App extends Component {
 
         <Github user="vandreleal" tooltipOnHover={true}></Github>
 
-        <Github user="dungahk" tooltipOnHover={true}></Github>
+        <Github user="dungahk"></Github>
+
+        <Github user="vandreleal" presentation="widget"></Github>
+
+        <Github user="dungahk" text="Github" presentation="link"></Github>
       </div>
     );
   }
