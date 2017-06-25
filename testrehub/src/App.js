@@ -22,9 +22,9 @@ class App extends Component {
 
         <Github user="vandreleal" type="widget"></Github>
 
-        <Github user="dungahk" text="Profile" type="link"></Github>
+        <Github user="dungahk" type="link">Profile dungahk</Github>
 
-        <Github user="gustavokatel" text="Profile" type="link"></Github>
+        <Github user="gustavokatel" type="link">Profile gustavokatel</Github>
       </div>
     );
   }
