@@ -1,5 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
 $wrapper-color: #fafafa;
+$color-text: #000;
 $color-available: #3c763d;
 
 .github {
@@ -49,6 +51,13 @@ $color-available: #3c763d;
 
     &--italic {
       font-style: italic;
+    }
+
+    &--secondary {
+      margin-top: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: lighten($color-text, 60%);
     }
   }
 
