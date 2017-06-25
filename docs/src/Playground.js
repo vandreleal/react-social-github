@@ -24,7 +24,15 @@ class Playground extends Component {
 
   render() {
 
-    let gh = <Github user={this.state.user} type={this.state.type} tooltipOnHover={true} key={this.state.user}></Github>;
+    let gh = null;
+
+    if(typeof this.state.user === 'string' && this.state.user.length>0) {
+        gh = <Github user={this.state.user} type={this.state.type}  tooltipOnHover={true} key={this.state.user}></Github>;
+    }
+
+    if(typeof this.state.org === 'string' && this.state.org.length>0) {
+        gh = <Github org={this.state.org} type={this.state.type}  tooltipOnHover={true} key={this.state.org}></Github>;
+    }
 
     if (this.state.repo.length > 0) {
         console.log('repo_: ' + this.state.repo);
