@@ -111,15 +111,56 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 
 #### Options
 
-Name | Type | Default | Description
-:---: | :---: | :---: | :---
-iconColor | `string` | #000 | Color name, RGB value, hexadecimal value, HSL value or HWB value.
-iconWidth | `number` | 48 | px.
-iconHeight | `number` | 48 | px.
-fab | `bool` | false | Floating Action Button
-fabCorner | `string` | bottom-right | Position of the FAB. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`
-tooltipPosition | `string` | `auto` | Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)
-tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>iconColor</td>
+    <td>`string`</td>
+    <td>#000</td>
+    <td>Color name, RGB value, hexadecimal value, HSL value or HWB value.</td>
+  </tr>
+  <tr>
+    <td>iconWidth</td>
+    <td>`number`</td>
+    <td>48</td>
+    <td>px.</td>
+  </tr>
+  <tr>
+    <td>iconHeight</td>
+    <td>`number`</td>
+    <td>48</td>
+    <td>px.</td>
+  </tr>
+  <tr>
+    <td>fab</td>
+    <td>`bool`</td>
+    <td>false</td>
+    <td>Floating Action Button</td>
+  </tr>
+  <tr>
+    <td>fabCorner</td>
+    <td>`string`</td>
+    <td>bottom-right</td>
+    <td>Position of the FAB. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`</td>
+  </tr>
+  <tr>
+    <td>tooltipPosition</td>
+    <td>`string`</td>
+    <td>`auto`</td>
+    <td>Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)</td>
+  </tr>
+  <tr>
+    <td>tooltipOnHover</td>
+    <td>`bool`</td>
+    <td>`true`</td>
+    <td>Enable/disable mouse hover events</td>
+  </tr>
+</table>
 
 #### Example
 
