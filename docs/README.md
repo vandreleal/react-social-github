@@ -47,6 +47,14 @@ type | `string` | `widget` | Specify the type of the presentation. See [types](#
 
 ## Types
 
+### Inline
+
+Inline link
+
+### Widget
+
+Widget
+
 ### Tooltip
 
 Adaptive floating tooltips with anchor button
@@ -55,10 +63,10 @@ Adaptive floating tooltips with anchor button
 
 Name | Type | Default | Description
 :---: | :---: | :---: | :---
-iconColor | `string` | `none` |
-iconWidth | `number` | 48 |
-iconHeight | `number` | 48 |
-fab | `bool` | false | Android like Floating Action Button
+iconColor | `string` | `none` | Color name, RGB value, hexadecimal value, HSL value or HWB value.
+iconWidth | `number` | 48 | px.
+iconHeight | `number` | 48 | px.
+fab | `bool` | false | Floating Action Button
 fabCorner | `string` | bottom-right | Position of the FAB. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`
 tooltipPosition | `string` | `auto` | Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)
 
