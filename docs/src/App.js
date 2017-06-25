@@ -22,23 +22,23 @@ class App extends Component {
   componentWillMount() {
 
     window.fetch('/README.md')
-    .then(response => {
-      return response.text()
-    })
-    .then(data => {
+      .then(response => {
+        return response.text()
+      })
+      .then(data => {
 
-      console.log('data');
-      this.setState({
-        markdown: data
-      });
+        console.log('data');
+        this.setState({
+          markdown: data
+        });
 
-    })
-    .catch(err => {
-      console.log('Could not load');
-      this.setState({
-        markdown: 'Could not load'
+      })
+      .catch(err => {
+        console.log('Could not load');
+        this.setState({
+          markdown: 'Could not load'
+        });
       });
-    });
   }
 
   render() {
@@ -50,7 +50,7 @@ class App extends Component {
 
           <ReactMarkdown source={this.state.markdown} className="markdown-body" />
 
-          <Github user="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
+          <Github org="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
         </div>
       </MuiThemeProvider>
     );
