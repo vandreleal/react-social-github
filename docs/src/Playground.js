@@ -56,7 +56,7 @@ class Playground extends Component {
     super(props);
     this.config = {
       type: 'widget',
-      user: 'vandreleal',
+      user: '',
       org: '',
       repo: ''
     };
@@ -70,8 +70,8 @@ class Playground extends Component {
         fabToggleVisible: false,
         fabCornersVisible: false,
         iconColor: '',
-        iconWidth: '',
-        iconHeight: ''
+        iconWidth: 0,
+        iconHeight: 0
     };
   }
 
