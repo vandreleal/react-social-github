@@ -8,6 +8,31 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Toggle from 'material-ui/Toggle';
+
+const styles = {
+  block: {
+    maxWidth: 100,
+  },
+  toggle: {
+    marginBottom: 16,
+  },
+  thumbOff: {
+    backgroundColor: '#ffcccc',
+  },
+  trackOff: {
+    backgroundColor: '#ff9d9d',
+  },
+  thumbSwitched: {
+    backgroundColor: 'red',
+  },
+  trackSwitched: {
+    backgroundColor: '#ff9d9d',
+  },
+  labelStyle: {
+    color: 'red',
+  },
+};
 
 const types = [
   { value: 'widget', label: 'Widget' },
@@ -69,32 +94,48 @@ class Playground extends Component {
     return (
       <div className="playground">
 
-        <section>
-          <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
-          <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
-          <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
-        </section>
+        <div className="pure-g">
+          <div className="pure-u-1 pure-u-md-1-2">
+            <section>
+              <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
+              <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
+              <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
+            </section>
 
-        <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
-          {
-            types.map((vtype, index) => {
-                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-            })
-          }
-        </DropDownMenu>
+            <div style={styles.block}>
+              <Toggle
+               label="FAB"
+               labelPosition="right"
+               style={styles.toggle}
+              />
+            </div>
 
-        <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
-          {
-            fabCorners.map((vtype, index) => {
-                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-            })
-          }
-        </DropDownMenu>
+            <div>
+              <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+                {
+                  types.map((vtype, index) => {
+                      return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                  })
+                }
+              </DropDownMenu>
+            </div>
 
-        <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
+            <div>
+              <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
+                {
+                  fabCorners.map((vtype, index) => {
+                      return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                  })
+                }
+              </DropDownMenu>
+            </div>
 
-        <div>
-          { gh }
+            <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
+          </div>
+
+          <div className="pure-u-1 pure-u-md-1-2">
+            { gh }
+          </div>
         </div>
 
       </div>
