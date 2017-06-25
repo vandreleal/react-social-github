@@ -16,11 +16,19 @@
 }
 
 .form-example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
   margin: 0 8px;
 }
 
+.form-example .rsg-github {
+  max-width: 100%;
+}
+
 .form-code {
-  margin-top: 36px;
+  margin-top: 3px;
 }
 
 .form-title {
