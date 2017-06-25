@@ -230,7 +230,7 @@ class Playground extends Component {
 
                   <SelectField
                       value={this.config.fabCorner}
-                      floatingLabelText="Fab Corner"
+                      floatingLabelText="FAB Corner"
                       style={styles.customWidth}
                       onChange={this.handleChange.bind(this, 'fabCorner')}
                       disabled={!this.state.fabCornersEnabled}
