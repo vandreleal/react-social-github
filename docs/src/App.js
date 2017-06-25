@@ -26,8 +26,6 @@ class App extends Component {
         return response.text()
       })
       .then(data => {
-
-        console.log('data');
         this.setState({
           markdown: data
         });
