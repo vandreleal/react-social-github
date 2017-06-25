@@ -21,6 +21,14 @@ class Playground extends Component {
   }
 
   render() {
+
+    let gh = <Github user={this.state.user} type="button" tooltipOnHover={true} ></Github>;
+
+    if (this.state.repo.length > 0) {
+        console.log('repo_');
+        gh = <Github user={this.state.user} repo={this.state.repo} type="button" tooltipOnHover={true} ></Github>
+    }
+
     return (
       <div className="playground">
 
@@ -28,7 +36,7 @@ class Playground extends Component {
 
             Repo: <input type="text" value={this.state.repo} onChange={this.onChange.bind(this, 'repo')} /><br/>
 
-        <Github user={this.state.user} repo={this.state.repo} type="button" tooltipOnHover={true} key={this.state.user}></Github>
+            { gh }
       </div>
     );
   }
