@@ -12,7 +12,7 @@ import Toggle from 'material-ui/Toggle';
 
 const styles = {
   block: {
-    maxWidth: 100,
+    maxWidth: 200,
   },
   toggle: {
     marginBottom: 16,
@@ -33,7 +33,7 @@ const styles = {
     color: 'red',
   },
   customWidth: {
-    width: 260,
+    width: 200,
   }
 };
 
@@ -111,7 +111,7 @@ class Playground extends Component {
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-md-1-2">
+          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
             <section className="form-section">
               <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
               <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
@@ -119,6 +119,15 @@ class Playground extends Component {
             </section>
 
             <section className="form-section">
+                <div>
+                    <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
+                        {
+                            types.map((vtype, index) => {
+                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                            })
+                        }
+                    </SelectField>
+                </div>
               {
                 this.state.fabToggleVisible ? <div style={styles.block}>
                     <Toggle
@@ -143,16 +152,6 @@ class Playground extends Component {
                     </SelectField>
                 </div> : null
                }
-
-              <div>
-                <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
-                  {
-                    types.map((vtype, index) => {
-                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                    })
-                  }
-                </SelectField>
-              </div>
 
               <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
             </section>
