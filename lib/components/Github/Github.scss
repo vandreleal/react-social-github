@@ -84,6 +84,8 @@ $color-available: #3c763d;
   }
 
   a {
+    color: lighten($color-text, 50%);
+
     &:hover {
       text-decoration: underline;
     }
