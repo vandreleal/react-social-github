@@ -10,6 +10,8 @@ class App extends Component {
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true}></Github>
 
+        <Github org="facebook" type="tooltip" tooltipOnHover={true} iconColor="orange" iconWidth="96" iconHeight="96"></Github>
+
         {/*<Github user="facebook" repo="react" type="widget"></Github>*/}
 
         <Github user="vandreleal" type="widget"></Github>
