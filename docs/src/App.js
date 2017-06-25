@@ -10,7 +10,7 @@ import Playground from './Playground';
 import './App.css';
 import 'whatwg-fetch';
 
-import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, white, darkBlack, fullBlack } from 'material-ui/styles/colors';
+import { blue700, blue400, grey300, lightBlue300, lightBlue200, lightBlue100, darkBlack, fullBlack } from 'material-ui/styles/colors';
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: blue700,
@@ -58,13 +58,17 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="app">
 
-        <ReactMarkdown source={'# React Social Github'} className="markdown-body" />
+          <div className="app-wrapper">
 
-          <Playground className="playground" />
+          <ReactMarkdown source={'# React Social Github'} className="markdown-body" />
 
-          <ReactMarkdown source={this.state.markdown} className="markdown-body" />
+            <Playground className="playground" />
 
-          <Github org="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
+            <ReactMarkdown source={this.state.markdown} className="markdown-body" />
+
+            <Github org="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
+            
+          </div>
         </div>
       </MuiThemeProvider>
     );

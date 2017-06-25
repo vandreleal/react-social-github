@@ -1,9 +1,12 @@
 .app {
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 60px 30px;
+}
+
+.app-wrapper {
+  padding: 32px;
 }
 
 @font-face {
