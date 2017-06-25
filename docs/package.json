@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-markdown": "^2.5.0"
+    "react-markdown": "^2.5.0",
+    "react-social-github": "file:.."
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
