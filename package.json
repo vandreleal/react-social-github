@@ -1,7 +1,7 @@
 {
   "name": "react-social-github",
-  "version": "0.1.0",
-  "description": "Showcase your GitHub profile, organization or repository information.",
+  "version": "1.0.0",
+  "description": "Showcase your GitHub profile, organization or repository information",
   "main": "build/index.js",
   "directories": {
     "lib": "lib",

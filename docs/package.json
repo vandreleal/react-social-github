@@ -1,6 +1,7 @@
 {
-  "name": "docs",
-  "version": "0.1.0",
+  "name": "react-social-github-docs",
+  "version": "1.0.0",
+  "description": "Showcase your GitHub profile, organization or repository information",
   "private": true,
   "homepage": "http://hackbit.github.io/reactriot2017-costero",
   "dependencies": {
