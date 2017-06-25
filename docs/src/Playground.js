@@ -96,27 +96,32 @@ class Playground extends Component {
   }
 
   render() {
-    let gh = null;
-    let repoProp = {};
+    let ghProps = {
+        type: this.state.type,
+        fab: this.state.fab,
+        fabCorner: this.state.fabCorner,
+        iconColor: this.state.iconColor,
+        iconWidht: this.state.iconWidht,
+        iconHeight: this.state.iconHeight,
+        tooltipOnHover: true
+    };
 
     if(typeof this.state.repo === 'string' && this.state.repo.length>0) {
-        repoProp.repo = this.state.repo;
+        ghProps.repo = this.state.repo;
     }
 
     if(typeof this.state.user === 'string' && this.state.user.length>0) {
-        gh = <Github
-              user={this.state.user}
-              type={this.state.type}
-              { ...repoProp }
-              fab={this.state.fab}
-              fabCorner={this.state.fabCorner}
-              iconColor={this.state.iconColor}
-              iconWidht={this.state.iconWidht}
-              iconHeight={this.state.iconHeight}
-              tooltipOnHover={true}
-              key={this.state.user + '/' + this.state.repo}>
-            </Github>;
+        ghProps.user = this.state.user;
     }
+
+    if(typeof this.state.org === 'string' && this.state.org.length>0) {
+        ghProps.org = this.state.org;
+    }
+
+    let gh = <Github
+            { ...ghProps }
+            key={this.state.org + ':' + this.state.user + '/' + this.state.repo}>
+        </Github>;
 
     return (
       <div className="playground">
