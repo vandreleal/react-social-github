@@ -57,15 +57,31 @@ type | `string` | `widget` | Specify the type of the presentation. See [types](#
 
 ### Widget
 
-The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type: "widget"` can be declared in the element to provide more clarity.
+The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the element to provide more clarity.
+
+#### Example
+
+```jsx
+<Github user="facebook" repo="react"></Github>
+
+{/* same as */}
+
+<Github user="facebook" repo="react" type="widget"></Github>
+```
 
 ### Link
 
-The tooltip is anchored in an inline link. In order to use the inline element the option `type: "link"` must be declared in the element.
+The tooltip is anchored in an inline link. In order to use the inline element the option `type="link"` must be declared in the element.
+
+#### Example
+
+```jsx
+<Github user="gustavokatel" type="link">Hover Here</Github>
+```
 
 ### Button
 
-The tooltip is anchored in a button. In order to use the inline element the option `type: "button"` must be declared in the element.
+The tooltip is anchored in a button. In order to use the inline element the option `type="button"` must be declared in the element.
 
 #### Options
 
