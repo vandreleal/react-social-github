@@ -1,0 +1,21 @@
+.rsg-github-tooltip {
+  position: fixed;
+
+  &-animation-enter {
+    opacity: 0.01;
+  }
+
+  &-animation-leave {
+    opacity: 1;
+  }
+}
+
+.rsg-github-tooltip-animation-enter.rsg-github-tooltip-animation-enter-active {
+  opacity: 1;
+  transition: opacity 100ms linear;
+}
+
+.rsg-github-tooltip-animation-leave.rsg-github-tooltip-animation-leave-active {
+  opacity: 0.01;
+  transition: opacity 100ms linear;
+}

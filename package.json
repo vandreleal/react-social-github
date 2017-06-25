@@ -1,0 +1,54 @@
+{
+  "name": "react-social-github",
+  "version": "1.0.0",
+  "description": "Showcase your GitHub profile, organization or repository information",
+  "main": "build/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "npm run build:css && babel lib -d build",
+    "build:css": "node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/",
+    "build:watch": "npm-run-all -p build:watch-css build:watch-js",
+    "build:watch-js": "babel lib -w -d build",
+    "build:watch-css": "npm run build:css && node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/ --watch --recursive",
+    "lint": "eslint lib/**; exit 0",
+    "lint:watch": "esw -w lib/**",
+    "prepare": "npm run build",
+    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js",
+    "test:watch": "npm test -- --watch"
+  },
+  "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
+  "contributors": [
+    "Gustavo Sampaio <gbritosampaio@gmail.com> (http://gsampaio.info)",
+    "Emerson Jair <emersonjairr@gmail.com> (http://emersonjair.info/)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^2.8.2",
+    "eslint": "^4.1.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-watch": "^3.1.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4"
+  },
+  "dependencies": {
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-octicons": "^0.1.0",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

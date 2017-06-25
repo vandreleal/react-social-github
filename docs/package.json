@@ -1,0 +1,31 @@
+{
+  "name": "react-social-github-docs",
+  "version": "1.0.0",
+  "description": "Showcase your GitHub profile, organization or repository information",
+  "private": true,
+  "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
+  "contributors": [
+    "Gustavo Sampaio <gbritosampaio@gmail.com> (http://gsampaio.info)",
+    "Emerson Jair <emersonjairr@gmail.com> (http://emersonjair.info/)"
+  ],
+  "dependencies": {
+    "material-ui": "^0.18.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-markdown": "^2.5.0",
+    "react-social-github": "file:..",
+    "react-tap-event-plugin": "^2.0.1",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0",
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cp README.md public/ && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d ./build -b gh-pages"
+  }
+}

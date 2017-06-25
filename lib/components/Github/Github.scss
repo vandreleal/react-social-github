@@ -1,0 +1,246 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+// Variables
+$base-spacing: 16px;
+$fab-spacing: 16px;
+$fab-bg: #fff;
+$tooltip-width: 320px;
+$tooltip-avatar: 96px;
+$color-bg: #fafbfc;
+$color-text: #000;
+$color-available: #3c763d;
+
+.rsg-github {
+  display: inline-block;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  z-index: 9999;
+
+  a,
+  span {
+    display: block;
+    text-decoration: none;
+  }
+
+  a {
+    color: lighten($color-text, 50%);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-wrapper {
+    box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
+    display: inline-block;
+    width: $tooltip-width;
+    margin-right: $base-spacing;
+    margin-left: $base-spacing;
+    padding: $base-spacing * 2;
+    text-align: center;
+    background: $color-bg;
+    border-radius: 3px;
+    z-index: 9000;
+  }
+
+  .rsg-inline {
+    &-link {
+      display: inline;
+      cursor: pointer;
+    }
+  }
+
+  .rsg-btn {
+    &-icon {
+      background: none !important;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      svg {
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+
+    &-fab {
+      position: fixed;
+      background: $fab-bg;
+      border-radius: 50%;
+
+      &--top {
+        &-left {
+          top: $fab-spacing;
+          left: $fab-spacing;
+        }
+
+        &-right {
+          top: $fab-spacing;
+          right: $fab-spacing;
+        }
+      }
+
+      &--bottom {
+        &-left {
+          bottom: $fab-spacing;
+          left: $fab-spacing;
+        }
+
+        &-right {
+          bottom: $fab-spacing;
+          right: $fab-spacing;
+        }
+      }
+    }
+  }
+
+  .rsg-loading-icon {
+    width: $tooltip-avatar;
+    height: $tooltip-avatar;
+  }
+
+  .rsg-avatar {
+    width: $tooltip-avatar;
+    height: $tooltip-avatar;
+    border-radius: 50%;
+  }
+
+  .rsg-name {
+    margin-top: $base-spacing / 2;
+    margin-bottom: $base-spacing / 2;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .rsg-info {
+    margin-bottom: $base-spacing / 8;
+    font-size: 16px;
+    font-weight: 300;
+
+    &--italic {
+      font-style: italic;
+    }
+
+    &--secondary {
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: lighten($color-text, 60%);
+    }
+  }
+
+  .rsg-counters {
+    display: inline-block;
+    margin-top: $base-spacing;
+
+    .rsg-item {
+      display: inline-block;
+      padding-left: $base-spacing * 1.5;
+      padding-right: $base-spacing * 1.5;
+
+      .rsg-icon {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: $base-spacing / 1.5;
+
+        svg {
+          fill: lighten($color-text, 60%);
+          width: 24px;
+          height: 36px;
+        }
+      }
+
+      .rsg-description {
+        display: inline-block;
+        text-align: left;
+
+        .rsg-count {
+          display: block;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .rsg-label {
+          margin-top: $base-spacing / 8;
+          font-size: 10px;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid darken($color-bg, 20%);
+      }
+    }
+  }
+
+  .rsg-status {
+    display: inline-block;
+    margin-bottom: ($base-spacing / 1.5);
+
+    .rsg-available {
+      display: inline-block;
+      padding: ($base-spacing / 2) $base-spacing;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
+      color: #fff;
+      border-radius: 4px;
+      background-color: lighten($color-available, 50%);
+      color: $color-available;
+    }
+  }
+
+  .rsg-btn-github {
+    display: block;
+    margin-top: $base-spacing * 1.5;
+    padding: ($base-spacing / 2) $base-spacing;
+    color: $color-text;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    background-color: darken($color-bg, 5%);
+    border: 1px solid darken($color-bg, 15%);
+    text-shadow: 0 1px 0 $color-bg;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none !important;
+      background-color: darken($color-bg, 10%);
+      border-color: darken($color-bg, 20%);
+    }
+
+    .rsg-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: $base-spacing / 2;
+      vertical-align: middle;
+    }
+
+    .rsg-text {
+      display: initial !important;
+      vertical-align: middle;
+    }
+  }
+}

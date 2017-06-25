@@ -1,0 +1,46 @@
+.playground {
+  display: block;
+  padding: 32px 0 64px 0;
+}
+
+.playground pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 48em) {
+  .form.example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+}
+
+.form-example .rsg-github {
+  max-width: 100%;
+}
+
+.form-code {
+  margin-top: 24px;
+}
+
+.form-title {
+  margin: 0 0 8px 0;
+}
+
+.form-centered {
+  text-align: center;
+}
+
+.form-button {
+  margin-top: 16px;
+  z-index: 0;
+}
