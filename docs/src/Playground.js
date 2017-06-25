@@ -7,6 +7,7 @@ import 'whatwg-fetch';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 
@@ -32,6 +33,9 @@ const styles = {
   labelStyle: {
     color: 'red',
   },
+  customWidth: {
+    width: 150,
+  }
 };
 
 const types = [
@@ -96,41 +100,43 @@ class Playground extends Component {
 
         <div className="pure-g">
           <div className="pure-u-1 pure-u-md-1-2">
-            <section>
+            <section className="form-section">
               <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
               <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
               <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
             </section>
 
-            <div style={styles.block}>
-              <Toggle
-               label="FAB"
-               labelPosition="right"
-               style={styles.toggle}
-              />
-            </div>
+            <section className="form-section">
+              <div style={styles.block}>
+                <Toggle
+                 label="FAB"
+                 labelPosition="right"
+                 style={styles.toggle}
+                />
+              </div>
 
-            <div>
-              <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
-                {
-                  types.map((vtype, index) => {
-                      return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                  })
-                }
-              </DropDownMenu>
-            </div>
+              <div>
+                <SelectField style={styles.customWidth} value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+                  {
+                    types.map((vtype, index) => {
+                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                    })
+                  }
+                </SelectField>
+              </div>
 
-            <div>
-              <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
-                {
-                  fabCorners.map((vtype, index) => {
-                      return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                  })
-                }
-              </DropDownMenu>
-            </div>
+              <div>
+                <SelectField style={styles.customWidth} value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
+                  {
+                    fabCorners.map((vtype, index) => {
+                        return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                    })
+                  }
+                </SelectField>
+              </div>
 
-            <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
+              <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
+            </section>
           </div>
 
           <div className="pure-u-1 pure-u-md-1-2">
