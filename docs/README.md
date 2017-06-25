@@ -67,8 +67,6 @@ Name | Default
 min-width | `240px`
 max-width | `320px`
 
----
-
 #### Options
 
 Name | Type | Default | Description
@@ -80,6 +78,8 @@ fab | `bool` | false | Floating Action Button
 fabCorner | `string` | bottom-right | Position of the FAB. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`
 tooltipPosition | `string` | `auto` | Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)
 tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
+
+---
 
 #### Example
 
