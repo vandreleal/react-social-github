@@ -66,7 +66,7 @@ class App extends Component {
 
             <ReactMarkdown source={this.state.markdown} className="markdown-body" />
 
-            <Github org="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
+            <Github org="vandreleal" repo="react-social-github" type="button" tooltipOnHover={true} fab={true}></Github>
 
           </div>
         </div>
