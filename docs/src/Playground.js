@@ -131,14 +131,19 @@ class Playground extends Component {
           <div className="pure-u-1 pure-u-md-1-3">
             <label className="form-label">Basic Github Info</label>
             <section>
-              <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
-              <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
-              <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
-            </section>
-          </div>
 
-          <div className="pure-u-1 pure-u-md-1-3">
-            <section>
+              <div>
+                <TextField hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
+              </div>
+
+              <div>
+                <TextField hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
+              </div>
+
+              <div>
+                <TextField hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
+              </div>
+
               <div>
                   <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
                       {
@@ -147,26 +152,25 @@ class Playground extends Component {
                           })
                       }
                   </SelectField>
-
-                  {
-                    this.state.fabToggleVisible ? <div style={styles.block}>
-                        <Toggle
-                        label="FAB"
-                        labelPosition="right"
-                        style={styles.toggle}
-                        onToggle={this.handleChange.bind(this, 'fab')}
-                        defaultToggled={this.config.fab}
-                        />
-                    </div> : null
-                  }
               </div>
 
-              <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
+              {
+                this.state.fabToggleVisible ? <div style={styles.block}>
+                    <Toggle
+                    label="FAB"
+                    labelPosition="right"
+                    style={styles.toggle}
+                    onToggle={this.handleChange.bind(this, 'fab')}
+                    defaultToggled={this.config.fab}
+                    />
+                </div> : null
+              }
             </section>
           </div>
 
           <div className="pure-u-1 pure-u-md-1-3">
             <section>
+
               {
                 this.state.fabCornersVisible ?
                 <div>
@@ -177,23 +181,35 @@ class Playground extends Component {
                         })
                     }
                     </SelectField>
-
-                    <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} />
-                    <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} />
-                    <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} />
                 </div> : null
                }
+
+              <div>
+                <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} />
+              </div>
+
+              <div>
+                <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} />
+              </div>
+
+              <div>
+                <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} />
+              </div>
+
+              <div>
+                <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
+              </div>
             </section>
-          </div>
-
-          <div className="pure-u-1 pure-u-md-2-3">
-
           </div>
 
           <div className="pure-u-1 pure-u-md-1-3">
             <section className="form-centered">
               { gh }
             </section>
+          </div>
+
+          <div className="pure-u-1 pure-u-md-2-3">
+
           </div>
         </div>
 
