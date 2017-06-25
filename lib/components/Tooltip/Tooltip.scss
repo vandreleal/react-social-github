@@ -1,10 +1,9 @@
 .github-tooltip {
-    position: absolute;
+    position: fixed;
 }
 
 .github-tooltip-animation-enter {
 
-    position: fixed;
     opacity: 0.01;
 
 }
@@ -16,7 +15,6 @@
 
 .github-tooltip-animation-leave {
 
-    position: absolute;
     opacity: 1;
 
 }
