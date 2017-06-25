@@ -12,13 +12,13 @@ class App extends Component {
 
         <Github org="facebook" type="tooltip" tooltipOnHover={false}></Github>
 
-        <Github org="facebook" type="tooltip" iconColor="orange" iconWidth="96" iconHeight="96" tooltipPosition="left" style={{ position:'fixed', right: 10, top: 50 }}></Github>
+        <Github org="facebook" type="tooltip" tooltipPosition="left" fab={true} fabCorner="top-right"></Github>
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true} fab={true} iconColor="red" iconWidth={64} iconHeight={64}></Github>
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
 
-        {/*<Github user="facebook" repo="react" type="widget"></Github>*/}
+        <Github user="facebook" repo="react" type="widget"></Github>
 
         <Github user="vandreleal" type="widget"></Github>
 
