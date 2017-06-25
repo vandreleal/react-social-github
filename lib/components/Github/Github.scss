@@ -1,5 +1,5 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-$color-bg: #fafafa;
+$color-bg: #fafbfc;
 $color-text: #000;
 $color-available: #3c763d;
 
@@ -47,6 +47,8 @@ $color-available: #3c763d;
 
   &-fab {
     position: fixed;
+    background: #fff;
+    border-radius: 50%;
 
     &--top {
       &-left {
@@ -82,7 +84,7 @@ $color-available: #3c763d;
   color: #000;
 
   &-wrapper {
-    box-shadow: rgba(darken($color-bg, 50%), 0.2) 0 1px 5px;
+    box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
     display: inline-block;
     min-width: 240px;
     max-width: 320px;
