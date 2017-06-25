@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Github } from 'react-social-github';
 import './App.css';
 import 'whatwg-fetch';
 
@@ -7,12 +7,18 @@ import ReactMarkdown from 'react-markdown';
 
 class App extends Component {
 
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      markdown: '# Loading'
+      markdown: '# Loading',
+      user: 'facebook',
+      repo: 'react'
     };
+
+    this.handleChangeUser = this.handleChangeUser.bind(this);
+    this.handleChangeRepo = this.handleChangeRepo.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -35,21 +41,44 @@ class App extends Component {
         markdown: 'Could not load'
       });
     });
+  }
 
+  handleChangeUser(event) {
+    this.setState({user: event.target.value});
+  }
+
+  handleChangeRepo(event) {
+    this.setState({repo: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    return (
+      <Github user={this.state.user} repo={this.state.repo}></Github>
+    )
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" value={this.state.user} onChange={this.handleChangeUser} />
+          </label>
 
-        <ReactMarkdown source={this.state.markdown} />,
+          <label>
+            Repo:
+            <input type="text" value={this.state.repo} onChange={this.handleChangeRepo} />
+          </label>
+
+          <input type="submit" value="Submit" />
+        </form>
+
+        <Github user="vandreleal"></Github>
+        <Github user="facebook" repo="react"></Github>
+
+        <ReactMarkdown source={this.state.markdown} />
 
       </div>
     );
