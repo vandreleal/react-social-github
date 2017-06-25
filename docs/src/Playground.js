@@ -42,17 +42,16 @@ class Playground extends Component {
     };
   }
 
-  handleChange(name, event) {
-    this.config[name] = event.target.value;
+  handleChange(name, event, key, value) {
+    let nValue = typeof value !== 'undefined' ? value : key;
+    this.config[name] = nValue;
   };
 
   update() {
-    console.log(this.config);
     this.setState(this.config);
   }
 
   render() {
-
     let gh = null;
 
     if(typeof this.state.user === 'string' && this.state.user.length>0) {
@@ -64,7 +63,6 @@ class Playground extends Component {
     }
 
     if (typeof this.state.repo === 'string' && this.state.repo.length > 0) {
-        console.log('repo_: ' + this.state.repo);
         gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
     }
 
@@ -72,40 +70,32 @@ class Playground extends Component {
       <div className="playground">
 
         <section>
-            <TextField
-                hintText="User" onChange={this.handleChange.bind(this, 'user')}
-            />
-
-            <TextField
-                    hintText="Repo" onChange={this.handleChange.bind(this, 'repo')}
-            />
+          <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
+          <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
+          <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
         </section>
 
         <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
-            {
-                types.map((vtype, index) => {
-                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                })
-            }
+          {
+            types.map((vtype, index) => {
+                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+            })
+          }
         </DropDownMenu>
 
-        {/*}<Switch
-          checked={this.state.fab}
-          label="FAB"
-          onChange={this.handleChange.bind(this, 'fab')}
-        />*/}
-
         <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
-            {
-                fabCorners.map((vtype, index) => {
-                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                })
-            }
+          {
+            fabCorners.map((vtype, index) => {
+                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+            })
+          }
         </DropDownMenu>
 
         <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
 
-        { gh }
+        <div>
+          { gh }
+        </div>
 
       </div>
     );
