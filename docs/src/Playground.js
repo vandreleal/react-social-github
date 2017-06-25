@@ -206,7 +206,7 @@ class Playground extends Component {
           </div>
 
           <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1-3">
-            <section className="form-centered">
+            <section className="form-example form-centered">
               { gh }
             </section>
           </div>
