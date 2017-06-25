@@ -5,22 +5,28 @@ import './github-markdown.css';
 import 'whatwg-fetch';
 
 import Input from 'react-toolbox/lib/input';
+import Button from 'react-toolbox/lib/button';
 
 class Playground extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    this.config = {
         type: 'widget',
         user: '',
         org: '',
         repo: ''
     };
+    this.state = Object.apply({}, this.config);
   }
 
   onChange(name, value) {
-    this.setState({...this.state, [name]: value});
+    this.config = {...this.config, [name]: value};
   };
+
+  update() {
+    this.setState(this.config);
+  }
 
   render() {
 
@@ -52,6 +58,8 @@ class Playground extends Component {
           <option value="widget">Widget</option>
           <option value="button">Button</option>
         </select>
+
+        <Button icon='bookmark' label='Update' onClick={this.update.bind(this)} />
 
         { gh }
 
