@@ -50,7 +50,7 @@ import { Github } from 'react-social-github';
     <td>type</td>
     <td>string</td>
     <td>widget</td>
-    <td>Specify the type of the component.</td>
+    <td>Specify the type of the component</td>
   </tr>
 </table>
 
@@ -101,19 +101,19 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
     <td>iconColor</td>
     <td>string</td>
     <td>#000</td>
-    <td>Color name, RGB value, hexadecimal value, HSL value or HWB value.</td>
+    <td>Color name, RGB value, hexadecimal value, HSL value or HWB value</td>
   </tr>
   <tr>
     <td>iconWidth</td>
     <td>number</td>
-    <td>48</td>
-    <td>px</td>
+    <td>48px</td>
+    <td>Width followed by unit</td>
   </tr>
   <tr>
     <td>iconHeight</td>
     <td>number</td>
-    <td>48</td>
-    <td>px</td>
+    <td>48px</td>
+    <td>Height followed by unit</td>
   </tr>
   <tr>
     <td>fab</td>
