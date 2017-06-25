@@ -127,7 +127,7 @@ class Playground extends Component {
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-md-1-3">
             <label className="form-label">Basic Github Info</label>
             <section className="form-section">
               <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
@@ -136,7 +136,7 @@ class Playground extends Component {
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-md-1-3">
             <section className="form-section">
               <div>
                   <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
@@ -164,7 +164,7 @@ class Playground extends Component {
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-md-1-3">
             <section className="form-section">
               {
                 this.state.fabCornersVisible ?
@@ -185,7 +185,11 @@ class Playground extends Component {
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-md-1">
+          <div className="pure-u-1 pure-u-md-2-3">
+
+          </div>
+
+          <div className="pure-u-1 pure-u-md-1-3">
             <section className="form-centered">
               { gh }
             </section>
