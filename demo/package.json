@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Showcase your GitHub profile, organization or repository information",
   "private": true,
+  "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
+  "contributors": [
+    "Gustavo Sampaio <gbritosampaio@gmail.com> (http://gsampaio.info)",
+    "Emerson Jair <emersonjairr@gmail.com> (http://emersonjair.info/)"
+  ],
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
