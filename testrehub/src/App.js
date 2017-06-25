@@ -12,9 +12,9 @@ class App extends Component {
 
         {/*<Github user="facebook" repo="react" presentation="widget"></Github>*/}
 
-        <Github user="vandreleal"></Github>
+        <Github user="vandreleal" tooltipOnHover={true}></Github>
 
-        <Github user="dungahk"></Github>
+        <Github user="dungahk" tooltipOnHover={true}></Github>
       </div>
     );
   }
