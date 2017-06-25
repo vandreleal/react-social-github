@@ -1,5 +1,4 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-
 $wrapper-color: #fafafa;
 $color-available: #3c763d;
 
@@ -38,7 +37,7 @@ $color-available: #3c763d;
 
   .name {
     margin-top: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     font-size: 20px;
     font-weight: 700;
   }
@@ -55,7 +54,7 @@ $color-available: #3c763d;
 
   .counters {
     display: inline-block;
-    margin-top: 24px;
+    margin-top: 16px;
 
     .item {
       display: inline-block;
@@ -120,6 +119,15 @@ $color-available: #3c763d;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: 0;
+    }
 
     svg {
       width: 48px;

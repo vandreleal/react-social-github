@@ -8,11 +8,11 @@ class App extends Component {
       <div className="App">
         <h1>Re<em>Hub</em></h1>
 
-        <Github org="hackbit"></Github>
+        <Github org="hackbit" presentation="tooltip"></Github>
 
-        {/*<Github user="vandreleal"></Github>*/}
+        <Github user="GustavoKatel" repo="clementine-info" presentation="widget"></Github>
 
-        {/*<Github user="GustavoKatel" repo="clementine-info" presentation="widget"></Github>*/}
+        <Github user="vandreleal"></Github>
 
         {/*<Github user="dungahk"></Github>*/}
       </div>
