@@ -3,19 +3,19 @@ $color-bg: #fafbfc;
 $color-text: #000;
 $color-available: #3c763d;
 
-.loading-icon {
+.rsg-loading-icon {
   width: 96px;
   height: 96px;
 }
 
-.inline {
+.rsg-inline {
   &-link {
     display: inline;
     cursor: pointer;
   }
 }
 
-.btn {
+.rsg-btn {
   &-icon {
     background: none;
     margin: 0;
@@ -76,7 +76,7 @@ $color-available: #3c763d;
   }
 }
 
-.github {
+.rsg-github {
   display: inline-block;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -110,20 +110,20 @@ $color-available: #3c763d;
     }
   }
 
-  .avatar {
+  .rsg-avatar {
     width: 96px;
     height: 96px;
     border-radius: 50%;
   }
 
-  .name {
+  .rsg-name {
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 20px;
     font-weight: 700;
   }
 
-  .info {
+  .rsg-info {
     margin-bottom: 2px;
     font-size: 16px;
     font-weight: 300;
@@ -142,16 +142,16 @@ $color-available: #3c763d;
     }
   }
 
-  .counters {
+  .rsg-counters {
     display: inline-block;
     margin-top: 16px;
 
-    .item {
+    .rsg-item {
       display: inline-block;
       padding-left: 20px;
       padding-right: 20px;
 
-      .icon {
+      .rsg-icon {
         display: inline-block;
         vertical-align: top;
         margin-right: 12px;
@@ -167,13 +167,13 @@ $color-available: #3c763d;
         display: inline-block;
         text-align: left;
 
-        .count {
+        .rsg-count {
           display: block;
           font-size: 18px;
           font-weight: 700;
         }
 
-        .label {
+        .rsg-label {
           margin-top: 2px;
           font-size: 10px;
           font-weight: 300;
@@ -187,11 +187,11 @@ $color-available: #3c763d;
     }
   }
 
-  .status {
+  .rsg-status {
     display: inline-block;
     margin-bottom: 8px;
 
-    .available {
+    .rsg-available {
       display: inline-block;
       padding: 8px 16px;
       text-transform: uppercase;
@@ -204,7 +204,7 @@ $color-available: #3c763d;
     }
   }
 
-  .btn-github {
+  .rsg-btn-github {
     display: block;
     margin-top: 24px;
     padding: 8px 16px;
@@ -226,14 +226,14 @@ $color-available: #3c763d;
       border-color: darken($color-bg, 20%);
     }
 
-    .icon {
+    .rsg-icon {
       width: 20px;
       height: 20px;
       margin-right: 8px;
       vertical-align: middle;
     }
 
-    .text {
+    .rsg-text {
       display: initial !important;
       vertical-align: middle;
     }

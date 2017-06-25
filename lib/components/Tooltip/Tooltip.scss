@@ -1,4 +1,4 @@
-.github-tooltip {
+.rsg-github-tooltip {
   position: fixed;
 
   &-animation-enter {
@@ -10,12 +10,12 @@
   }
 }
 
-.github-tooltip-animation-enter.github-tooltip-animation-enter-active {
+.rsg-github-tooltip-animation-enter.rsg-github-tooltip-animation-enter-active {
   opacity: 1;
   transition: opacity 100ms linear;
 }
 
-.github-tooltip-animation-leave.github-tooltip-animation-leave-active {
+.rsg-github-tooltip-animation-leave.rsg-github-tooltip-animation-leave-active {
   opacity: 0.01;
   transition: opacity 100ms linear;
 }
