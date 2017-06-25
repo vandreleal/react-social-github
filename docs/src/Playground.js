@@ -4,9 +4,10 @@ import './Playground.css';
 import './github-markdown.css';
 import 'whatwg-fetch';
 
-import Input from 'react-toolbox/lib/input';
-import Button from 'react-toolbox/lib/button';
-import Dropdown from 'react-toolbox/lib/dropdown';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 // import Switch from 'react-toolbox/lib/switch';
 
 const types = [
@@ -34,14 +35,22 @@ class Playground extends Component {
       org: '',
       repo: ''
     };
-    this.state = Object.apply({}, this.config);
+    this.state = {
+        type: 'widget',
+        fab: false,
+        fabCorner: 'bottom-right',
+        user: '',
+        org: '',
+        repo: ''
+    };
   }
 
-  handleChange(name, value) {
-    this.config({...this.state, [name]: value});
+  handleChange(name, event) {
+    this.config[name] = event.target.value;
   };
 
   update() {
+    console.log(this.config);
     this.setState(this.config);
   }
 
@@ -57,7 +66,7 @@ class Playground extends Component {
         gh = <Github org={this.state.org} type={this.state.type}  tooltipOnHover={true} key={this.state.org}></Github>;
     }
 
-    if (this.state.repo.length > 0) {
+    if (typeof this.state.repo === 'string' && this.state.repo.length > 0) {
         console.log('repo_: ' + this.state.repo);
         gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
     }
@@ -66,16 +75,22 @@ class Playground extends Component {
       <div className="playground">
 
         <section>
-          <Input type='text' label='User' name='user' value={this.state.user} onChange={this.handleChange.bind(this, 'user')} />
-          <Input type='text' label='Repo' name='repo' value={this.state.repo} onChange={this.handleChange.bind(this, 'repo')} />
+            <TextField
+                hintText="User" onChange={this.handleChange.bind(this, 'user')}
+            />
+
+            <TextField
+                    hintText="Repo" onChange={this.handleChange.bind(this, 'repo')}
+            />
         </section>
 
-        <Dropdown
-          auto
-          onChange={this.handleChange.bind(this, 'type')}
-          source={types}
-          value={this.state.type}
-        />
+        <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+            {
+                types.map((vtype, index) => {
+                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                })
+            }
+        </DropDownMenu>
 
         {/*}<Switch
           checked={this.state.fab}
@@ -83,14 +98,15 @@ class Playground extends Component {
           onChange={this.handleChange.bind(this, 'fab')}
         />*/}
 
-        <Dropdown
-          auto
-          onChange={this.handleChange.bind(this, 'fabCorner')}
-          source={fabCorners}
-          value={this.state.fabCorner}
-        />
+        <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
+            {
+                fabCorners.map((vtype, index) => {
+                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                })
+            }
+        </DropDownMenu>
 
-        <Button icon='bookmark' label='Update' onClick={this.update.bind(this)} />
+        <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
 
         { gh }
 

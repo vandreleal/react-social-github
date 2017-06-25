@@ -4,6 +4,8 @@ import './App.css';
 import './github-markdown.css';
 import 'whatwg-fetch';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import ReactMarkdown from 'react-markdown';
 
 import Playground from './Playground';
@@ -41,14 +43,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <MuiThemeProvider>
+        <div className="app">
 
-        <Playground />
+          <Playground />
 
-        <ReactMarkdown source={this.state.markdown} className="markdown-body" />
+          <ReactMarkdown source={this.state.markdown} className="markdown-body" />
 
-        <Github user="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
-      </div>
+          <Github user="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
