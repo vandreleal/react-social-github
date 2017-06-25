@@ -17,8 +17,7 @@
     "lint:watch": "esw -w lib/**",
     "prepare": "npm run build",
     "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js",
-    "test:watch": "npm test -- --watch",
-    "test-cov": "istanbul cover --print both _mocha -- test/index.js"
+    "test:watch": "npm test -- --watch"
   },
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "contributors": [
@@ -39,8 +38,6 @@
     "eslint-plugin-react": "^7.0.1",
     "eslint-watch": "^3.1.0",
     "expect": "^1.20.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "prop-types": "^15.5.10",
