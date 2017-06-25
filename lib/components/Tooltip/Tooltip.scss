@@ -10,7 +10,7 @@
 
 .github-tooltip-animation-enter.github-tooltip-animation-enter-active {
     opacity: 1;
-    transition: opacity 0.3s linear;
+    transition: opacity 100ms linear;
 }
 
 .github-tooltip-animation-leave {
@@ -21,6 +21,6 @@
 
 .github-tooltip-animation-leave.github-tooltip-animation-leave-active {
     opacity: 0.01;
-    transition: opacity 0.3s linear;
+    transition: opacity 100ms linear;
 }
 
