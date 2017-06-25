@@ -10,19 +10,15 @@ class App extends Component {
 
         <Github org="facebook" type="tooltip"></Github>
 
-        <Github org="facebook" type="tooltip" tooltipOnHover={false}></Github>
-
         <Github org="facebook" type="tooltip" fab={true} fabCorner="top-right"></Github>
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true} fab={true} iconColor="red" iconWidth={64} iconHeight={64}></Github>
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
 
-        <Github user="facebook" repo="react" type="widget"></Github>
+        <Github user="facebook" repo="react"></Github>
 
         <Github user="vandreleal" type="widget"></Github>
-
-        <Github user="dungahk" text="Profile" type="link"></Github>
 
         <Github user="gustavokatel" text="Profile" type="link"></Github>
       </div>
