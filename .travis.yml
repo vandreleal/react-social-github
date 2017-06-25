@@ -1,0 +1,19 @@
+language: node_js
+
+sudo: false
+
+# track upstream node_js matrix:
+# - https://github.com/hexojs/hexo/blob/master/.travis.yml
+# - https://github.com/sass/node-sass/blob/master/.travis.yml
+node_js:
+  - "4"
+  - "6"
+  - "7"
+
+script:
+  - npm run lint
+  - npm run test-cov
+
+after_script:
+  - npm install coveralls
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
