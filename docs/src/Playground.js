@@ -90,6 +90,7 @@ class Playground extends Component {
     if(name === 'fab') {
         delta.fabCornersEnabled = this.config.type === 'button' && this.config.fab === true && nValue === true;
     }
+
     this.setState(delta);
   };
 
@@ -103,8 +104,8 @@ class Playground extends Component {
         fab: this.state.fab,
         fabCorner: this.state.fabCorner,
         iconColor: this.state.iconColor,
-        iconWidht: this.state.iconWidht,
-        iconHeight: this.state.iconHeight,
+        iconWidth: Number(this.state.iconWidth),
+        iconHeight: Number(this.state.iconHeight),
         tooltipOnHover: true
     };
 
@@ -129,17 +130,22 @@ class Playground extends Component {
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+          <div className="pure-u-1 pure-u-md-1-3">
             <label className="form-label">Basic Github Info</label>
-            <section className="form-section">
-              <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
-              <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
-              <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
-            </section>
-          </div>
+            <section>
 
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-            <section className="form-section">
+              <div>
+                <TextField hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
+              </div>
+
+              <div>
+                <TextField hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
+              </div>
+
+              <div>
+                <TextField hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
+              </div>
+
               <div>
                   <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
                       {
@@ -148,26 +154,25 @@ class Playground extends Component {
                           })
                       }
                   </SelectField>
-
-                <div style={styles.block}>
-                    <Toggle
-                    disabled={!this.state.fabToggleEnabled}
-                    label="FAB"
-                    labelPosition="right"
-                    style={styles.toggle}
-                    onToggle={this.handleChange.bind(this, 'fab')}
-                    defaultToggled={this.config.fab}
-                    />
-                </div>
               </div>
 
-              <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
+              <div style={styles.block}>
+                  <Toggle
+                      disabled={!this.state.fabToggleEnabled}
+                      label="FAB"
+                      labelPosition="right"
+                      style={styles.toggle}
+                      onToggle={this.handleChange.bind(this, 'fab')}
+                      defaultToggled={this.config.fab}
+                  />
+              </div>
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-            <section className="form-section">
-            <div>
+          <div className="pure-u-1 pure-u-md-1-3">
+            <section>
+
+             <div>
                 <SelectField
                     value={this.config.fabCorner}
                     floatingLabelText="Fab Corner"
@@ -186,13 +191,21 @@ class Playground extends Component {
                 <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
                 <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
             </div>
+
+              <div>
+                <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
+              </div>
             </section>
           </div>
 
-          <div className="pure-u-1 pure-u-md-1">
+          <div className="pure-u-1 pure-u-md-1-3">
             <section className="form-centered">
               { gh }
             </section>
+          </div>
+
+          <div className="pure-u-1 pure-u-md-2-3">
+
           </div>
         </div>
 
