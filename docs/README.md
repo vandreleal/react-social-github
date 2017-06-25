@@ -26,19 +26,55 @@ import { Github } from 'react-social-github';
 
 #### Attributes
 
-Name | Default
-:---: | :---:
-min-width | `240px`
-max-width | `320px`
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td>min-width</td>
+    <td>`240px`</td>
+  </tr>
+  <tr>
+    <td>max-width</td>
+    <td>`320px`</td>
+  </tr>
+</table>
 
 ### Options
 
-Name | Type | Default | Description
-:---: | :---: | :---: | :---
-user | `string` | none | Specify the username to show info about. Conflicts with `org`
-repo | `string` | none | Specify the repository to show info about. Requires `user`
-org | `string` | none | Specify the organization to show info about. Conflicts with `user`
-type | `string` | `widget` | Specify the type of the component. See [types](#Types).
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>user</td>
+    <td>`string`</td>
+    <td>none</td>
+    <td>Specify the username to show info about. Conflicts with `org`</td>
+  </tr>
+  <tr>
+    <td>repo</td>
+    <td>`string`</td>
+    <td>none</td>
+    <td>Specify the repository to show info about. Requires `user`</td>
+  </tr>
+  <tr>
+    <td>org</td>
+    <td>`string`</td>
+    <td>none</td>
+    <td>Specify the organization to show info about. Conflicts with `user`</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>`string`</td>
+    <td>`widget`</td>
+    <td>Specify the type of the component. See [types](#Types).</td>
+  </tr>
+</table>
 
 ---
 
