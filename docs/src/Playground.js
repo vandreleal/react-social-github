@@ -70,6 +70,7 @@ class Playground extends Component {
         fabToggleEnabled: false,
         fabCornersEnabled: false,
         buttonControlsEnabled: false,
+        repoErrorText: '',
         iconColor: '',
         iconWidth: 0,
         iconHeight: 0
@@ -86,12 +87,24 @@ class Playground extends Component {
         delta.org = '';
         this.config.org = '';
         this.config.user = nValue;
+
+        delta.repoErrorText = '';
     }
 
     if(name === 'org') {
         delta.user = '';
         this.config.user = '';
         this.config.org = nValue;
+
+        delta.repoErrorText = '';
+    }
+
+    if(name === 'repo') {
+        if(!this.config.user && !this.config.org && this.config.repo) {
+            delta.repoErrorText = 'User or org missing';
+        } else {
+            delta.repoErrorText = '';
+        }
     }
 
     if(name === 'type') {
@@ -171,7 +184,7 @@ class Playground extends Component {
                   </div>
 
                   <div>
-                    <TextField hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
+                    <TextField errorText={this.state.repoErrorText} hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
                   </div>
 
                   <div>
