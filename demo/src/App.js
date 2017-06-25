@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Github } from 'rehub';
+import { Github } from 'react-social-github';
 import './App.css';
 
 class App extends Component {

@@ -1,5 +1,5 @@
 {
-  "name": "rehub",
+  "name": "react-social-github",
   "version": "0.1.0",
   "description": "an example setup for building a component lib with ReactJS",
   "main": "build/index.js",
