@@ -5,3 +5,17 @@
 .form-section {
   margin-bottom: 40px;
 }
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.form-centered {
+  text-align: center;
+}
+
+.form-button {
+  margin-top: 8px;
+}
