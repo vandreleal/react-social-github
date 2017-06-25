@@ -12,7 +12,7 @@ class App extends Component {
 
         <Github org="facebook" type="tooltip" tooltipOnHover={false}></Github>
 
-        <Github org="facebook" type="tooltip" iconColor="orange" iconWidth="96" iconHeight="96" tooltipPosition="left" style={{ position:'fixed', right: 10, top: 50 }}></Github>
+        <Github org="facebook" type="tooltip" iconColor="orange" iconWidth="96" iconHeight="96" style={{ position:'fixed', right: 10, top: 50 }}></Github>
 
         <Github org="facebook" type="tooltip" tooltipOnHover={true} fab={true} iconColor="red" iconWidth={64} iconHeight={64}></Github>
 
@@ -22,9 +22,9 @@ class App extends Component {
 
         <Github user="vandreleal" type="widget"></Github>
 
-        <Github user="dungahk" text="Profile" type="link" tooltipPosition="bottom"></Github>
+        <Github user="dungahk" text="Profile" type="link"></Github>
 
-        <Github user="gustavokatel" text="Profile" type="link" tooltipPosition="top"></Github>
+        <Github user="gustavokatel" text="Profile" type="link"></Github>
       </div>
     );
   }
