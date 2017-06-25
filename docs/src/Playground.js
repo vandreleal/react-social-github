@@ -8,7 +8,6 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-// import Switch from 'react-toolbox/lib/switch';
 
 const types = [
   { value: 'widget', label: 'Widget' },
@@ -29,9 +28,7 @@ class Playground extends Component {
     super(props);
     this.config = {
       type: 'widget',
-      fab: false,
-      fabCorner: 'bottom-right',
-      user: '',
+      user: 'vandreleal',
       org: '',
       repo: ''
     };
