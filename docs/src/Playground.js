@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Github } from 'react-social-github';
-import './Playground.css';
-import './github-markdown.css';
-import 'whatwg-fetch';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
+
+import './Playground.css';
+import 'whatwg-fetch';
 
 const styles = {
   block: {
