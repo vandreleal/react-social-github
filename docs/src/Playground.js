@@ -42,12 +42,12 @@ class Playground extends Component {
     };
   }
 
-  handleChange(name, event) {
-    this.config[name] = event.target.value;
+  handleChange(name, event, key, value) {
+    let nValue = typeof value !== 'undefined' ? value : key;
+    this.config[name] = nValue;
   };
 
   update() {
-    console.log(this.config);
     this.setState(this.config);
   }
 
@@ -64,7 +64,6 @@ class Playground extends Component {
     }
 
     if (typeof this.state.repo === 'string' && this.state.repo.length > 0) {
-        console.log('repo_: ' + this.state.repo);
         gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
     }
 
@@ -81,7 +80,7 @@ class Playground extends Component {
             />
         </section>
 
-        <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+        <DropDownMenu onChange={this.handleChange.bind(this, 'type')}>
             {
                 types.map((vtype, index) => {
                     return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
@@ -95,7 +94,7 @@ class Playground extends Component {
           onChange={this.handleChange.bind(this, 'fab')}
         />*/}
 
-        <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
+        <DropDownMenu onChange={this.handleChange.bind(this, 'fabCorner')}>
             {
                 fabCorners.map((vtype, index) => {
                     return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
