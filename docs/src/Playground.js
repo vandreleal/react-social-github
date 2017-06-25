@@ -4,6 +4,8 @@ import './Playground.css';
 import './github-markdown.css';
 import 'whatwg-fetch';
 
+import Input from 'react-toolbox/lib/input';
+
 class Playground extends Component {
 
   constructor(props) {
@@ -16,11 +18,9 @@ class Playground extends Component {
     };
   }
 
-  onChange(what, event) {
-      let delta = {};
-      delta[what] = event.target.value;
-      this.setState(delta);
-  }
+  onChange(name, value) {
+    this.setState({...this.state, [name]: value});
+  };
 
   render() {
 
@@ -34,17 +34,18 @@ class Playground extends Component {
     return (
       <div className="playground">
 
-      <select value={this.state.type} onChange={this.onChange.bind(this, 'type')}>
-        <option value="link">Link</option>
-        <option value="widget">Widget</option>
-        <option value="button">Button</option>
-      </select>
+        <section>
+          <Input type='text' label='User' name='user' value={this.state.user} onChange={this.onChange.bind(this, 'user')} />
+          <Input type='text' label='Repo' name='repo' value={this.state.repo} onChange={this.onChange.bind(this, 'repo')} />
+        </section>
 
-        User: <input type="text" value={this.state.user} onChange={this.onChange.bind(this, 'user')} /><br/>
-        Org: <input type="text" value={this.state.org} onChange={this.onChange.bind(this, 'org')} /><br/>
-        Repo: <input type="text" value={this.state.repo} onChange={this.onChange.bind(this, 'repo')} /><br/>
+        <select value={this.state.type} onChange={this.onChange.bind(this, 'type')}>
+          <option value="link">Link</option>
+          <option value="widget">Widget</option>
+          <option value="button">Button</option>
+        </select>
 
-            { gh }
+        { gh }
 
       </div>
     );
