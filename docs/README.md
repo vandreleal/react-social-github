@@ -123,13 +123,13 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
     <td>iconWidth</td>
     <td>number</td>
     <td>48</td>
-    <td>px.</td>
+    <td>px</td>
   </tr>
   <tr>
     <td>iconHeight</td>
     <td>number</td>
     <td>48</td>
-    <td>px.</td>
+    <td>px</td>
   </tr>
   <tr>
     <td>fab</td>
