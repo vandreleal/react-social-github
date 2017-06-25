@@ -3,6 +3,18 @@ $color-bg: #fafafa;
 $color-text: #000;
 $color-available: #3c763d;
 
+.loading-icon {
+  width: 96px;
+  height: 96px;
+}
+
+.inline {
+  &-link {
+    display: inline;
+    cursor: pointer;
+  }
+}
+
 .btn {
   &-icon {
     background: none;
@@ -218,9 +230,4 @@ $color-available: #3c763d;
       vertical-align: middle;
     }
   }
-}
-
-.loading-icon {
-  width: 96px;
-  height: 96px;
 }
