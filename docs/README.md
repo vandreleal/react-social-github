@@ -47,23 +47,33 @@ type | `string` | `widget` | Specify the type of the presentation. See [types](#
 
 ## Types
 
-### Inline
-
-Inline link
 
 ### Widget
 
-Widget
+Includes
 
-### Tooltip
+### Inline
 
-Adaptive floating tooltips with anchor button
+Inline an inline link that shows the tooltip on hover. In order to use the inline element.
+
+### Button
+
+Tooltips with anchor button.
+
+#### Attributes
+
+Name | Default
+:---: | :---:
+min-width | `240px`
+max-width | `320px`
+
+---
 
 #### Options
 
 Name | Type | Default | Description
 :---: | :---: | :---: | :---
-iconColor | `string` | `none` | Color name, RGB value, hexadecimal value, HSL value or HWB value.
+iconColor | `string` | #000 | Color name, RGB value, hexadecimal value, HSL value or HWB value.
 iconWidth | `number` | 48 | px.
 iconHeight | `number` | 48 | px.
 fab | `bool` | false | Floating Action Button
@@ -86,6 +96,12 @@ ReactDOM.render(
 
 );
 ```
+
+---
+
+## Examples
+
+For a comprehensive list of examples, please proceed to the demo page.
 
 ---
 
