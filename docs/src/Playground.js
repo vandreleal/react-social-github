@@ -98,6 +98,21 @@ class Playground extends Component {
     this.setState(this.config);
   }
 
+  transverseProps(ghProps) {
+
+      let acc = '';
+
+      Object.keys(ghProps).forEach((key, index) => {
+        let value = ghProps[key];
+        let jsType = typeof value !== 'string';
+
+        acc += key + '=' + (jsType ? '{' : '"') + value + (jsType ? '}' : '"') + ' ';
+      });
+
+      return acc;
+
+  }
+
   render() {
     let ghProps = {
         type: this.state.type,
@@ -212,6 +227,10 @@ class Playground extends Component {
           </div>
 
           <div className="pure-u-1 pure-u-sm-1 pure-u-lg-2-3">
+
+              <code>
+                  {`<Github ${this.transverseProps(ghProps)}>${ ghProps.type==='link' ? 'Hover here' : '' }</Github>`}
+              </code>
 
           </div>
         </div>
