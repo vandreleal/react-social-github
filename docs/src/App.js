@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Github } from 'react-social-github';
 import './App.css';
+import './github-markdown.css';
 import 'whatwg-fetch';
 
 import ReactMarkdown from 'react-markdown';
@@ -75,11 +76,11 @@ class App extends Component {
           <input type="submit" value="Submit" />
         </form>*/}
 
-        <ReactMarkdown source={this.state.markdown} />
+        <ReactMarkdown source={this.state.markdown} className="markdown-body" />
 
         <Github user="vandreleal"></Github>
         <Github user="facebook" repo="react"></Github>
-        
+
       </div>
     );
   }
