@@ -7,20 +7,16 @@
 
 Showcase your GitHub profile, organization or repository information in an elegant way.
 
----
-
 ## Install
 React Social Github is available as the `react-social-github` package on npm.
 ```sh
 $ npm install react-social-github --save
 ```
----
 
 ## Usage
 ```jsx
 import { Github } from 'react-social-github';
 ```
----
 
 ## Reference
 
@@ -76,7 +72,6 @@ import { Github } from 'react-social-github';
   </tr>
 </table>
 
----
 
 ## Types
 
@@ -168,20 +163,17 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 <Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
 ```
 
----
 
 ## More Examples
 
 Please proceed to the official page for more examples.
 
----
 
 ## Team
 + [Vandré Leal Cândido](https://github.com/vandreleal)
 + [Gustavo Sampaio](https://github.com/GustavoKatel)
 + [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
 
----
 
 ## Open source
 
