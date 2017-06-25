@@ -33,7 +33,7 @@ const styles = {
     color: 'red',
   },
   customWidth: {
-    width: 150,
+    width: 260,
   }
 };
 
