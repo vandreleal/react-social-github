@@ -19,16 +19,6 @@ $ npm install react-social-github --save
 ## Usage
 ```jsx
 import { Github } from 'react-social-github';
-
-ReactDOM.render(
-
-  <GitHub user="torvalds" />
-
-  <GitHub org="facebook" />
-
-  <GitHub user="facebook" repo="react" />
-
-);
 ```
 ---
 
@@ -48,7 +38,7 @@ Name | Type | Default | Description
 user | `string` | none | Specify the username to show info about. Conflicts with `org`
 repo | `string` | none | Specify the repository to show info about. Requires `user`
 org | `string` | none | Specify the organization to show info about. Conflicts with `user`
-type | `string` | `widget` | Specify the type of the presentation. See [types](#Types).
+type | `string` | `widget` | Specify the type of the component. See [types](#Types).
 
 ---
 
@@ -57,7 +47,7 @@ type | `string` | `widget` | Specify the type of the presentation. See [types](#
 
 ### Widget
 
-The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the element to provide more clarity.
+The tooltip is inserted as a block element. This is the default type and doesn't require any configuration. The option `type="widget"` can be declared in the component to provide more clarity.
 
 #### Example
 
@@ -71,7 +61,7 @@ The tooltip is inserted as a block element. This is the default type and doesn't
 
 ### Link
 
-The tooltip is anchored in an inline link. In order to use the inline element the option `type="link"` must be declared in the element.
+The tooltip is anchored in an inline link. In order to use the inline element the option `type="link"` must be declared in the component.
 
 #### Example
 
@@ -81,7 +71,7 @@ The tooltip is anchored in an inline link. In order to use the inline element th
 
 ### Button
 
-The tooltip is anchored in a button. In order to use the inline element the option `type="button"` must be declared in the element.
+The tooltip is anchored in a button. In order to use the inline element the option `type="button"` must be declared in the component.
 
 #### Options
 
@@ -97,8 +87,9 @@ tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
 
 ---
 
-#### Example
+## Examples
 
+###  Basic Usage
 ```jsx
   <Github user="torvalds" type="tooltip"></Github>
 
@@ -107,9 +98,7 @@ tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
   <Github org="twitter" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
 ```
 
----
-
-## Examples
+### Advanced Usage
 
 For a comprehensive list of examples, please proceed to the demo page.
 
