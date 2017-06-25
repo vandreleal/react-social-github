@@ -22,9 +22,6 @@ $color-available: #3c763d;
     }
 
     svg {
-      width: 48px;
-      height: 48px;
-
       &:after {
         content: "";
         position: absolute;
@@ -162,7 +159,7 @@ $color-available: #3c763d;
     font-size: 14px;
     font-weight: 700;
     border-radius: 4px;
-    background-color: darken($color-bg, 3%);
+    background-color: darken($color-bg, 5%);
     border: 1px solid darken($color-bg, 15%);
     text-shadow: 0 1px 0 $color-bg;
     white-space: nowrap;
@@ -172,7 +169,7 @@ $color-available: #3c763d;
     &:focus,
     &:hover {
       text-decoration: none !important;
-      background-color: darken($color-bg, 6%);
+      background-color: darken($color-bg, 10%);
       border-color: darken($color-bg, 20%);
     }
 
