@@ -12,7 +12,7 @@ import 'whatwg-fetch';
 
 const styles = {
   block: {
-    maxWidth: 200,
+    maxWidth: 260,
   },
   toggle: {
     marginBottom: 16,
@@ -186,8 +186,9 @@ class Playground extends Component {
 
                   <div style={styles.block}>
                       <Toggle
+                          className="form-button"
                           disabled={!this.state.fabToggleEnabled}
-                          label="FAB"
+                          label="FAB (Floating Action Button)"
                           labelPosition="right"
                           style={styles.toggle}
                           onToggle={this.handleChange.bind(this, 'fab')}
