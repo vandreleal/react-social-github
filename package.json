@@ -19,8 +19,12 @@
     "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js",
     "test:watch": "npm test -- --watch"
   },
-  "author": "Costero <> (https://github.com/Hackbit/reactriot2017-costero)",
-  "license": "ISC",
+  "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
+  "contributors": [
+    "Gustavo Sampaio <gbritosampaio@gmail.com> (http://gsampaio.info)",
+    "Emerson Jair <emersonjairr@gmail.com> (http://emersonjair.info/)"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
