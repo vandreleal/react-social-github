@@ -16,13 +16,15 @@
 }
 
 .form-example {
-  margin-top: 16px;
+  margin: 16px 8px 0;
 }
 
-.form-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 400;
+.form-code {
+  margin-top: 24px;
+}
+
+.form-title {
+  margin: 0 0 8px 0;
 }
 
 .form-centered {
@@ -30,6 +32,6 @@
 }
 
 .form-button {
-  margin-top: 16px;
+  margin-top: 28px;
   z-index: 0;
 }

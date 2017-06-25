@@ -160,7 +160,7 @@ class Playground extends Component {
         <div className="pure-g">
           <div className="pure-u-1 pure-u-lg-2-3">
             <div className="pure-u-1 pure-u-md-1-2">
-              <label className="form-label">Basic Github Info</label>
+              <h4 className="form-title">Basic Github Info</h4>
               <section>
                   <div>
                     <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
@@ -238,7 +238,7 @@ class Playground extends Component {
                 </section>
               </div>
 
-              <div className="pure-u-1 form-example markdown-body">
+              <div className="pure-u-1 form-code markdown-body">
                 <h4>Generated Code</h4>
                 <pre className="">
                     {`<Github ${this.transverseProps(ghProps)}>${ ghProps.type==='link' ? 'Hover here' : '' }</Github>`}
