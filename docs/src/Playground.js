@@ -171,10 +171,6 @@ class Playground extends Component {
                   </div>
 
                   <div>
-                    <TextField hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
-                  </div>
-
-                  <div>
                     <TextField hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
                   </div>
 
