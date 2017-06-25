@@ -214,15 +214,15 @@ class Playground extends Component {
 
                  <div>
                     <div>
-                      <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
+                      <TextField hintText="Icon color (name, hex, hsl)" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
                     </div>
 
                     <div>
-                      <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
+                      <TextField hintText="Icon width (em, px, pt)" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
                     </div>
 
                     <div>
-                      <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+                      <TextField hintText="Icon height (em, px, pt)" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
                     </div>
                   </div>
 

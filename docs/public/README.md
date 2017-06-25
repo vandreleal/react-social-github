@@ -4,7 +4,7 @@
 [![dependencies Status](https://david-dm.org/vandreleal/react-social-github/status.svg)](https://david-dm.org/vandreleal/react-social-github)
 [![devDependencies Status](https://david-dm.org/vandreleal/react-social-github/dev-status.svg)](https://david-dm.org/vandreleal/react-social-github?type=dev)
 
-Showcase your GitHub profile, organization or repository information in an elegant way.
+Showcase your GitHub profile, organization or repository information.
 
 ## Install
 React Social Github is available as the `react-social-github` package on npm.

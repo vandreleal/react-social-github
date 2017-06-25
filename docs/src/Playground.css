@@ -15,11 +15,13 @@
   margin-bottom: 32px;
 }
 
-.form-example {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
+@media screen and (min-width: 48em) {
+  .form.example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
 }
 
 .form-example .rsg-github {
