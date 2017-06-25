@@ -159,3 +159,7 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 ## Open source
 
 React Social Github is available on GitHub for downloading, forking, or contributing.
+
+## License
+
+[The MIT License (MIT)](https://github.com/vandreleal/react-social-github/blob/master/LICENSE)
