@@ -159,8 +159,8 @@ class Playground extends Component {
 
         <div className="pure-g">
           <div className="pure-u-1 pure-u-lg-2-3">
+            <h4 className="form-title">Basic Github Info</h4>
             <div className="pure-u-1 pure-u-md-1-2">
-              <label className="form-label">Basic Github Info</label>
               <section>
                   <div>
                     <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
@@ -168,10 +168,6 @@ class Playground extends Component {
 
                   <div>
                     <TextField value={this.config.org} hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
-                  </div>
-
-                  <div>
-                    <TextField hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
                   </div>
 
                   <div>
@@ -205,20 +201,6 @@ class Playground extends Component {
                 <section>
 
                  <div>
-                    <SelectField
-                        value={this.config.fabCorner}
-                        floatingLabelText="Fab Corner"
-                        style={styles.customWidth}
-                        onChange={this.handleChange.bind(this, 'fabCorner')}
-                        disabled={!this.state.fabCornersEnabled}
-                    >
-                        {
-                            fabCorners.map((vtype, index) => {
-                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                            })
-                        }
-                    </SelectField>
-
                     <div>
                       <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
                     </div>
@@ -230,7 +212,21 @@ class Playground extends Component {
                     <div>
                       <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
                     </div>
-                </div>
+                  </div>
+
+                  <SelectField
+                      value={this.config.fabCorner}
+                      floatingLabelText="Fab Corner"
+                      style={styles.customWidth}
+                      onChange={this.handleChange.bind(this, 'fabCorner')}
+                      disabled={!this.state.fabCornersEnabled}
+                  >
+                      {
+                          fabCorners.map((vtype, index) => {
+                              return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                          })
+                      }
+                  </SelectField>
 
                   <div>
                     <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
@@ -238,7 +234,7 @@ class Playground extends Component {
                 </section>
               </div>
 
-              <div className="pure-u-1 form-example markdown-body">
+              <div className="pure-u-1 form-code markdown-body">
                 <h4>Generated Code</h4>
                 <pre className="">
                     {`<Github ${this.transverseProps(ghProps)}>${ ghProps.type==='link' ? 'Hover here' : '' }</Github>`}
