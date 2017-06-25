@@ -65,7 +65,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="app">
 
-        <ReactMarkdown source={'# Playground'} className="markdown-body" />
+        <ReactMarkdown source={'# React Social Github'} className="markdown-body" />
 
           <Playground className="playground" />
 
