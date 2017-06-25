@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Github } from 'react-social-github';
-import './Playground.css';
-import './github-markdown.css';
-import 'whatwg-fetch';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
+
+import './Playground.css';
+import 'whatwg-fetch';
 
 const styles = {
   block: {
@@ -221,7 +221,7 @@ class Playground extends Component {
           </div>
 
           <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1-3">
-            <section className="form-centered">
+            <section className="form-example form-centered">
               { gh }
             </section>
           </div>
