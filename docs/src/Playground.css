@@ -18,4 +18,5 @@
 
 .form-button {
   margin-top: 16px;
+  z-index: 0;
 }
