@@ -24,11 +24,11 @@ class Playground extends Component {
 
   render() {
 
-    let gh = <Github user={this.state.user} type={this.state.type} tooltipOnHover={true} ></Github>;
+    let gh = <Github user={this.state.user} type={this.state.type} tooltipOnHover={true} key={this.state.user}></Github>;
 
     if (this.state.repo.length > 0) {
-        console.log('repo_');
-        gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} ></Github>
+        console.log('repo_: ' + this.state.repo);
+        gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
     }
 
     return (
@@ -45,6 +45,8 @@ class Playground extends Component {
         Repo: <input type="text" value={this.state.repo} onChange={this.onChange.bind(this, 'repo')} /><br/>
 
             { gh }
+
+            <Github user="gustavokatel" type="widget" repo="clementine-info" ></Github>
       </div>
     );
   }
