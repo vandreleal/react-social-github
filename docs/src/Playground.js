@@ -88,6 +88,7 @@ class Playground extends Component {
     if(name === 'fab') {
         delta.fabCornersVisible = this.config.type === 'button' && this.config.fab === true && nValue === true;
     }
+
     this.setState(delta);
   };
 
@@ -101,8 +102,8 @@ class Playground extends Component {
         fab: this.state.fab,
         fabCorner: this.state.fabCorner,
         iconColor: this.state.iconColor,
-        iconWidth: this.state.iconWidth,
-        iconHeight: this.state.iconHeight,
+        iconWidth: Number(this.state.iconWidth),
+        iconHeight: Number(this.state.iconHeight),
         tooltipOnHover: true
     };
 
@@ -129,7 +130,7 @@ class Playground extends Component {
         <div className="pure-g">
           <div className="pure-u-1 pure-u-md-1-3">
             <label className="form-label">Basic Github Info</label>
-            <section className="form-section">
+            <section>
               <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
               <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
               <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
@@ -137,7 +138,7 @@ class Playground extends Component {
           </div>
 
           <div className="pure-u-1 pure-u-md-1-3">
-            <section className="form-section">
+            <section>
               <div>
                   <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
                       {
@@ -165,7 +166,7 @@ class Playground extends Component {
           </div>
 
           <div className="pure-u-1 pure-u-md-1-3">
-            <section className="form-section">
+            <section>
               {
                 this.state.fabCornersVisible ?
                 <div>
