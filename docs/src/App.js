@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <form onSubmit={this.handleSubmit}>
+        {/*}<form onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input type="text" value={this.state.user} onChange={this.handleChangeUser} />
@@ -73,13 +73,13 @@ class App extends Component {
           </label>
 
           <input type="submit" value="Submit" />
-        </form>
-
-        <Github user="vandreleal"></Github>
-        <Github user="facebook" repo="react"></Github>
+        </form>*/}
 
         <ReactMarkdown source={this.state.markdown} />
 
+        <Github user="vandreleal"></Github>
+        <Github user="facebook" repo="react"></Github>
+        
       </div>
     );
   }

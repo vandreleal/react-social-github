@@ -1,6 +1,13 @@
 .app {
+  width: 100%;
+  max-width: 900px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 60px 30px;
   background-color: #eee;
-  max-width: 900px;
+}
+
+tt, code, kbd, samp {
+  max-width: 100%;
+  word-wrap: break-word;
 }
