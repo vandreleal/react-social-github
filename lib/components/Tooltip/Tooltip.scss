@@ -1,26 +1,21 @@
 .github-tooltip {
-    position: fixed;
+  position: fixed;
 }
 
 .github-tooltip-animation-enter {
-
-    opacity: 0.01;
-
+  opacity: 0.01;
 }
 
 .github-tooltip-animation-enter.github-tooltip-animation-enter-active {
-    opacity: 1;
-    transition: opacity 100ms linear;
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 .github-tooltip-animation-leave {
-
-    opacity: 1;
-
+  opacity: 1;
 }
 
 .github-tooltip-animation-leave.github-tooltip-animation-leave-active {
-    opacity: 0.01;
-    transition: opacity 100ms linear;
+  opacity: 0.01;
+  transition: opacity 100ms linear;
 }
-
