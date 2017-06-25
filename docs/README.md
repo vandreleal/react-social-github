@@ -58,9 +58,26 @@ Name | Type | Default | Description
 iconColor | `string` | `none` |
 iconWidth | `number` | 48 |
 iconHeight | `number` | 48 |
-fab | `bool` | false | Android like Floating Action Button
+fab | `bool` | `false` | Android like Floating Action Button
 fabCorner | `string` | bottom-right | Position of the FAB. Possible values: `bottom-right`, `bottom-left`, `top-right`, `top-left`
 tooltipPosition | `string` | `auto` | Force a specific position to show the tooltip. Values: `left`, `right`, `top`, `bottom`, `auto` (will make the tooltip adaptive to avoid escaping from the view)
+tooltipOnHover | `bool` | `true` | Enable/disable mouse hover events
+
+#### Example
+
+```jsx
+import { Github } from 'react-social-github';
+
+ReactDOM.render(
+
+  <Github user="torvalds" type="tooltip"></Github>
+
+  <Github org="facebook" type="tooltip" fab={true}></Github>
+
+  <Github org="twitter" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="bottom-left" iconColor="orange" iconWidth={48} iconHeight={48}></Github>
+
+);
+```
 
 ---
 
