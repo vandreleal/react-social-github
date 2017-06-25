@@ -30,6 +30,15 @@ ReactDOM.render(
 
 ## Reference
 
+## Options
+
+Name | Type | Default | Description
+:---: | :---: | :---: | :---
+user | `string` | none | Specify the username to show info about. Conflicts with `org`
+repo | `string` | none | Specify the repository to show info about. Requires `user`
+org | `string` | none | Specify the organization to show info about. Conflicts with `user`
+type | `string` | `widget` | Specify the type of the presentation. See [types](#Types).
+
 ## Types
 
 ### Tooltip
