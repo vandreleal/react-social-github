@@ -52,7 +52,6 @@ class Playground extends Component {
   }
 
   render() {
-
     let gh = null;
 
     if(typeof this.state.user === 'string' && this.state.user.length>0) {
@@ -71,40 +70,32 @@ class Playground extends Component {
       <div className="playground">
 
         <section>
-            <TextField
-                hintText="User" onChange={this.handleChange.bind(this, 'user')}
-            />
-
-            <TextField
-                    hintText="Repo" onChange={this.handleChange.bind(this, 'repo')}
-            />
+          <TextField hintText="User" onChange={this.handleChange.bind(this, 'user')} />
+          <TextField hintText="Org" onChange={this.handleChange.bind(this, 'org')} />
+          <TextField hintText="Repo" onChange={this.handleChange.bind(this, 'repo')} />
         </section>
 
-        <DropDownMenu onChange={this.handleChange.bind(this, 'type')}>
-            {
-                types.map((vtype, index) => {
-                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                })
-            }
+        <DropDownMenu value={this.state.type} onChange={this.handleChange.bind(this, 'type')}>
+          {
+            types.map((vtype, index) => {
+                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+            })
+          }
         </DropDownMenu>
 
-        {/*}<Switch
-          checked={this.state.fab}
-          label="FAB"
-          onChange={this.handleChange.bind(this, 'fab')}
-        />*/}
-
-        <DropDownMenu onChange={this.handleChange.bind(this, 'fabCorner')}>
-            {
-                fabCorners.map((vtype, index) => {
-                    return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                })
-            }
+        <DropDownMenu value={this.state.fabCorner} onChange={this.handleChange.bind(this, 'fabCorner')}>
+          {
+            fabCorners.map((vtype, index) => {
+                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+            })
+          }
         </DropDownMenu>
 
         <RaisedButton label="Update" primary={true} onClick={this.update.bind(this)} />
 
-        { gh }
+        <div>
+          { gh }
+        </div>
 
       </div>
     );
