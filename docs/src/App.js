@@ -6,6 +6,8 @@ import 'whatwg-fetch';
 
 import ReactMarkdown from 'react-markdown';
 
+import Playground from './Playground';
+
 class App extends Component {
 
   constructor(props) {
@@ -40,6 +42,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+
+        <Playground />
+
         <ReactMarkdown source={this.state.markdown} className="markdown-body" />
 
         <Github user="facebook" repo="react" type="button" tooltipOnHover={true} fab={true}></Github>
