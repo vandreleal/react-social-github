@@ -2,99 +2,18 @@
 $color-bg: #fafbfc;
 $color-text: #000;
 $color-available: #3c763d;
-
-.rsg-loading-icon {
-  width: 96px;
-  height: 96px;
-}
-
-.rsg-inline {
-  &-link {
-    display: inline;
-    cursor: pointer;
-  }
-}
-
-.rsg-btn {
-  &-icon {
-    background: none !important;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &:focus,
-    &:hover {
-      opacity: 0.5;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-
-    svg {
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-    }
-  }
-
-  &-fab {
-    position: fixed;
-    background: #fff;
-    border-radius: 50%;
-
-    &--top {
-      &-left {
-        top: 16px;
-        left: 16px;
-      }
-
-      &-right {
-        top: 16px;
-        right: 16px;
-      }
-    }
-
-    &--bottom {
-      &-left {
-        bottom: 16px;
-        left: 16px;
-      }
-
-      &-right {
-        bottom: 16px;
-        right: 16px;
-      }
-    }
-  }
-}
+$tooltip-width: 320px;
+$tooltip-avatar: 96px;
+$fab-margin: 16px;
+$fab-bg: #fff;
+$base-spacing: 16px;
 
 .rsg-github {
   display: inline-block;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
   font-family: 'Roboto', sans-serif;
   color: #000;
-
-  &-wrapper {
-    box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
-    display: inline-block;
-    min-width: 300px;
-    max-width: 360px;
-    margin-right: 16px;
-    margin-left: 16px;
-    padding: 32px;
-    text-align: center;
-    background: $color-bg;
-    border-radius: 3px;
-  }
 
   a,
   span {
@@ -110,21 +29,106 @@ $color-available: #3c763d;
     }
   }
 
+  &-wrapper {
+    box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
+    display: inline-block;
+    width: $tooltip-width;
+    margin-right: $base-spacing;
+    margin-left: $base-spacing;
+    padding: $base-spacing * 2;
+    text-align: center;
+    background: $color-bg;
+    border-radius: 3px;
+  }
+
+  .rsg-inline {
+    &-link {
+      display: inline;
+      cursor: pointer;
+    }
+  }
+
+  .rsg-btn {
+    &-icon {
+      background: none !important;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      svg {
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+
+    &-fab {
+      position: fixed;
+      background: $fab-bg;
+      border-radius: 50%;
+
+      &--top {
+        &-left {
+          top: $fab-margin;
+          left: $fab-margin;
+        }
+
+        &-right {
+          top: $fab-margin;
+          right: $fab-margin;
+        }
+      }
+
+      &--bottom {
+        &-left {
+          bottom: $fab-margin;
+          left: $fab-margin;
+        }
+
+        &-right {
+          bottom: $fab-margin;
+          right: $fab-margin;
+        }
+      }
+    }
+  }
+
+  .rsg-loading-icon {
+    width: $tooltip-avatar;
+    height: $tooltip-avatar;
+  }
+
   .rsg-avatar {
-    width: 96px;
-    height: 96px;
+    width: $tooltip-avatar;
+    height: $tooltip-avatar;
     border-radius: 50%;
   }
 
   .rsg-name {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: $base-spacing / 2;
+    margin-bottom: $base-spacing / 2;
     font-size: 20px;
     font-weight: 700;
   }
 
   .rsg-info {
-    margin-bottom: 2px;
+    margin-bottom: $base-spacing / 8;
     font-size: 16px;
     font-weight: 300;
 
@@ -133,7 +137,7 @@ $color-available: #3c763d;
     }
 
     &--secondary {
-      margin-bottom: 8px;
+      margin-bottom: $base-spacing / 2;
       font-size: 14px;
       font-weight: 400;
       text-transform: uppercase;
@@ -143,22 +147,22 @@ $color-available: #3c763d;
 
   .rsg-counters {
     display: inline-block;
-    margin-top: 16px;
+    margin-top: $base-spacing;
 
     .rsg-item {
       display: inline-block;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: $base-spacing * 1.5;
+      padding-right: $base-spacing * 1.5;
 
       .rsg-icon {
         display: inline-block;
         vertical-align: top;
-        margin-right: 12px;
+        margin-right: $base-spacing / 1.25;
 
         svg {
           fill: lighten($color-text, 60%);
-          height: 36px;
           width: 24px;
+          height: 36px;
         }
       }
 
@@ -173,7 +177,7 @@ $color-available: #3c763d;
         }
 
         .rsg-label {
-          margin-top: 2px;
+          margin-top: $base-spacing / 8;
           font-size: 10px;
           font-weight: 300;
           text-transform: uppercase;
@@ -188,11 +192,11 @@ $color-available: #3c763d;
 
   .rsg-status {
     display: inline-block;
-    margin-bottom: 8px;
+    margin-bottom: $base-spacing;
 
     .rsg-available {
       display: inline-block;
-      padding: 8px 16px;
+      padding: ($base-spacing / 2) $base-spacing;
       text-transform: uppercase;
       font-size: 12px;
       font-weight: 400;
@@ -205,8 +209,8 @@ $color-available: #3c763d;
 
   .rsg-btn-github {
     display: block;
-    margin-top: 24px;
-    padding: 8px 16px;
+    margin-top: $base-spacing * 1.5;
+    padding: ($base-spacing / 2) $base-spacing;
     color: $color-text;
     font-size: 14px;
     font-weight: 700;
@@ -228,7 +232,7 @@ $color-available: #3c763d;
     .rsg-icon {
       width: 20px;
       height: 20px;
-      margin-right: 8px;
+      margin-right: $base-spacing / 2;
       vertical-align: middle;
     }
 
