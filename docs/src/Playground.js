@@ -33,7 +33,7 @@ const styles = {
     color: 'red',
   },
   customWidth: {
-    width: 200,
+    width: 260,
   }
 };
 
@@ -68,7 +68,10 @@ class Playground extends Component {
         org: '',
         repo: '',
         fabToggleVisible: false,
-        fabCornersVisible: false
+        fabCornersVisible: false,
+        iconColor: '',
+        iconWidth: '',
+        iconHeight: ''
     };
   }
 
@@ -96,15 +99,46 @@ class Playground extends Component {
     let gh = null;
 
     if(typeof this.state.user === 'string' && this.state.user.length>0) {
-        gh = <Github user={this.state.user} type={this.state.type} fab={this.state.fab} fabCorner={this.state.fabCorner} tooltipOnHover={true} key={this.state.user}></Github>;
+        gh = <Github
+              user={this.state.user}
+              type={this.state.type}
+              fab={this.state.fab}
+              fabCorner={this.state.fabCorner}
+              iconColor={this.state.iconColor}
+              iconWidht={this.state.iconWidht}
+              iconHeight={this.state.iconHeight}
+              tooltipOnHover={true}
+              key={this.state.user}>
+            </Github>;
     }
 
     if(typeof this.state.org === 'string' && this.state.org.length>0) {
-        gh = <Github org={this.state.org} type={this.state.type} fab={this.state.fab} fabCorner={this.state.fabCorner} tooltipOnHover={true} key={this.state.org}></Github>;
+        gh = <Github
+              org={this.state.org}
+              type={this.state.type}
+              fab={this.state.fab}
+              fabCorner={this.state.fabCorner}
+              iconColor={this.state.iconColor}
+              iconWidht={this.state.iconWidht}
+              iconHeight={this.state.iconHeight}
+              tooltipOnHover={true}
+              key={this.state.org}>
+            </Github>;
     }
 
     if (typeof this.state.repo === 'string' && this.state.repo.length > 0) {
-        gh = <Github user={this.state.user} repo={this.state.repo} type={this.state.type} fab={this.state.fab} fabCorner={this.state.fabCorner} tooltipOnHover={true} key={this.state+'/'+this.state.repo} ></Github>
+        gh = <Github
+              user={this.state.user}
+              repo={this.state.repo}
+              type={this.state.type}
+              fab={this.state.fab}
+              fabCorner={this.state.fabCorner}
+              iconColor={this.state.iconColor}
+              iconWidht={this.state.iconWidht}
+              iconHeight={this.state.iconHeight}
+              tooltipOnHover={true}
+              key={this.state+'/'+this.state.repo} >
+            </Github>
     }
 
     return (
@@ -150,6 +184,10 @@ class Playground extends Component {
                         })
                     }
                     </SelectField>
+
+                    <TextField hintText="Icon Color" onChange={this.handleChange.bind(this, 'iconColor')} />
+                    <TextField hintText="Icon Width" onChange={this.handleChange.bind(this, 'iconWidth')} />
+                    <TextField hintText="Icon Height" onChange={this.handleChange.bind(this, 'iconHeight')} />
                 </div> : null
                }
 
