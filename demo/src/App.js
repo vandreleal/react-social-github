@@ -6,9 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Re<em>Hub</em></h1>
+        <h1>React Social Github</h1>
 
-        <Github org="facebook" type="tooltip"></Github>
+        <Github user="gustavokatel" type="link">Profile</Github>
 
         <Github org="facebook" type="tooltip" fab={true} fabCorner="top-right"></Github>
 
@@ -19,8 +19,6 @@ class App extends Component {
         <Github user="facebook" repo="react"></Github>
 
         <Github user="higorernandes" type="widget"></Github>
-
-        <Github user="gustavokatel" type="link">Profile</Github>
       </div>
     );
   }
