@@ -50,19 +50,19 @@ import { Github } from 'react-social-github';
     <td>user</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the username to show info about. Conflicts with org</td>
+    <td>Specify the username to show info about. Conflicts with "org"</td>
   </tr>
   <tr>
     <td>repo</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the repository to show info about. Requires user</td>
+    <td>Specify the repository to show info about. Requires "user"</td>
   </tr>
   <tr>
     <td>org</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the organization to show info about. Conflicts with user</td>
+    <td>Specify the organization to show info about. Conflicts with "user"</td>
   </tr>
   <tr>
     <td>type</td>
@@ -162,11 +162,6 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 ```jsx
 <Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
 ```
-
-
-## More Examples
-
-Please proceed to the official page for more examples.
 
 
 ## Team
