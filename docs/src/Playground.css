@@ -1,6 +1,6 @@
 .playground {
   display: block;
-  padding: 32px 0 64px 0;
+  padding: 32px 0;
 }
 
 .playground pre {
@@ -15,12 +15,13 @@
   margin-bottom: 32px;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 64em) {
   .form-example {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 300px;
+    margin-left: 32px;
   }
 }
 
@@ -30,6 +31,7 @@
 
 .form-code {
   margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .form-title {

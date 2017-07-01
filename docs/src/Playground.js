@@ -169,9 +169,9 @@ class Playground extends Component {
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-lg-2-3">
+          <div className="pure-u-1 pure-u-lg-3-5">
             <h4 className="form-title">Github Info</h4>
-            <div className="pure-u-1 pure-u-md-1-2">
+            <div className="pure-u-1 pure-u-sm-1-2">
               <section>
                   <div>
                     <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
@@ -203,13 +203,12 @@ class Playground extends Component {
                           labelPosition="right"
                           style={styles.toggle}
                           onToggle={this.handleChange.bind(this, 'fab')}
-                          defaultToggled={this.config.fab}
-                      />
+                          defaultToggled={this.config.fab} />
                   </div>
                 </section>
               </div>
 
-              <div className="pure-u-1 pure-u-md-1-2">
+              <div className="pure-u-1 pure-u-sm-1-2">
                 <section>
 
                  <div>
@@ -231,8 +230,7 @@ class Playground extends Component {
                       floatingLabelText="FAB Corner"
                       style={styles.customWidth}
                       onChange={this.handleChange.bind(this, 'fabCorner')}
-                      disabled={!this.state.fabCornersEnabled}
-                  >
+                      disabled={!this.state.fabCornersEnabled} >
                       {
                           fabCorners.map((vtype, index) => {
                               return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
@@ -254,7 +252,7 @@ class Playground extends Component {
               </div>
             </div>
 
-            <div className="pure-u-1 pure-u-lg-1-3">
+            <div className="pure-u-1 pure-u-lg-2-5">
               <section className="form-example form-centered">
                 { gh }
               </section>

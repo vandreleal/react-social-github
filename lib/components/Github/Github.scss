@@ -1,21 +1,21 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 // Variables
+$base-font-size: 16px;
 $base-spacing: 16px;
 $fab-spacing: 16px;
 $fab-bg: #fff;
-$tooltip-width: 320px;
-$tooltip-avatar: 96px;
+$tooltip-min-width: 240px;
+$tooltip-max-width: 240px;
+$tooltip-avatar: $base-font-size * 5;
 $color-bg: #fafbfc;
 $color-text: #000;
 $color-available: #3c763d;
 
 .rsg-github {
   display: inline-block;
-  margin-top: $base-spacing;
-  margin-bottom: $base-spacing;
   font-family: 'Roboto', sans-serif;
   color: #000;
-  z-index: 9999;
+  background-color: #fff;
 
   a,
   span {
@@ -31,17 +31,23 @@ $color-available: #3c763d;
     }
   }
 
+  &-is-loading {
+    display: none;
+  }
+
   &-wrapper {
     box-shadow: rgba(darken($color-bg, 50%), 0.5) 0 1px 10px;
     display: inline-block;
-    width: $tooltip-width;
-    margin-right: $base-spacing;
-    margin-left: $base-spacing;
-    padding: $base-spacing * 2;
+    width: auto;
+    max-width: $tooltip-max-width;
+    padding: $base-spacing * 1.5;
     text-align: center;
     background: $color-bg;
     border-radius: 3px;
-    z-index: 9000;
+
+    @media screen and (min-width: 24em) {
+      min-width: $tooltip-min-width;
+    }
   }
 
   .rsg-inline {
@@ -125,14 +131,14 @@ $color-available: #3c763d;
 
   .rsg-name {
     margin-top: $base-spacing / 2;
-    margin-bottom: $base-spacing / 2;
-    font-size: 20px;
+    margin-bottom: $base-spacing / 2.5;
+    font-size: $base-font-size * 1.25;
     font-weight: 700;
   }
 
   .rsg-info {
     margin-bottom: $base-spacing / 8;
-    font-size: 16px;
+    font-size: $base-font-size / 1.1;
     font-weight: 300;
 
     &--italic {
@@ -140,7 +146,7 @@ $color-available: #3c763d;
     }
 
     &--secondary {
-      font-size: 14px;
+      font-size: $base-font-size / 1.25;
       font-weight: 400;
       text-transform: uppercase;
       color: lighten($color-text, 60%);
@@ -153,8 +159,8 @@ $color-available: #3c763d;
 
     .rsg-item {
       display: inline-block;
-      padding-left: $base-spacing * 1.5;
-      padding-right: $base-spacing * 1.5;
+      padding-left: $base-spacing;
+      padding-right: $base-spacing;
 
       .rsg-icon {
         display: inline-block;
@@ -163,8 +169,8 @@ $color-available: #3c763d;
 
         svg {
           fill: lighten($color-text, 60%);
-          width: 24px;
-          height: 36px;
+          width: $base-font-size * 1.25;
+          height: $base-font-size * 2.25;
         }
       }
 
@@ -174,13 +180,13 @@ $color-available: #3c763d;
 
         .rsg-count {
           display: block;
-          font-size: 18px;
+          font-size: $base-font-size;
           font-weight: 700;
         }
 
         .rsg-label {
           margin-top: $base-spacing / 8;
-          font-size: 10px;
+          font-size: $base-font-size / 1.5;
           font-weight: 300;
           text-transform: uppercase;
         }
@@ -200,7 +206,7 @@ $color-available: #3c763d;
       display: inline-block;
       padding: ($base-spacing / 2) $base-spacing;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: $base-font-size / 1.25;
       font-weight: 400;
       color: #fff;
       border-radius: 4px;
@@ -214,7 +220,7 @@ $color-available: #3c763d;
     margin-top: $base-spacing * 1.5;
     padding: ($base-spacing / 2) $base-spacing;
     color: $color-text;
-    font-size: 14px;
+    font-size: $base-font-size / 1.2;
     font-weight: 700;
     border-radius: 4px;
     background-color: darken($color-bg, 5%);
@@ -232,8 +238,8 @@ $color-available: #3c763d;
     }
 
     .rsg-icon {
-      width: 20px;
-      height: 20px;
+      width: $base-font-size * 1.25;
+      height: $base-font-size * 1.25;
       margin-right: $base-spacing / 2;
       vertical-align: middle;
     }

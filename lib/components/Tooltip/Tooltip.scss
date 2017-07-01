@@ -1,5 +1,6 @@
 .rsg-github-tooltip {
   position: fixed;
+  z-index: 9999;
 
   &-animation-enter {
     opacity: 0.01;
