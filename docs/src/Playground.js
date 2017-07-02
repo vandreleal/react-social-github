@@ -148,7 +148,7 @@ class Playground extends Component {
 
         <div className="pure-g">
           <div className="pure-u-1">
-            <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
+            <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
               <section className="form-section">
                   <h4 className="form-title">Github Info</h4>
 
@@ -180,14 +180,10 @@ class Playground extends Component {
                           onToggle={this.handleChange.bind(this, 'fab')}
                           defaultToggled={this.config.fab} />
                   </div>
-
-                  <div>
-                    <RaisedButton className="form-button" label="Generate" primary={true} onClick={this.update.bind(this)} />
-                  </div>
                 </section>
               </div>
 
-              <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
+              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                 <section className="form-section">
                   <h4 className="form-title">Optional settings</h4>
 
@@ -233,10 +229,15 @@ class Playground extends Component {
                       <TextField value={this.config.linkText} hintText="Link Text" onChange={this.handleChange.bind(this, 'linkText')} />
                     </div>
                   }
+
+                  <div>
+                    <RaisedButton className="form-button" label="Generate" primary={true} onClick={this.update.bind(this)} />
+                  </div>
+
                 </section>
               </div>
 
-              <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1-3">
+              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                 <section className="form-section form-example">
                   { !this.state.fabCornersEnabled &&
                     <h4 className="form-title">Preview</h4>
@@ -247,7 +248,7 @@ class Playground extends Component {
                 </section>
               </div>
 
-              <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1">
+              <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1">
                 <div className="form-section form-code markdown-body">
                   <h4 className="form-title">Generated Code</h4>
                   <pre className="">
