@@ -1,0 +1,54 @@
+.playground {
+  display: block;
+  padding: 32px 0;
+
+  &-options {
+    margin-bottom: 24px;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .form {
+    &-section {
+      margin-bottom: 32px;
+    }
+
+    &-title {
+      margin: 0 0 16px;
+    }
+
+    &-example {
+      .rsg-github {
+        max-width: 100%;
+      }
+      @media screen and (min-width: 64em) {
+        margin-left: 32px;
+      }
+    }
+
+    &-message {
+      padding: 16px;
+      background-color: #fff59d;
+    }
+
+    &-example,
+    &-message {
+      border-radius: 4px;
+    }
+
+    &-centered {
+      text-align: center;
+    }
+
+    &-button {
+      margin-top: 16px;
+      z-index: 0;
+    }
+  }
+}

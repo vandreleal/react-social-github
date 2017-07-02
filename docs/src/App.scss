@@ -1,12 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+}
+
 
 .app {
   width: 100%;
   max-width: 1024px;
   min-height: 100vh;
-  margin: 0 auto; }
-  .app-wrapper {
-    padding: 32px; }
+  margin: 0 auto;
+
+  &-wrapper {
+    padding: 32px;
+  }
+}

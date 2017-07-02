@@ -1,52 +1,30 @@
 .playground {
   display: block;
-  padding: 32px 0;
-}
-
-.playground-options {
-  margin-bottom: 24px;
-}
-
-.playground pre {
-  white-space: pre-wrap;       /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
-
-.form-section {
-  margin-bottom: 32px;
-}
-
-.form-title {
-  margin: 0 0 16px 0;
-}
-
-.form-example .rsg-github {
-  max-width: 100%;
-}
-
-@media screen and (min-width: 64em) {
-  .form-example {
-    margin-left: 32px;
-  }
-}
-
-.form-message {
-  padding: 16px;
-  background-color: #fff59d;
-}
-
-.form-example, .form-message {
-  border-radius: 4px;
-}
-
-.form-centered {
-  text-align: center;
-}
-
-.form-button {
-  margin-top: 16px;
-  z-index: 0;
-}
+  padding: 32px 0; }
+  .playground-options {
+    margin-bottom: 24px; }
+  .playground pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word; }
+  .playground .form-section {
+    margin-bottom: 32px; }
+  .playground .form-title {
+    margin: 0 0 16px; }
+  .playground .form-example .rsg-github {
+    max-width: 100%; }
+  @media screen and (min-width: 64em) {
+    .playground .form-example {
+      margin-left: 32px; } }
+  .playground .form-message {
+    padding: 16px;
+    background-color: #fff59d; }
+  .playground .form-example, .playground .form-message {
+    border-radius: 4px; }
+  .playground .form-centered {
+    text-align: center; }
+  .playground .form-button {
+    margin-top: 16px;
+    z-index: 0; }

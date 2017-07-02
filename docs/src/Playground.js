@@ -180,6 +180,22 @@ class Playground extends Component {
                           onToggle={this.handleChange.bind(this, 'fab')}
                           defaultToggled={this.config.fab} />
                   </div>
+
+                  { this.state.fabCornersEnabled &&
+                    <SelectField
+                        value={this.config.fabCorner}
+                        floatingLabelText="FAB Corner"
+                        style={styles.customWidth}
+                        onChange={this.handleChange.bind(this, 'fabCorner')}
+                        disabled={!this.state.fabCornersEnabled} >
+                        {
+                            fabCorners.map((vtype, index) => {
+                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                            })
+                        }
+                    </SelectField>
+                  }
+                  
                 </section>
               </div>
 
@@ -209,21 +225,6 @@ class Playground extends Component {
                     </div>
                   }
 
-                  { this.state.fabCornersEnabled &&
-                    <SelectField
-                        value={this.config.fabCorner}
-                        floatingLabelText="FAB Corner"
-                        style={styles.customWidth}
-                        onChange={this.handleChange.bind(this, 'fabCorner')}
-                        disabled={!this.state.fabCornersEnabled} >
-                        {
-                            fabCorners.map((vtype, index) => {
-                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                            })
-                        }
-                    </SelectField>
-                  }
-
                   { this.state.linkControlsEnabled &&
                     <div>
                       <TextField value={this.config.linkText} hintText="Link Text" onChange={this.handleChange.bind(this, 'linkText')} />
@@ -239,9 +240,7 @@ class Playground extends Component {
 
               <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                 <section className="form-section form-example">
-                  { !this.state.fabCornersEnabled &&
-                    <h4 className="form-title">Preview</h4>
-                  }
+                  <h4 className="form-title">Preview</h4>
                   <div className="preview">
                     { gh }
                   </div>
