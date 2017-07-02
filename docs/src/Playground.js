@@ -57,7 +57,6 @@ class Playground extends Component {
     this.config = {
       type: 'widget',
       user: '',
-      org: '',
       repo: ''
     };
     this.state = {
@@ -65,7 +64,6 @@ class Playground extends Component {
         fab: false,
         fabCorner: '',
         user: '',
-        org: '',
         repo: '',
         fabToggleEnabled: false,
         fabCornersEnabled: false,
@@ -73,7 +71,8 @@ class Playground extends Component {
         repoErrorText: '',
         iconColor: '',
         iconWidth: '',
-        iconHeight: ''
+        iconHeight: '',
+        linkText: ''
     };
   }
 
@@ -83,25 +82,9 @@ class Playground extends Component {
 
     let delta = {};
 
-    if(name === 'user') {
-        delta.org = '';
-        this.config.org = '';
-        this.config.user = nValue;
-
-        delta.repoErrorText = '';
-    }
-
-    if(name === 'org') {
-        delta.user = '';
-        this.config.user = '';
-        this.config.org = nValue;
-
-        delta.repoErrorText = '';
-    }
-
     if(name === 'repo') {
-        if(!this.config.user && !this.config.org && this.config.repo) {
-            delta.repoErrorText = 'User or org missing';
+        if(!this.config.user && this.config.repo) {
+            delta.repoErrorText = 'User missing';
         } else {
             delta.repoErrorText = '';
         }
@@ -109,8 +92,9 @@ class Playground extends Component {
 
     if(name === 'type') {
         delta.fabToggleEnabled = nValue === 'button';
-        delta.fabCornersEnabled = nValue === 'button' && this.config.fab === true;
         delta.buttonControlsEnabled = nValue === 'button';
+        delta.fabCornersEnabled = nValue === 'button' && this.config.fab === true;
+        delta.linkControlsEnabled = nValue === 'link';
     }
 
     if(name === 'fab') {
@@ -145,6 +129,7 @@ class Playground extends Component {
         iconColor: this.state.iconColor,
         iconWidth: this.state.iconWidth,
         iconHeight: this.state.iconHeight,
+        linkText: this.state.linkText,
         tooltipOnHover: true
     };
 
@@ -156,29 +141,19 @@ class Playground extends Component {
         ghProps.user = this.state.user;
     }
 
-    if(typeof this.state.org === 'string' && this.state.org.length>0) {
-        ghProps.org = this.state.org;
-    }
-
-    let gh = <Github
-            { ...ghProps }
-            key={this.state.org + ':' + this.state.user + '/' + this.state.repo}>
-        </Github>;
+    let gh = <Github { ...ghProps } key={this.state.user + '/' + this.state.repo}> </Github>;
 
     return (
       <div className="playground">
 
         <div className="pure-g">
-          <div className="pure-u-1 pure-u-lg-3-5">
-            <h4 className="form-title">Github Info</h4>
-            <div className="pure-u-1 pure-u-sm-1-2">
-              <section>
-                  <div>
-                    <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
-                  </div>
+          <div className="pure-u-1">
+            <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
+              <section className="form-section">
+                  <h4 className="form-title">Github Info</h4>
 
                   <div>
-                    <TextField value={this.config.org} hintText="Organization" onChange={this.handleChange.bind(this, 'org')} />
+                    <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
                   </div>
 
                   <div>
@@ -205,60 +180,84 @@ class Playground extends Component {
                           onToggle={this.handleChange.bind(this, 'fab')}
                           defaultToggled={this.config.fab} />
                   </div>
-                </section>
-              </div>
-
-              <div className="pure-u-1 pure-u-sm-1-2">
-                <section>
-
-                 <div>
-                    <div>
-                      <TextField hintText="Icon color (name, hex, hsl)" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
-                    </div>
-
-                    <div>
-                      <TextField hintText="Icon width (em, px, pt)" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
-                    </div>
-
-                    <div>
-                      <TextField hintText="Icon height (em, px, pt)" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
-                    </div>
-                  </div>
-
-                  <SelectField
-                      value={this.config.fabCorner}
-                      floatingLabelText="FAB Corner"
-                      style={styles.customWidth}
-                      onChange={this.handleChange.bind(this, 'fabCorner')}
-                      disabled={!this.state.fabCornersEnabled} >
-                      {
-                          fabCorners.map((vtype, index) => {
-                              return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                          })
-                      }
-                  </SelectField>
 
                   <div>
-                    <RaisedButton className="form-button" label="Update" primary={true} onClick={this.update.bind(this)} />
+                    <RaisedButton className="form-button" label="Generate" primary={true} onClick={this.update.bind(this)} />
                   </div>
                 </section>
               </div>
 
-              <div className="pure-u-1 form-code markdown-body">
-                <h4>Generated Code</h4>
-                <pre className="">
-                    {`<Github ${this.transverseProps(ghProps)}>${ ghProps.type==='link' ? 'Hover here' : '' }</Github>`}
-                </pre>
-              </div>
-            </div>
+              <div className="pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3">
+                <section className="form-section">
+                  <h4 className="form-title">Optional settings</h4>
 
-            <div className="pure-u-1 pure-u-lg-2-5">
-              <section className="form-example form-centered">
-                { gh }
-              </section>
+                  { (!this.state.buttonControlsEnabled && !this.state.fabCornersEnabled && !this.state.linkControlsEnabled) &&
+                    <div className="form-message">
+                      More options will be available here once the type is changed to 'Link' or 'Button'.
+                    </div>
+                  }
+
+                  { this.state.buttonControlsEnabled &&
+                    <div>
+                      <div>
+                        <TextField hintText="Icon color (name, hex, hsl)" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
+                      </div>
+
+                      <div>
+                        <TextField hintText="Icon width (em, px, pt)" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
+                      </div>
+
+                      <div>
+                        <TextField hintText="Icon height (em, px, pt)" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+                      </div>
+                    </div>
+                  }
+
+                  { this.state.fabCornersEnabled &&
+                    <SelectField
+                        value={this.config.fabCorner}
+                        floatingLabelText="FAB Corner"
+                        style={styles.customWidth}
+                        onChange={this.handleChange.bind(this, 'fabCorner')}
+                        disabled={!this.state.fabCornersEnabled} >
+                        {
+                            fabCorners.map((vtype, index) => {
+                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                            })
+                        }
+                    </SelectField>
+                  }
+
+                  { this.state.linkControlsEnabled &&
+                    <div>
+                      <TextField value={this.config.linkText} hintText="Link Text" onChange={this.handleChange.bind(this, 'linkText')} />
+                    </div>
+                  }
+                </section>
+              </div>
+
+              <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1-3">
+                <section className="form-section form-example">
+                  { !this.state.fabCornersEnabled &&
+                    <h4 className="form-title">Preview</h4>
+                  }
+                  <div className="preview">
+                    { gh }
+                  </div>
+                </section>
+              </div>
+
+              <div className="pure-u-1 pure-u-sm-1 pure-u-lg-1">
+                <div className="form-section form-code markdown-body">
+                  <h4 className="form-title">Generated Code</h4>
+                  <pre className="">
+                      {`<Github ${this.transverseProps(ghProps)}></Github>`}
+                  </pre>
+                </div>
+              </div>
+
             </div>
           </div>
-
       </div>
     );
   }
