@@ -32,13 +32,25 @@ import { Github } from 'react-social-github';
     <td>user</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the username or organization to show info about.</td>
+    <td>Specify the user or organization to show info about.</td>
   </tr>
   <tr>
     <td>repo</td>
     <td>string</td>
     <td>none</td>
     <td>Specify the repository to show info about. Requires "user"</td>
+  </tr>
+  <tr>
+    <td>objUser/td>
+    <td>object</td>
+    <td>none</td>
+    <td>Get user or organization object to show info about. String "user" is no longer considered.</td>
+  </tr>
+  <tr>
+    <td>objRepo</td>
+    <td>object</td>
+    <td>none</td>
+    <td>Get repository object to show info about. Strings "user" and "repo" are no longer considered.</td>
   </tr>
   <tr>
     <td>type</td>

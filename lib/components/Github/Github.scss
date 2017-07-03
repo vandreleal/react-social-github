@@ -134,6 +134,7 @@ $color-available: #3c763d;
     margin-bottom: $base-spacing / 2.5;
     font-size: $base-font-size * 1.25;
     font-weight: 700;
+    word-wrap: break-word;
   }
 
   .rsg-info {
