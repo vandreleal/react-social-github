@@ -123,7 +123,6 @@ class Playground extends Component {
 
   render() {
     let ghProps = {
-        objRepo: this.state.objRepo,
         type: this.state.type,
         fab: this.state.fab,
         fabCorner: this.state.fabCorner,
