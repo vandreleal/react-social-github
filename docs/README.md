@@ -41,16 +41,16 @@ import { Github } from 'react-social-github';
     <td>Specify the repository to show info about. Requires "user"</td>
   </tr>
   <tr>
-    <td>objUser/td>
+    <td>objUser</td>
     <td>object</td>
     <td>none</td>
-    <td>Get user or organization object to show info about. String "user" is no longer considered.</td>
+    <td>Specify user or organization object to show info about. The attribute "user" is not considered if the object is passed.</td>
   </tr>
   <tr>
     <td>objRepo</td>
     <td>object</td>
     <td>none</td>
-    <td>Get repository object to show info about. Strings "user" and "repo" are no longer considered.</td>
+    <td>Set repository object to show info about. The attributes "user" and "repo" are not considered if the object is passed.</td>
   </tr>
   <tr>
     <td>type</td>
@@ -103,7 +103,7 @@ The tooltip is anchored in an inline link. The option `type="link"` must be decl
     <td>linkText</td>
     <td>string</td>
     <td>"Github"</td>
-    <td>Link Inner Text</td>
+    <td>Link text</td>
   </tr>
 </table>
 
