@@ -47,6 +47,7 @@
     "react-dom": "^15.5.4"
   },
   "dependencies": {
+    "emoji-js": "^3.2.2",
     "react-addons-css-transition-group": "^15.6.0",
     "react-octicons": "^0.1.0",
     "whatwg-fetch": "^2.0.3"
