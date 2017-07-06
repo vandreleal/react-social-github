@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build:css && babel lib -d build",
     "build:css": "node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/",
-    "build:watch": "npm-run-all -p build:watch-css build:watch-js",
+    "build:watch": "npm-run-all -p build:watch-css build:watch-js lint:watch",
     "build:watch-js": "babel lib -w -d build",
     "build:watch-css": "npm run build:css && node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/ --watch --recursive",
     "lint": "eslint lib/**; exit 0",
