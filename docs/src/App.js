@@ -28,6 +28,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       markdown: '# Loading'
     };
@@ -47,6 +48,7 @@ class App extends Component {
       })
       .catch(err => {
         console.log('Could not load');
+
         this.setState({
           markdown: 'Could not load'
         });
@@ -60,13 +62,26 @@ class App extends Component {
 
           <div className="app-wrapper">
 
-          <ReactMarkdown source={'# React Social Github'} className="markdown-body" />
+          <ReactMarkdown
+            className="markdown-body"
+            source={'# React Social Github'}
+          />
 
             <Playground className="playground" />
 
-            <ReactMarkdown source={this.state.markdown} className="markdown-body" />
+            <ReactMarkdown
+              className="markdown-body"
+              source={this.state.markdown}
+            />
 
-            <Github user="vandreleal" repo="react-social-github" type="button" tooltipOnHover={true} fab={true}></Github>
+            <Github
+              fab={true}
+              repo="react-social-github"
+              user="vandreleal"
+              tooltipOnHover={true}
+              type="button"
+            >
+            </Github>
 
           </div>
         </div>

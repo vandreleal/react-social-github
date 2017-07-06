@@ -54,25 +54,27 @@ class Playground extends Component {
 
   constructor(props) {
     super(props);
+
     this.config = {
+      repo: '',
       type: 'widget',
-      user: '',
-      repo: ''
+      user: ''
     }
+
     this.state = {
-        type: 'widget',
+        buttonControlsEnabled: false,
         fab: false,
         fabCorner: '',
-        user: 'facebook',
-        repo: 'react',
-        fabToggleEnabled: false,
         fabCornersEnabled: false,
-        buttonControlsEnabled: false,
-        repoErrorText: '',
+        fabToggleEnabled: false,
         iconColor: '',
-        iconWidth: '',
         iconHeight: '',
-        linkText: ''
+        iconWidth: '',
+        linkText: '',
+        repo: 'react',
+        repoErrorText: '',
+        type: 'widget',
+        user: 'facebook'
     };
   }
 
@@ -153,46 +155,58 @@ class Playground extends Component {
                   <h4 className="form-title">Github Info</h4>
 
                   <div>
-                    <TextField value={this.config.user} hintText="Username" onChange={this.handleChange.bind(this, 'user')} />
+                    <TextField
+                      hintText="Username"
+                      onChange={this.handleChange.bind(this, 'user')}
+                    />
                   </div>
 
                   <div>
-                    <TextField errorText={this.state.repoErrorText} hintText="Repository" onChange={this.handleChange.bind(this, 'repo')} />
+                    <TextField
+                      errorText={this.state.repoErrorText}
+                      hintText="Repository"
+                      onChange={this.handleChange.bind(this, 'repo')}
+                    />
                   </div>
 
                   <div>
-                      <SelectField value={this.config.type} floatingLabelText="Type" style={styles.customWidth} onChange={this.handleChange.bind(this, 'type')}>
-                          {
-                              types.map((vtype, index) => {
-                                  return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                              })
-                          }
+                      <SelectField
+                        floatingLabelText="Type"
+                        onChange={this.handleChange.bind(this, 'type')}
+                        style={styles.customWidth}
+                      >
+                      {
+                        types.map((vtype, index) => {
+                            return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                        })
+                      }
                       </SelectField>
                   </div>
 
                   <div style={styles.block}>
                       <Toggle
                           className="form-button"
+                          defaultToggled={this.config.fab}
                           disabled={!this.state.fabToggleEnabled}
                           label="FAB (Floating Action Button)"
                           labelPosition="right"
-                          style={styles.toggle}
                           onToggle={this.handleChange.bind(this, 'fab')}
-                          defaultToggled={this.config.fab} />
+                          style={styles.toggle}
+                        />
                   </div>
 
                   { this.state.fabCornersEnabled &&
                     <SelectField
-                        value={this.config.fabCorner}
+                        disabled={!this.state.fabCornersEnabled}
                         floatingLabelText="FAB Corner"
-                        style={styles.customWidth}
                         onChange={this.handleChange.bind(this, 'fabCorner')}
-                        disabled={!this.state.fabCornersEnabled} >
-                        {
-                            fabCorners.map((vtype, index) => {
-                                return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
-                            })
-                        }
+                        style={styles.customWidth}
+                    >
+                    {
+                      fabCorners.map((vtype, index) => {
+                          return <MenuItem value={vtype.value} primaryText={vtype.label} key={index} />;
+                      })
+                    }
                     </SelectField>
                   }
 
@@ -212,27 +226,47 @@ class Playground extends Component {
                   { this.state.buttonControlsEnabled &&
                     <div>
                       <div>
-                        <TextField hintText="Icon color (name, hex, hsl)" onChange={this.handleChange.bind(this, 'iconColor')} disabled={!this.state.buttonControlsEnabled} />
+                        <TextField
+                          disabled={!this.state.buttonControlsEnabled}
+                          hintText="Icon color (any CSS valid unit)"
+                          onChange={this.handleChange.bind(this, 'iconColor')}
+                        />
                       </div>
 
                       <div>
-                        <TextField hintText="Icon width (em, px, pt)" onChange={this.handleChange.bind(this, 'iconWidth')} disabled={!this.state.buttonControlsEnabled} />
+                        <TextField
+                          disabled={!this.state.buttonControlsEnabled}
+                          hintText="Icon width (any CSS valid unit)"
+                          onChange={this.handleChange.bind(this, 'iconWidth')}
+                        />
                       </div>
 
                       <div>
-                        <TextField hintText="Icon height (em, px, pt)" onChange={this.handleChange.bind(this, 'iconHeight')} disabled={!this.state.buttonControlsEnabled} />
+                        <TextField
+                          disabled={!this.state.buttonControlsEnabled}
+                          hintText="Icon height (any CSS valid unit)"
+                          onChange={this.handleChange.bind(this, 'iconHeight')}
+                        />
                       </div>
                     </div>
                   }
 
                   { this.state.linkControlsEnabled &&
                     <div>
-                      <TextField value={this.config.linkText} hintText="Link Text" onChange={this.handleChange.bind(this, 'linkText')} />
+                      <TextField
+                        hintText="Link Text"
+                        onChange={this.handleChange.bind(this, 'linkText')}
+                      />
                     </div>
                   }
 
                   <div>
-                    <RaisedButton className="form-button" label="Generate" primary={true} onClick={this.update.bind(this)} />
+                    <RaisedButton
+                      className="form-button"
+                      label="Generate"
+                      onClick={this.update.bind(this)}
+                      primary={true}
+                    />
                   </div>
 
                 </section>
