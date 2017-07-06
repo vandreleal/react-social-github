@@ -32,19 +32,25 @@ import { Github } from 'react-social-github';
     <td>user</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the username to show info about. Conflicts with "org"</td>
+    <td>Specify the user or organization to show info about.</td>
   </tr>
   <tr>
     <td>repo</td>
     <td>string</td>
     <td>none</td>
-    <td>Specify the repository to show info about. Requires "user" or "org"</td>
+    <td>Specify the repository to show info about. Requires "user"</td>
   </tr>
   <tr>
-    <td>org</td>
-    <td>string</td>
+    <td>objUser</td>
+    <td>object</td>
     <td>none</td>
-    <td>Specify the organization to show info about. Conflicts with "user"</td>
+    <td>Specify user or organization object to show info about. The attribute "user" is not considered if the object is passed.</td>
+  </tr>
+  <tr>
+    <td>objRepo</td>
+    <td>object</td>
+    <td>none</td>
+    <td>Set repository object to show info about. The attributes "user" and "repo" are not considered if the object is passed.</td>
   </tr>
   <tr>
     <td>type</td>
@@ -65,11 +71,11 @@ The tooltip is inserted as a block element. This is the default type and doesn't
 #### Example
 
 ```jsx
-<Github org="facebook" repo="react"></Github>
+<Github user="facebook" repo="react"></Github>
 
 {/* same as */}
 
-<Github org="facebook" repo="react" type="widget"></Github>
+<Github user="facebook" repo="react" type="widget"></Github>
 ```
 
 ### Link
@@ -79,10 +85,27 @@ The tooltip is anchored in an inline link. The option `type="link"` must be decl
 #### Example
 
 ```jsx
-<Github org="hackbit" type="link">Hover Here</Github>
+<Github user="hackbit" type="link">Hover Here</Github>
 
 <Github user="vandreleal" repo="vandreleal.github.io" type="link">Hover Here</Github>
 ```
+
+#### Options
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>linkText</td>
+    <td>string</td>
+    <td>"Github"</td>
+    <td>Link text</td>
+  </tr>
+</table>
 
 ### Button
 
@@ -144,7 +167,7 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 #### Example
 
 ```jsx
-<Github org="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
+<Github user="facebook" type="tooltip" tooltipOnHover={false} fab={true} fabCorner="top-left" iconColor="#3b5998" iconWidth={64} iconHeight={64}></Github>
 
 <Github user="GustavoKatel" type="tooltip" tooltipOnHover={true} fab={true} fabCorner="bottom-left" iconColor="#888" iconWidth={32} iconHeight={32}></Github>
 ```
