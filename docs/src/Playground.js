@@ -56,7 +56,13 @@ class Playground extends Component {
     super(props);
 
     this.config = {
+      fabCorner: '',
+      iconColor: '',
+      iconHeight: '',
+      iconWidth: '',
+      linkText: '',
       repo: '',
+      repoErrorText: '',
       type: 'widget',
       user: ''
     }
@@ -158,6 +164,7 @@ class Playground extends Component {
                     <TextField
                       hintText="Username"
                       onChange={this.handleChange.bind(this, 'user')}
+                      value={this.config.user}
                     />
                   </div>
 
@@ -166,6 +173,7 @@ class Playground extends Component {
                       errorText={this.state.repoErrorText}
                       hintText="Repository"
                       onChange={this.handleChange.bind(this, 'repo')}
+                      value={this.config.repo}
                     />
                   </div>
 
@@ -174,6 +182,7 @@ class Playground extends Component {
                         floatingLabelText="Type"
                         onChange={this.handleChange.bind(this, 'type')}
                         style={styles.customWidth}
+                        value={this.config.type}
                       >
                       {
                         types.map((vtype, index) => {
@@ -186,12 +195,12 @@ class Playground extends Component {
                   <div style={styles.block}>
                       <Toggle
                           className="form-button"
-                          defaultToggled={this.config.fab}
                           disabled={!this.state.fabToggleEnabled}
                           label="FAB (Floating Action Button)"
                           labelPosition="right"
                           onToggle={this.handleChange.bind(this, 'fab')}
                           style={styles.toggle}
+                          value={this.config.fab}
                         />
                   </div>
 
@@ -201,6 +210,7 @@ class Playground extends Component {
                         floatingLabelText="FAB Corner"
                         onChange={this.handleChange.bind(this, 'fabCorner')}
                         style={styles.customWidth}
+                        value={this.config.fabCorner}
                     >
                     {
                       fabCorners.map((vtype, index) => {
@@ -230,6 +240,7 @@ class Playground extends Component {
                           disabled={!this.state.buttonControlsEnabled}
                           hintText="Icon color (any CSS valid unit)"
                           onChange={this.handleChange.bind(this, 'iconColor')}
+                          value={this.config.iconColor}
                         />
                       </div>
 
@@ -238,6 +249,7 @@ class Playground extends Component {
                           disabled={!this.state.buttonControlsEnabled}
                           hintText="Icon width (any CSS valid unit)"
                           onChange={this.handleChange.bind(this, 'iconWidth')}
+                          value={this.config.iconWidth}
                         />
                       </div>
 
@@ -246,6 +258,7 @@ class Playground extends Component {
                           disabled={!this.state.buttonControlsEnabled}
                           hintText="Icon height (any CSS valid unit)"
                           onChange={this.handleChange.bind(this, 'iconHeight')}
+                          value={this.config.iconHeight}
                         />
                       </div>
                     </div>
@@ -256,6 +269,7 @@ class Playground extends Component {
                       <TextField
                         hintText="Link Text"
                         onChange={this.handleChange.bind(this, 'linkText')}
+                        value={this.config.linkText}
                       />
                     </div>
                   }
