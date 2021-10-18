@@ -173,12 +173,6 @@ The tooltip is anchored in a button. The option `type="button"` must be declared
 ```
 
 
-## Team
-+ [Vandré Leal Cândido](https://github.com/vandreleal)
-+ [Gustavo Sampaio](https://github.com/GustavoKatel)
-+ [Emerson Jair Reis Oliveira da Silva](https://github.com/dungahk)
-
-
 ## Open source
 
 React Social Github is available on GitHub for downloading, forking, or contributing.
