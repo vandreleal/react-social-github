@@ -35,7 +35,8 @@
       "files": ["**/*.test.ts", "**/*.test.tsx", "src/test/**"],
       "rules": {
         "typescript/no-explicit-any": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "react/globals": "off"
       }
     }
   ]

@@ -1,6 +1,6 @@
 import type { GithubFetchOptions, GithubRepoData, GithubUserData } from '../types'
 
-export const DEFAULT_BASE_URL = 'https://api.github.com'
+const DEFAULT_BASE_URL = 'https://api.github.com'
 
 /** Thrown when the GitHub API answers with a non-2xx status. */
 export class GithubApiError extends Error {
@@ -37,7 +37,7 @@ interface CacheEntry {
 const cache = new Map<string, CacheEntry>()
 
 /** Five minutes — long enough to dedupe a page, short enough to stay fresh. */
-export const CACHE_TTL_MS = 5 * 60 * 1000
+const CACHE_TTL_MS = 5 * 60 * 1000
 
 /** Drops every cached response. Exposed for tests and for manual refreshes. */
 export function clearGithubCache(): void {
@@ -46,6 +46,30 @@ export function clearGithubCache(): void {
 
 function buildUrl(path: string, baseUrl = DEFAULT_BASE_URL): string {
   return `${baseUrl.replace(/\/+$/, '')}${path}`
+}
+
+/**
+ * The canonical URL for a user or organization.
+ *
+ * Exported because the hooks key their effect on it. Rebuilding the
+ * string in a second place is how the effect key and the cache key drift
+ * apart: this module percent-encodes the login, and the hook did not.
+ */
+export function githubUserUrl(login: string, baseUrl?: string): string {
+  return buildUrl(`/users/${encodeURIComponent(login)}`, baseUrl)
+}
+
+/** The canonical URL for a repository. */
+export function githubRepoUrl(owner: string, repo: string, baseUrl?: string): string {
+  return buildUrl(
+    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`,
+    baseUrl,
+  )
+}
+
+/** Fetches any GitHub URL through the shared cache. */
+export function fetchGithubUrl<T>(url: string, token?: string): Promise<T> {
+  return cached(`${url}|${token ?? ''}`, () => request<T>(url, token))
 }
 
 async function request<T>(url: string, token: string | undefined): Promise<T> {
@@ -103,10 +127,7 @@ export function fetchGithubUser(
   login: string,
   options: GithubFetchOptions = {},
 ): Promise<GithubUserData> {
-  const url = buildUrl(`/users/${encodeURIComponent(login)}`, options.baseUrl)
-  return cached(`${url}|${options.token ?? ''}`, () =>
-    request<GithubUserData>(url, options.token),
-  )
+  return fetchGithubUrl(githubUserUrl(login, options.baseUrl), options.token)
 }
 
 /** Fetches a repository by owner and name. */
@@ -115,11 +136,5 @@ export function fetchGithubRepo(
   repo: string,
   options: GithubFetchOptions = {},
 ): Promise<GithubRepoData> {
-  const url = buildUrl(
-    `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`,
-    options.baseUrl,
-  )
-  return cached(`${url}|${options.token ?? ''}`, () =>
-    request<GithubRepoData>(url, options.token),
-  )
+  return fetchGithubUrl(githubRepoUrl(owner, repo, options.baseUrl), options.token)
 }

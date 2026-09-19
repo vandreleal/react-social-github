@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { RepoForkedIcon, RepoIcon, StarIcon } from '@primer/octicons-react'
-import { useGithubRepo } from '../../hooks/use-github-repo'
+import { useGithubRepo } from '../../hooks/use-github'
 import { replaceEmoji } from '../../lib/emoji'
 import { truncate } from '../../lib/truncate'
 import type { GithubFetchOptions, GithubRepoData } from '../../types'

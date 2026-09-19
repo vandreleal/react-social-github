@@ -6,8 +6,12 @@ export { GithubUser, type GithubUserProps } from './components/GithubUser/Github
 export { Tooltip, type TooltipProps } from './components/Tooltip/Tooltip'
 export { Widget, type WidgetProps } from './components/Widget/Widget'
 
-export { useGithubRepo, type UseGithubRepoOptions } from './hooks/use-github-repo'
-export { useGithubUser, type UseGithubUserOptions } from './hooks/use-github-user'
+export {
+  useGithubRepo,
+  type UseGithubRepoOptions,
+  useGithubUser,
+  type UseGithubUserOptions,
+} from './hooks/use-github'
 export type { AsyncResource } from './hooks/use-github-resource'
 
 export {

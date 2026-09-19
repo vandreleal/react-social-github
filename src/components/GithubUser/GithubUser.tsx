@@ -4,7 +4,7 @@ import {
   OrganizationIcon,
   RepoIcon,
 } from '@primer/octicons-react'
-import { useGithubUser } from '../../hooks/use-github-user'
+import { useGithubUser } from '../../hooks/use-github'
 import type { GithubFetchOptions, GithubUserData } from '../../types'
 import {
   ActionLink,
