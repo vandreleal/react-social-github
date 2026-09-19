@@ -86,13 +86,35 @@ export function ActionLink({ href, icon: Icon, children }: ActionLinkProps) {
 }
 
 /**
+ * The card to render instead of content, or `null` when there is data.
+ *
+ * Both card bodies open with the same three lines: skeleton while
+ * loading, error card on failure, content otherwise. Keeping that policy
+ * in one place means a change to either state lands in both cards.
+ */
+export function cardFallback(
+  resource: { isLoading: boolean; error: Error | undefined },
+  variant: string,
+): ReactNode {
+  if (resource.isLoading) {
+    return <CardSkeleton variant={variant} />
+  }
+
+  if (resource.error) {
+    return <CardError message={resource.error.message} variant={variant} />
+  }
+
+  return null
+}
+
+/**
  * Placeholder card shown while a request is in flight.
  *
  * v2 hid the component entirely (`.rsg-github-is-loading { display: none }`),
  * which made a widget pop into existence and shift the page. The class
  * name is kept so existing overrides still target the same element.
  */
-export function CardSkeleton({ variant }: { variant: string }) {
+function CardSkeleton({ variant }: { variant: string }) {
   return (
     <div
       aria-busy="true"
@@ -118,7 +140,7 @@ export function CardSkeleton({ variant }: { variant: string }) {
  * v2 re-threw inside a promise chain, which surfaced as an unhandled
  * rejection in the console and left an empty element on the page.
  */
-export function CardError({ variant, message }: { variant: string; message: string }) {
+function CardError({ variant, message }: { variant: string; message: string }) {
   return (
     <div
       className={cx('rsg-github-wrapper', 'rsg-github-has-error', variant)}

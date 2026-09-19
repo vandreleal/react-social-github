@@ -7,9 +7,8 @@ import type { GithubFetchOptions, GithubRepoData } from '../../types'
 import {
   ActionLink,
   Avatar,
-  CardError,
+  cardFallback,
   CardShell,
-  CardSkeleton,
   Counter,
   Counters,
 } from '../shared/CardParts'
@@ -36,12 +35,7 @@ export function GithubRepo({
   baseUrl,
   onError,
 }: GithubRepoProps) {
-  const { data, isLoading, error } = useGithubRepo(user, repo, {
-    objRepo,
-    token,
-    baseUrl,
-    onError,
-  })
+  const resource = useGithubRepo(user, repo, { objRepo, token, baseUrl, onError })
 
   /**
    * v2 mutated `props.objRepo.description` in place while formatting it,
@@ -50,19 +44,16 @@ export function GithubRepo({
    * instead and leave the input untouched.
    */
   const description = useMemo(
-    () => replaceEmoji(truncate(data?.description)),
-    [data?.description],
+    () => replaceEmoji(truncate(resource.data?.description)),
+    [resource.data?.description],
   )
 
-  if (isLoading) {
-    return <CardSkeleton variant={VARIANT} />
+  const fallback = cardFallback(resource, VARIANT)
+  if (fallback) {
+    return fallback
   }
 
-  if (error) {
-    return <CardError message={error.message} variant={VARIANT} />
-  }
-
-  const repository = data ?? {}
+  const repository = resource.data ?? {}
   const owner = repository.owner ?? {}
   const fullName =
     repository.full_name ?? (user && repo ? `${user}/${repo}` : (repository.name ?? ''))

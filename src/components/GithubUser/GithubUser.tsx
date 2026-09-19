@@ -9,9 +9,8 @@ import type { GithubFetchOptions, GithubUserData } from '../../types'
 import {
   ActionLink,
   Avatar,
-  CardError,
+  cardFallback,
   CardShell,
-  CardSkeleton,
   Counter,
   Counters,
 } from '../shared/CardParts'
@@ -44,22 +43,14 @@ export function fixHttp(url: string | null | undefined): string | undefined {
 
 /** The profile card for a user or an organization. */
 export function GithubUser({ name, objUser, token, baseUrl, onError }: GithubUserProps) {
-  const { data, isLoading, error } = useGithubUser(name, {
-    objUser,
-    token,
-    baseUrl,
-    onError,
-  })
+  const resource = useGithubUser(name, { objUser, token, baseUrl, onError })
 
-  if (isLoading) {
-    return <CardSkeleton variant={VARIANT} />
+  const fallback = cardFallback(resource, VARIANT)
+  if (fallback) {
+    return fallback
   }
 
-  if (error) {
-    return <CardError message={error.message} variant={VARIANT} />
-  }
-
-  const user = data ?? {}
+  const user = resource.data ?? {}
   const login = user.login ?? name ?? ''
   const blog = fixHttp(user.blog)
   const profileUrl = user.html_url ?? `https://github.com/${login}`
