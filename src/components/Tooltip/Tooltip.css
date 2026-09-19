@@ -22,8 +22,8 @@
 }
 
 .rsg-github-tooltip:focus-visible {
-  outline: 2px solid var(--rsg-ring);
-  outline-offset: 2px;
+  outline: var(--rsg-focus-ring);
+  outline-offset: var(--rsg-focus-offset);
 }
 
 .rsg-github-tooltip[data-starting-style],

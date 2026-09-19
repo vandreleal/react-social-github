@@ -9,6 +9,11 @@ import { defineConfig } from 'vite'
  */
 export default defineConfig({
   base: './',
+  build: {
+    // Match the library's target so the demo ships the same CSS the
+    // package does, rather than a downlevelled `light-dark()` polyfill.
+    cssTarget: ['chrome123', 'edge123', 'firefox120', 'safari17.5'],
+  },
   plugins: [react()],
   resolve: {
     alias: {

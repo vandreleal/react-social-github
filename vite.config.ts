@@ -24,11 +24,12 @@ export default defineConfig({
   build: {
     target: 'es2022',
     /*
-     * Baseline support for `oklch()`. Without it Vite downlevels the
-     * token sheet to hex, which flattens the palette a consumer would
-     * otherwise be able to extend in the same colour space.
+     * Baseline support for `oklch()` and `light-dark()`. Without it Vite
+     * downlevels the token sheet, flattening the palette a consumer
+     * would otherwise extend in the same colour space, and expanding
+     * `light-dark()` back into the duplicated ramps it replaced.
      */
-    cssTarget: ['chrome111', 'edge111', 'firefox113', 'safari16.4'],
+    cssTarget: ['chrome123', 'edge123', 'firefox120', 'safari17.5'],
     sourcemap: true,
     cssCodeSplit: false,
     lib: {

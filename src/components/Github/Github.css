@@ -40,8 +40,8 @@
 }
 
 .rsg-inline-link:focus-visible {
-  outline: 2px solid var(--rsg-ring);
-  outline-offset: 2px;
+  outline: var(--rsg-focus-ring);
+  outline-offset: var(--rsg-focus-offset);
 }
 
 /* Icon trigger — `type="button"`. */
@@ -63,7 +63,9 @@
 }
 
 .rsg-btn-icon:focus-visible {
-  outline: 2px solid var(--rsg-ring);
+  outline: var(--rsg-focus-ring);
+  /* Wider than the shared offset: the trigger is a circle, so the ring
+     needs clearance from the glyph. */
   outline-offset: 4px;
 }
 

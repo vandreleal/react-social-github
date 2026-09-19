@@ -7,92 +7,79 @@
  * sheet into an app that already runs shadcn cannot collide with that
  * app's own `--background` / `--border` / `--ring`.
  *
+ * Each colour is declared once, with `light-dark()` holding both ramps.
+ * Writing the dark ramp out a second time under a class selector and a
+ * third time under `prefers-color-scheme` is how the two drift apart.
+ * The active ramp follows `color-scheme`, which also fixes the native
+ * scrollbars and form controls a consumer may render inside the card.
+ *
  * Override any of them on `:root`, or on a `.rsg-github` element, to
  * restyle the component without writing a single rule.
  */
 
 :root {
+  color-scheme: light dark;
+
   --rsg-radius: 0.625rem;
 
-  --rsg-background: oklch(1 0 0);
-  --rsg-foreground: oklch(0.145 0 0);
-  --rsg-card: oklch(1 0 0);
-  --rsg-card-foreground: oklch(0.145 0 0);
-  --rsg-popover: oklch(1 0 0);
-  --rsg-popover-foreground: oklch(0.145 0 0);
-  --rsg-muted: oklch(0.97 0 0);
-  --rsg-muted-foreground: oklch(0.556 0 0);
-  --rsg-accent: oklch(0.97 0 0);
-  --rsg-accent-foreground: oklch(0.205 0 0);
-  --rsg-border: oklch(0.922 0 0);
-  --rsg-ring: oklch(0.708 0 0);
+  --rsg-background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
+  --rsg-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+  --rsg-card: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+  --rsg-card-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+  --rsg-popover: light-dark(oklch(1 0 0), oklch(0.269 0 0));
+  --rsg-popover-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+  --rsg-muted: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --rsg-muted-foreground: light-dark(oklch(0.556 0 0), oklch(0.708 0 0));
+  --rsg-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --rsg-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+  --rsg-border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 0.1));
+  --rsg-ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
 
-  --rsg-success-bg: oklch(0.962 0.044 156.743);
-  --rsg-success-fg: oklch(0.393 0.095 152.535);
-  --rsg-success-border: oklch(0.871 0.15 154.449 / 0.4);
+  --rsg-success-bg: light-dark(
+    oklch(0.962 0.044 156.743),
+    oklch(0.393 0.095 152.535 / 0.25)
+  );
+  --rsg-success-fg: light-dark(
+    oklch(0.393 0.095 152.535),
+    oklch(0.845 0.143 164.978)
+  );
+  --rsg-success-border: light-dark(
+    oklch(0.871 0.15 154.449 / 0.4),
+    oklch(0.845 0.143 164.978 / 0.25)
+  );
 
-  --rsg-destructive-fg: oklch(0.577 0.245 27.325);
+  --rsg-destructive-fg: light-dark(
+    oklch(0.577 0.245 27.325),
+    oklch(0.704 0.191 22.216)
+  );
+
+  /* One definition of the focus ring; four rules were restating it. */
+  --rsg-focus-ring: 2px solid var(--rsg-ring);
+  --rsg-focus-offset: 2px;
 
   --rsg-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
   --rsg-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
   --rsg-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
 
   --rsg-font-sans:
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji";
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
 }
 
-/**
- * Dark ramp.
- *
- * Applied by an explicit `.dark` / `[data-theme='dark']` ancestor — the
- * convention shadcn apps already use — and, failing that, by the OS
- * preference, unless the page has opted out with an explicit light marker.
+/*
+ * Forcing a ramp. Both selectors are the conventions a shadcn app
+ * already uses, and both now set one property instead of restating the
+ * whole palette.
  */
 .dark,
-[data-theme="dark"] {
-  --rsg-background: oklch(0.145 0 0);
-  --rsg-foreground: oklch(0.985 0 0);
-  --rsg-card: oklch(0.205 0 0);
-  --rsg-card-foreground: oklch(0.985 0 0);
-  --rsg-popover: oklch(0.269 0 0);
-  --rsg-popover-foreground: oklch(0.985 0 0);
-  --rsg-muted: oklch(0.269 0 0);
-  --rsg-muted-foreground: oklch(0.708 0 0);
-  --rsg-accent: oklch(0.269 0 0);
-  --rsg-accent-foreground: oklch(0.985 0 0);
-  --rsg-border: oklch(1 0 0 / 0.1);
-  --rsg-ring: oklch(0.556 0 0);
-
-  --rsg-success-bg: oklch(0.393 0.095 152.535 / 0.25);
-  --rsg-success-fg: oklch(0.845 0.143 164.978);
-  --rsg-success-border: oklch(0.845 0.143 164.978 / 0.25);
-
-  --rsg-destructive-fg: oklch(0.704 0.191 22.216);
+[data-theme='dark'] {
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not(.light):not([data-theme="light"]) {
-    --rsg-background: oklch(0.145 0 0);
-    --rsg-foreground: oklch(0.985 0 0);
-    --rsg-card: oklch(0.205 0 0);
-    --rsg-card-foreground: oklch(0.985 0 0);
-    --rsg-popover: oklch(0.269 0 0);
-    --rsg-popover-foreground: oklch(0.985 0 0);
-    --rsg-muted: oklch(0.269 0 0);
-    --rsg-muted-foreground: oklch(0.708 0 0);
-    --rsg-accent: oklch(0.269 0 0);
-    --rsg-accent-foreground: oklch(0.985 0 0);
-    --rsg-border: oklch(1 0 0 / 0.1);
-    --rsg-ring: oklch(0.556 0 0);
-
-    --rsg-success-bg: oklch(0.393 0.095 152.535 / 0.25);
-    --rsg-success-fg: oklch(0.845 0.143 164.978);
-    --rsg-success-border: oklch(0.845 0.143 164.978 / 0.25);
-
-    --rsg-destructive-fg: oklch(0.704 0.191 22.216);
-  }
+.light,
+[data-theme='light'] {
+  color-scheme: light;
 }
 
 .rsg-sr-only {
