@@ -1,0 +1,108 @@
+/**
+ * Design tokens.
+ *
+ * The palette, the radius scale and the elevation ramp follow shadcn/ui's
+ * neutral theme, expressed in oklch so the light and dark ramps stay
+ * perceptually even. Every name is prefixed `--rsg-` so dropping this
+ * sheet into an app that already runs shadcn cannot collide with that
+ * app's own `--background` / `--border` / `--ring`.
+ *
+ * Override any of them on `:root`, or on a `.rsg-github` element, to
+ * restyle the component without writing a single rule.
+ */
+
+:root {
+  --rsg-radius: 0.625rem;
+
+  --rsg-background: oklch(1 0 0);
+  --rsg-foreground: oklch(0.145 0 0);
+  --rsg-card: oklch(1 0 0);
+  --rsg-card-foreground: oklch(0.145 0 0);
+  --rsg-popover: oklch(1 0 0);
+  --rsg-popover-foreground: oklch(0.145 0 0);
+  --rsg-muted: oklch(0.97 0 0);
+  --rsg-muted-foreground: oklch(0.556 0 0);
+  --rsg-accent: oklch(0.97 0 0);
+  --rsg-accent-foreground: oklch(0.205 0 0);
+  --rsg-border: oklch(0.922 0 0);
+  --rsg-ring: oklch(0.708 0 0);
+
+  --rsg-success-bg: oklch(0.962 0.044 156.743);
+  --rsg-success-fg: oklch(0.393 0.095 152.535);
+  --rsg-success-border: oklch(0.871 0.15 154.449 / 0.4);
+
+  --rsg-destructive-fg: oklch(0.577 0.245 27.325);
+
+  --rsg-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --rsg-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+  --rsg-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+
+  --rsg-font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+/**
+ * Dark ramp.
+ *
+ * Applied by an explicit `.dark` / `[data-theme='dark']` ancestor — the
+ * convention shadcn apps already use — and, failing that, by the OS
+ * preference, unless the page has opted out with an explicit light marker.
+ */
+.dark,
+[data-theme="dark"] {
+  --rsg-background: oklch(0.145 0 0);
+  --rsg-foreground: oklch(0.985 0 0);
+  --rsg-card: oklch(0.205 0 0);
+  --rsg-card-foreground: oklch(0.985 0 0);
+  --rsg-popover: oklch(0.269 0 0);
+  --rsg-popover-foreground: oklch(0.985 0 0);
+  --rsg-muted: oklch(0.269 0 0);
+  --rsg-muted-foreground: oklch(0.708 0 0);
+  --rsg-accent: oklch(0.269 0 0);
+  --rsg-accent-foreground: oklch(0.985 0 0);
+  --rsg-border: oklch(1 0 0 / 0.1);
+  --rsg-ring: oklch(0.556 0 0);
+
+  --rsg-success-bg: oklch(0.393 0.095 152.535 / 0.25);
+  --rsg-success-fg: oklch(0.845 0.143 164.978);
+  --rsg-success-border: oklch(0.845 0.143 164.978 / 0.25);
+
+  --rsg-destructive-fg: oklch(0.704 0.191 22.216);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not([data-theme="light"]) {
+    --rsg-background: oklch(0.145 0 0);
+    --rsg-foreground: oklch(0.985 0 0);
+    --rsg-card: oklch(0.205 0 0);
+    --rsg-card-foreground: oklch(0.985 0 0);
+    --rsg-popover: oklch(0.269 0 0);
+    --rsg-popover-foreground: oklch(0.985 0 0);
+    --rsg-muted: oklch(0.269 0 0);
+    --rsg-muted-foreground: oklch(0.708 0 0);
+    --rsg-accent: oklch(0.269 0 0);
+    --rsg-accent-foreground: oklch(0.985 0 0);
+    --rsg-border: oklch(1 0 0 / 0.1);
+    --rsg-ring: oklch(0.556 0 0);
+
+    --rsg-success-bg: oklch(0.393 0.095 152.535 / 0.25);
+    --rsg-success-fg: oklch(0.845 0.143 164.978);
+    --rsg-success-border: oklch(0.845 0.143 164.978 / 0.25);
+
+    --rsg-destructive-fg: oklch(0.704 0.191 22.216);
+  }
+}
+
+.rsg-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}

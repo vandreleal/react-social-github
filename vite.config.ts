@@ -1,0 +1,51 @@
+import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+
+const resolvePath = (relative: string) =>
+  fileURLToPath(new URL(relative, import.meta.url))
+
+/**
+ * Library build.
+ *
+ * Emits:
+ *   dist/index.js   — ESM bundle
+ *   dist/index.cjs  — CJS bundle (for `require` consumers)
+ *   dist/index.css  — every component stylesheet, concatenated
+ *
+ * Type declarations are emitted separately by `tsc -p tsconfig.build.json`
+ * so the published types stay source-accurate rather than bundler-inferred.
+ *
+ * `react`, `react-dom` and every runtime dependency are externalised: this
+ * package must never ship a second copy of React or of Base UI.
+ */
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    target: 'es2022',
+    /*
+     * Baseline support for `oklch()`. Without it Vite downlevels the
+     * token sheet to hex, which flattens the palette a consumer would
+     * otherwise be able to extend in the same colour space.
+     */
+    cssTarget: ['chrome111', 'edge111', 'firefox113', 'safari16.4'],
+    sourcemap: true,
+    cssCodeSplit: false,
+    lib: {
+      entry: resolvePath('./src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
+    },
+    rollupOptions: {
+      external: [
+        /^react($|\/)/,
+        /^react-dom($|\/)/,
+        /^@base-ui\/react($|\/)/,
+        /^@primer\/octicons-react($|\/)/,
+      ],
+      output: {
+        assetFileNames: 'index.css',
+      },
+    },
+  },
+})

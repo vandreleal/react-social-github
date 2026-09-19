@@ -1,0 +1,5 @@
+/* Profile-card specifics. The shared card rules live in ../shared/CardParts.css. */
+
+.rsg-github-user .rsg-name {
+  margin-bottom: 0;
+}

@@ -1,24 +1,21 @@
 {
   "name": "react-social-github",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "Showcase your GitHub profile, organization or repository information",
-  "main": "build/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "keywords": [
+    "base-ui",
+    "github",
+    "profile",
+    "react",
+    "repository",
+    "shadcn",
+    "widget"
+  ],
+  "homepage": "https://github.com/vandreleal/react-social-github#readme",
+  "bugs": {
+    "url": "https://github.com/vandreleal/react-social-github/issues"
   },
-  "scripts": {
-    "build": "npm run build:css && babel lib -d build",
-    "build:css": "node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/",
-    "build:watch": "npm-run-all -p build:watch-css build:watch-js lint:watch",
-    "build:watch-js": "babel lib -w -d build",
-    "build:watch-css": "npm run build:css && node-sass-chokidar --include-path ./lib --include-path ./node_modules lib/ -o build/ --watch --recursive",
-    "lint": "eslint lib/**; exit 0",
-    "lint:watch": "esw -w lib/**",
-    "prepare": "npm run build",
-    "test": "mocha --compilers js:babel-core/register ./test/**/*.spec.js",
-    "test:watch": "npm test -- --watch"
-  },
+  "license": "MIT",
   "author": "Vandre Leal <vandre.leal.candido@gmail.com> (http://vandreleal.github.io)",
   "contributors": [
     "Gustavo Sampaio <gbritosampaio@gmail.com> (http://gsampaio.info)",
@@ -28,36 +25,86 @@
     "type": "git",
     "url": "git+https://github.com/vandreleal/react-social-github.git"
   },
-  "homepage": "https://github.com/vandreleal/react-social-github#readme",
-  "bugs": {
-    "url": "https://github.com/vandreleal/react-social-github/issues"
+  "workspaces": [
+    "playground"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "MIGRATION.md",
+    "LICENSE.MD"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles.css": "./dist/index.css",
+    "./package.json": "./package.json"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "enzyme": "^2.8.2",
-    "eslint": "^4.5.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0",
-    "eslint-watch": "^5.1.2",
-    "expect": "^1.20.2",
-    "mocha": "^6.1.4",
-    "node-sass-chokidar": "^1.3.4",
-    "npm-run-all": "^4.1.1",
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4"
+  "scripts": {
+    "build": "bun run build:js && bun run build:types",
+    "build:js": "vite build",
+    "build:types": "tsc -p tsconfig.build.json && bun scripts/emit-cjs-types.ts",
+    "dev": "vite build --watch",
+    "playground": "bun --filter react-social-github-playground dev",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src playground/src",
+    "lint:fix": "oxlint --fix src playground/src",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --run --coverage",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test",
+    "prepack": "bun run build && publint",
+    "clean": "rm -rf dist playground/dist",
+    "gen:emoji": "bun scripts/generate-emoji-map.ts"
   },
   "dependencies": {
-    "emoji-js": "^3.2.2",
-    "react-addons-css-transition-group": "^15.6.0",
-    "react-octicons": "^0.2.0",
-    "whatwg-fetch": "^2.0.3"
+    "@base-ui/react": "1.8.0",
+    "@primer/octicons-react": "19.38.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@types/node": "26.6.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "@vitest/coverage-v8": "5.0.1",
+    "jsdom": "30.1.0",
+    "node-emoji": "2.2.0",
+    "oxfmt": "0.68.0",
+    "oxlint": "1.83.0",
+    "publint": "0.3.24",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.0",
+    "vitest": "5.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=20.19.0"
   }
 }

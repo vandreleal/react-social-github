@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "arrowParens": "always",
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "semi": false,
+  "printWidth": 90,
+  "trailingComma": "all",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "dist",
+    "coverage",
+    "playground/dist",
+    "node_modules",
+    "bun.lock",
+    "**/*.css",
+    "**/*.html",
+    "**/*.yml",
+    "**/*.generated.ts"
+  ],
+  "sortImports": {
+    "ignoreCase": true,
+    "newlinesBetween": false,
+    "customGroups": [
+      {
+        "groupName": "react",
+        "elementNamePattern": ["react", "react/*", "react-dom", "react-dom/*"]
+      }
+    ],
+    "groups": [
+      "react",
+      ["builtin", "external"],
+      "internal",
+      ["parent", "sibling", "index"]
+    ],
+    "sortSideEffects": true
+  }
+}

@@ -1,4 +1,7 @@
 .DS_Store
-build
 node_modules
+dist
+coverage
 *.log
+*.tsbuildinfo
+.vite

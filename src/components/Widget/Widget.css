@@ -1,0 +1,5 @@
+/* Block shell for `type="widget"` — the card sits in the document flow. */
+
+.rsg-github-widget {
+  display: inline-block;
+}

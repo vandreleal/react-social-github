@@ -1,0 +1,48 @@
+/* Base UI popover surface. */
+
+.rsg-github-tooltip-positioner {
+  z-index: 9999;
+}
+
+/*
+ * The card inside already draws its own border, background and radius,
+ * so the popup only supplies elevation and the open/close transition.
+ * `--transform-origin` is set by Base UI's positioner and points at the
+ * anchor, so the popup scales out of the trigger whichever side it
+ * lands on.
+ */
+.rsg-github-tooltip {
+  font-family: var(--rsg-font-sans);
+  border-radius: var(--rsg-radius);
+  box-shadow: var(--rsg-shadow-lg);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.rsg-github-tooltip:focus-visible {
+  outline: 2px solid var(--rsg-ring);
+  outline-offset: 2px;
+}
+
+.rsg-github-tooltip[data-starting-style],
+.rsg-github-tooltip[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.rsg-github-tooltip[data-ending-style] {
+  transition-duration: 0.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsg-github-tooltip {
+    transition: none;
+  }
+
+  .rsg-github-tooltip[data-starting-style],
+  .rsg-github-tooltip[data-ending-style] {
+    transform: none;
+  }
+}

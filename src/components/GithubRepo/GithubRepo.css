@@ -1,0 +1,5 @@
+/* Repository-card specifics. The shared card rules live in ../shared/CardParts.css. */
+
+.rsg-github-repo .rsg-info--italic {
+  max-width: 100%;
+}

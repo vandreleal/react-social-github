@@ -1,0 +1,240 @@
+/* The card surface and everything inside it. */
+
+.rsg-github-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  min-width: 15rem;
+  max-width: 18rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--rsg-card-foreground);
+  background-color: var(--rsg-card);
+  border: 1px solid var(--rsg-border);
+  border-radius: var(--rsg-radius);
+  box-shadow: var(--rsg-shadow-sm);
+}
+
+.rsg-github-wrapper * {
+  box-sizing: border-box;
+}
+
+.rsg-avatar {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border: 1px solid var(--rsg-border);
+  border-radius: 50%;
+}
+
+.rsg-name {
+  display: block;
+  margin-top: 0.875rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.rsg-info {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--rsg-muted-foreground);
+  overflow-wrap: anywhere;
+}
+
+.rsg-info--secondary {
+  margin-top: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/*
+ * The description. v2 set this in italics; the shadcn-derived scale uses
+ * weight and colour for hierarchy instead, so the class survives for
+ * anyone targeting it but no longer slants the text.
+ */
+.rsg-info--italic {
+  margin-top: 0.5rem;
+}
+
+a.rsg-info {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a.rsg-info:hover {
+  color: var(--rsg-foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Badge — "Available for hire". */
+.rsg-status {
+  margin-top: 0.625rem;
+}
+
+.rsg-available {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: var(--rsg-success-fg);
+  background-color: var(--rsg-success-bg);
+  border: 1px solid var(--rsg-success-border);
+  border-radius: calc(var(--rsg-radius) - 0.25rem);
+}
+
+/* Stat row. */
+.rsg-counters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rsg-border);
+}
+
+.rsg-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+
+.rsg-item + .rsg-item {
+  border-left: 1px solid var(--rsg-border);
+}
+
+.rsg-item .rsg-icon {
+  display: flex;
+  color: var(--rsg-muted-foreground);
+}
+
+.rsg-description {
+  text-align: left;
+}
+
+.rsg-count {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.rsg-label {
+  margin-top: 0.125rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rsg-muted-foreground);
+}
+
+/* Call to action. */
+.rsg-btn-github {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.25rem;
+  margin-top: 1.25rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--rsg-foreground);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--rsg-background);
+  border: 1px solid var(--rsg-border);
+  border-radius: calc(var(--rsg-radius) - 0.125rem);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.rsg-btn-github:hover {
+  color: var(--rsg-accent-foreground);
+  background-color: var(--rsg-accent);
+}
+
+.rsg-btn-github:focus-visible {
+  outline: 2px solid var(--rsg-ring);
+  outline-offset: 2px;
+}
+
+.rsg-btn-github .rsg-icon {
+  flex: none;
+}
+
+/* Loading + error states. */
+.rsg-skeleton {
+  background-color: var(--rsg-muted);
+  border-radius: calc(var(--rsg-radius) - 0.25rem);
+  animation: rsg-pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.rsg-github-is-loading .rsg-avatar {
+  border-color: transparent;
+}
+
+.rsg-skeleton--title {
+  width: 60%;
+  height: 1.125rem;
+  margin-top: 0.875rem;
+}
+
+.rsg-skeleton--line {
+  width: 80%;
+  height: 0.75rem;
+  margin-top: 0.625rem;
+}
+
+.rsg-skeleton--short {
+  width: 45%;
+}
+
+.rsg-skeleton--block {
+  width: 100%;
+  height: 2.25rem;
+  margin-top: 1.5rem;
+}
+
+@keyframes rsg-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsg-skeleton {
+    animation: none;
+  }
+}
+
+.rsg-error-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rsg-destructive-fg);
+}
+
+.rsg-error-message {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--rsg-muted-foreground);
+}

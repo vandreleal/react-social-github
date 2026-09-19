@@ -1,0 +1,112 @@
+/*
+ * Root element and the two interactive shells (link + button/FAB).
+ *
+ * Five class names are emitted without rules of their own, exactly as in
+ * v2: `rsg-btn`, `rsg-text`, `rsg-github-tooltip-button`,
+ * `rsg-github-tooltip-link` and `rsg-github-has-error`. They are styling
+ * hooks for consumers, not dead selectors — removing them from the
+ * markup would break overrides written against 2.x.
+ */
+
+.rsg-github {
+  display: inline-block;
+  font-family: var(--rsg-font-sans);
+  font-size: 16px;
+  color: var(--rsg-foreground);
+}
+
+/* Inline trigger — `type="link"`.
+ *
+ * v2 rendered an `<a>` with no `href`, which no browser exposes to the
+ * keyboard. A real button carries the same classes, so existing
+ * overrides still apply, and is reachable with Tab.
+ */
+.rsg-inline-link {
+  display: inline;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 0.25rem;
+}
+
+.rsg-inline-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.rsg-inline-link:focus-visible {
+  outline: 2px solid var(--rsg-ring);
+  outline-offset: 2px;
+}
+
+/* Icon trigger — `type="button"`. */
+.rsg-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  transition: opacity 0.15s ease;
+}
+
+.rsg-btn-icon:hover {
+  opacity: 0.75;
+}
+
+.rsg-btn-icon:focus-visible {
+  outline: 2px solid var(--rsg-ring);
+  outline-offset: 4px;
+}
+
+/*
+ * `iconWidth` / `iconHeight` arrive as custom properties rather than
+ * width/height attributes: octicons expose a single square `size`, and
+ * the v2 API allows the two axes to differ.
+ */
+.rsg-btn-icon .rsg-icon-glyph {
+  display: block;
+  width: var(--rsg-icon-width, 48px);
+  height: var(--rsg-icon-height, 48px);
+  fill: currentcolor;
+}
+
+/* Floating action button — the corner-pinned container. */
+.rsg-btn-fab {
+  position: fixed;
+  z-index: 50;
+  display: inline-flex;
+  padding: 0.75rem;
+  background-color: var(--rsg-background);
+  border: 1px solid var(--rsg-border);
+  border-radius: 9999px;
+  box-shadow: var(--rsg-shadow-lg);
+}
+
+.rsg-btn-fab--top-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+.rsg-btn-fab--top-right {
+  top: 1rem;
+  right: 1rem;
+}
+
+.rsg-btn-fab--bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.rsg-btn-fab--bottom-right {
+  right: 1rem;
+  bottom: 1rem;
+}
